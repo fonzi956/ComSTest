@@ -1,4 +1,4 @@
-//All Questions
+//All Questions not with alogTest and aTestQues tho
 ["Analysis", "This is the initial stage of the SSLC, where general questions are asked and answered about the needs and goals of the software project."],
 ["Design", "This is the next stage of the SSLC, where decisions from the analysis stage are taken to the drawing board and an appropriate design for the project is determined. This stage uses one or more approaches, e.g., top-down, bottom-up, or object oriented design."],
 ["Implementation (Coding)", "During this stage, developers write and document the code to implement the project, based on the design."],
