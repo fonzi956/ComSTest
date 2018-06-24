@@ -493,8 +493,110 @@
 ["User Story", "(double quotes)As a player, I would like to have background music in the title screen.(double quotes) is an example of a ________.", "Hardware used to simulate a target platform/device", "Scrum Board", "Software used to simulate a target platform/device"],
 ["All asnwer", "What is/are the use(s) of the Game Design Document?", "To be used as a Game Pitch to producers.", "To narrow down abstract ideas in writing.", "To list team members for easy communication."]
 
-//Hard ones
-["Information Gathering Methods", "Using Active and/or Passive Reconnaissance", "Actions on Objectives", "Command and Control", "Installation"],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Hard ones  ["Information Gathering Methods", "Using Active and/or Passive Reconnaissance", "Actions on Objectives", "Command and Control", "Installation"],
 ["Antivirus Software", "Computer software used to detect, remove, and prevent malicious software, such as viruses, Trojans, malware, worms, etc.", "Hardware", "Hard Drive", "Graphical User Interface (GUI)"],
 ["MPDG (Manic Pixie Dream Girl)", "What isnt a common game genre?", "FPS(First-Person Shooter)", "RPG (Role-Playing Game)", "Adventure"],
 ["Node", "In a linked list, tree, or similar graph-based structure, a _____ is an object linked to other objects, representing some entity in that data structure.", "Queue", "Stack", "Push"],
@@ -511,14 +613,13 @@
 ["Do While Loop", "This is a post test loop in programming where the action of the loop precedes the (double quotes)check if true(double quotes) expression, which decides whether or not the loop should continue.", "For Loop", "While Loop", "Repeat Until Loop"],
 ["Primary Storage", "also known as main storage or memory, is the area in a computer in which data is stored for quick access by the computers processor. The terms random access memory (RAM) and memory are often as synonyms for _____ or main storage.", "Platform-Specific", "Platform-Independent", "Phishing"],
 ["Universal Serial Bus", "An industry standard connection system developed in the mid-1990s that defines the cables, connectors and communications protocols used in a bus for connection, communication, and power supply between computers and electronic devices.", "Output Device", "Printer", "Peripheral Device"],
-["Installation", "Installation of a remote access or backdoor on the victim system allows the adversary to maintain persistence inside the environment.", "Exploitation", "Delivery", "Weaponization"],
 ["Encryption Laws", "Regulate the import, export, sale, or patent of strong cryptography", "How Developing Laws Affect Digital Forensics Practices", "WHOIS", "Internet Assigned Numbers Authority IANA"],
 ["Debugging", "A methodical process of finding and reducing bugs, defects, or errors in a computer program or a piece of electronic hardware.", "Checked Exceptions", "Bug", "Operators"],
 ["Multicore Processor", "A type of computer architecture where a single physical processor contains the core logic of two or more processors.", "Central Processing Unit (CPU)", "Client", "Cache"],
-["Command and Control", "Typically, compromised hosts must connect to an internet controller server to establish a Command and Control communication channel. Enables the remote control and interaction for the attacker.", "Installation", "Exploitation", "Delivery"],
+["Command and Control", "Typically, compromised hosts must connect to an internet controller server to establish a ________ communication channel. Enables the remote control and interaction for the attacker.", "Installation", "Exploitation", "Delivery"],
 ["Basic Color Theory", "encompasses a multitude of definitions, concepts and design applications - enough to fill several encyclopedias. However, there are three basic categories of color theory that are logical and useful : The color wheel, color harmony, and the context of how colors are used. Color theories create a logical structure for color.", "Aesthetics", "Dynamics", "Mechanics"],
 ["Order of Operations", "The ___ __ precedence of all of the operators in a computational system, such as mathematics (PEMDAS) or logic (NAXO).", "OR", "NOT", "AND"],
-["Exploitation", "After the weapon is deliverd to victim host, exploitation triggers intruders\' code. Most often, exploitation targets an application or OS vulnerability, but it could also more simply exploit the users themselves.", "Delivery", "Weaponization", "Reconnaissance"],
+["Exploitation", "After the weapon is deliverd to victim host, ______ triggers intruders\' code. Most often, ________ targets an application or OS vulnerability, but it could also more simply exploit the users themselves.", "Delivery", "Weaponization", "Reconnaissance"],
 ["Programming Language", "a formal constructed language designed to communicate instructions to a computer.", "Procedural Programming", "High Level Language", "Machine Language"],
 ["Back Door", "A hidden method for bypassing normal computer authentication systems, primarily used to gain unauthorized access to a computer system.", "Router", "Network", "MAC Address (media access control address)"],
 ["Bug", "An error, flaw, failure, or fault in a computer program or system that causes it to produce an incorrect or unexpected result, sometimes called a logic error.", "Operators", "Conditional Processing", "Sequential Processing"],
@@ -528,7 +629,6 @@
 ["Quick Sort (sometimes called partition-exchange sort) ", "is an efficient sorting algorithm, serving as a systematic method for placing the elements of an array in order.", "Merge Sort", "Insertion Sort", "Bubble Sort"],
 ["Decimal", "A real number that has a whole part and a fractional part, like 3.14. The general term for the base ten numbering system, as opposed to binary (base 2), octal (base 8) or hexadecimal (base 16).", "Data Type", "Character (char)", "Boolean"],
 ["Double", "A data type in some languages that is designed to contain floating-point numbers, generally using twice as much memory as a float data type. In Java, a double uses 64 bits of memory compared to a float that uses 32 bits.", "Declaration", "Integer (int)", "String"],
-["Command and Control", "Typically, compromised hosts must connect to an internet controller server to establish a Command and Control communication channel. Enables the remote control and interaction for the attacker.", "Installation", "Exploitation", "Delivery"],
 ["Mechanics", "describes the particular components of the game, at the level of data representation and algorithms.", "What is a game", "Live Operating System", "(AccessData Forensic Toolkit) FTK Imager"],
 ["Local Area Network (LAN)", "A section of network, local to a room, house, building, small campus, or even a metropolitan area (MAN), connected by some ___ protocol, most commonly Ethernet, either via wired connections, fiber, or wireless.", "IP address (Internet Protocol)", "Hypertext Transfer Protocol (HTTP)", "Hyper Text Markup Language (HTML)"],
 ["Brute Force Search", "A very general problem-solving technique that consists of systematically checking all possible solutions or values. The breadth first search and depth first search are two examples of _______.", "Breadth First Search", "Binary Search", "Quadratic Run Time"],
@@ -556,7 +656,6 @@
 ["Cyber Kill Chain", "reconnaissance, weaponization, delivery, exploitation, Installation, Command and Control, Actions on Objectives", "Remnant", "Remanent", "Deleted Files"],
 ["Graph", "A data structure in programming (not to be confused with a geometry style graph of a line or a parabola) which consists of a set of vertices (nodes) and edges (connections).", "Edge", "Directed Graph", "Connected Graph (Not to be confused with a complete graph)"],
 ["Binary Search Tree", "A tree in which nodes are inserted systematically in natural order, with the final property of each left child being less than or equal to its parent, and each right child being greater than its parent. ", "Binary Tree", "Complete Tree (not to be confused with a full tree)", "Children"],
-["White hat", "Activities are legal and ethical. Perform Penetration Tests - Employed to test an organization\'s computer security systems and report findings in order to improve defenses", "Black hat", "Hacker", "Digital Forensics"],
 ["Root-Cause Analysis", "A method of problem solving used to identify the initial causes of events or infections; The Weed - Symptoms of the problem Obvious, The Root - Underying causes of the problem Not Obvious", "Write-Blocker", "Forensic Image - clone", "Level of Investigation Effort"],
 ["Reconnaissance", "Research, identification and selection of targets: mailing lists for email addresses, social relationships, or information on specific technologies", "Cyber Kill Chain", "Remnant", "Remanent"],
 ["Emulators", "are generally included in the platform software development kit or SDK. An ______/'s main purpose is to imitate a target platform. The Android and IOS _____s are a big part of the development process.", "Slightly larger than", "All Answer", "Event Handler/Listener"],
@@ -565,7 +664,7 @@
 ["To simulate and develop software for multiple devices", "What is an emulator used for?", "To test hardware", "To test a devices camera functionality", "To install applications on a mobile device"],
 ["Class Method", "A process in a class definition that acts on the data that belongs to that class.", "Accessor Method", "Access Modifier (or access specifiers)", "Undirected Graph"],
 ["Access Modifier (or access specifiers)", "are keywords in object-oriented languages that set the accessibility of classes, methods, and other members. The two most common are private and public, where private limits access only to members of the class, and public grants open access.", "Undirected Graph", "Graph", "Edge"],
-["Multithreaded programming ", "a model where many things are happening at the same time.", "User Input/Timed Events", "Event-driven programming", "Tutorial"],
+["Multithreaded programming", "a model where many things are happening at the same time.", "User Input/Timed Events", "Event-driven programming", "Tutorial"],
 ["Call", "A programming statement used to execute a previously defined method, function, or procedure, often sending outside information into the process using parameters", "Parameter", "Parameter Passing", "Method"],
 ["Collision detection ", "when two objects are occupying the same space and acting accordingly. Using shapes to detect (Bounding boxes or ______ boxes, or hit boxes) ", "game loop", "Scripts", "game engine"],
 ["Method", "A process in Java that can be either a procedure (void _____) that performs an action of some sort, or a function (return _____) that returns a calculated value.", "Function", "Pass by Value", "Pass by Reference"],
@@ -580,7 +679,7 @@
 ["Binary Search", "The process of searching through an ordered set of data using the (double quotes)divide and conquer(double quotes) technique, which guarantees a final result in O(log N) times.", "Quadratic Run Time", "Logarithmic Run Time", "Linear Run Time"],
 ["Parallel Processing", "A mode of computer operation in which a process is split into parts that execute simultaneously on different processors attached to the same computer.", "Moores Law", "Firewall", "Antivirus Software"],
 ["POP (Post Office Protocol)", "This is an email protocol for storing emails.", "World Wide Web (WWW)", "Wide Area Network (WAN)", "URL (Uniform Resource Locator)"],
-["Simple Mail Transfer Protocol SMTO", "An email protocol that enables the transfer of email messages across the network.", "Routing Information Protocol (RIP)", "Metropolitan Area Network (MAN)", "Local Area Network (LAN)"],
+["Simple Mail Transfer Protocol SMTP", "An email protocol that enables the transfer of email messages across the network.", "Routing Information Protocol (RIP)", "Metropolitan Area Network (MAN)", "Local Area Network (LAN)"],
 ["Actions on Objectives", "Only now, after progressing through the first six phases, can interuders take actions to achieve their original objectives. Typically, this objective is data exfiltration which involves colllecting, encrypting and extracting information from the victim environment; violations of data integrity or availability are potential objectives as well. Alternatively, the interuders may only desire access to the initial victim box for use as a hop point to compromise additional systems and move laterally inside the network.", "Command and Control", "Installation", "Exploitation"],
 ["Spiral Development", "The _____ model is a risk-driven process model generator for software projects. Based on the unique risk patterns of a given project, the _______ model guides a team to adopt elements of one or more process models.", "Agile Development", "Incremental Development", "Try/Catch Block"],
 ["Unary Operator", "An operator in mathematics or in logic which works on only one operand, such as the negative, positive, or complement operators.", "Shortcut Operators", "Relational Operators", "Shift Operators"],
@@ -591,7 +690,7 @@
 ["Bomb", "A virus carrying a built-in time delay so that the virus becomes active after a specific “incubation” time.", "Malware", "Spyware", "Software"],
 ["Aesthetics", "describes the desirable emotional responses evoked in the player, when she interacts with the game system. ", "Dynamics", "Mechanics", "What is a game"],
 ["MAC Address (media access control address)", "a unique identifier assigned to network devices for communications on the physical network segment, similar to a social security number that belongs to a person.", "Internet", "Hub", "Host"],
-["Full Tree Traversal", "A non-executable, visual approach to help determine the pre-order, in-order, or post-order traversal of a tree, as can be seen in the Week 4 (double quotes)Terms to Know(double quotes).", "Tree Traversal", "Full Tree", "Maximum Heap Tree"],
+["Full Tree Traversal", "A non-executable, visual approach to help determine the pre-order, in-order, or post-order traversal of a tree", "Tree Traversal", "Full Tree", "Maximum Heap Tree"],
 ["Malware", "A general term for malicious software or code (called malcode) specifically designed to damage, disrupt, steal or inflict illegitimate action on data, hosts, or networks.", "Spyware", "Software", "Social Engineering"],
 ["Game Design Document, or GDD", "living document for actually making a game happen. It helps to: Describe the games concepts and selling points for marketing and funding; Narrow and concretely define the games scope and elements; Provide a reference for the entire game team overall it has cover page and table of contents, Summary, Gameplay, Gameplay, Game/Art, and Reference", "User stories", "Every sprint", "agile model"],
 ["Instruction Set Architecture (ISA)", "The part of the computer architecture related to programming, including the native data types, instructions, registers, addressing modes, memory architecture, interrupt and exception handling, and external I/O. ", "Complex Instruction Set Computing (CISC)", "Artificial Intelligence (AI)", "Polymorphic Objects"],
@@ -613,11 +712,9 @@
 ["Parent Class", "is the super class in a class hierarchy inheritance system. In Java, the Object class is the ultimate _________.", "Object Class", "Nested Class", "Driver Class"],
 ["Bytecode", "A universally portable software file compiled from source code that is then translated into machine language by a software interpreter. Java works this way, where a .java file is compiled into a .class file, which contains ________, and then is translated by whatever device executes that file.", "BASIC (Beginners All-purpose Symbolic Instruction Code)", "Executable Code", "Code"],
 ["Using Digital Forensics Tools", "Find hidden or deleted data not available through normal functions or procedures. Turn analytic data into human-readable format.", "Gray hat", "White hat", "Black hat"],
-["Using Digital Forensics Tools", "Find hidden or deleted data not available through normal functions or procedures. Turn analytic data into human-readable format.", "Gray hat", "White hat", "Black hat"],
 ["Assembly Language", "A low-level programming language (difficult for humans, easy for machines) that uses mnemonic opcodes, such as mov, sto, and load, to interact directly with a computers CPU and registers, used by expert programmers to produce highly efficient and fast programs.", "Assembler", "Mac OS ", "Linux "],
 ["Virtual Memory", "Memory that exists in secondary storage that is used in conjunction with primary memory (RAM) to help with program execution.", "Trojan", "System Software", "Bomb"],
 ["Tertiary Colors", "Yellow-orange, red-orange, red-purple, blue-purple, blue-green & yellow-green. These are the colors formed by mixing a primary and a secondary color. Thats why the hue is a two word name, such as blue-green, red violet, and yellow-orange.", "Secondary Colors", "Primary Colors", "The Color Wheel"],
-["Remanent", "a file that has been deleted, but is still wholly intact somewhere in memory storage", "Deleted Files", "Deleted and Hidden Files", "Digital Forensics expert"],
 ["Computer Forensic Investigator/Analyst (Certified Ethical Hacker)", "A specially trained professional employed to collect, identify, and analyze digital forensic evidence from computers and other tyoes of data storage devices.", "US Sercet Service Electronic Crimes Task Force, FBI Cyber Task Force, LockMartin Computer Incident Response Team (LM-CIRT)", "Net Netrality", "Encryption Laws"],
 ["Overriding Methods", "The polymorphic feature of object-oriented programming where methods inherited from parent classes, such as the toString method from the Object class, are redefined and customized to better fit the purpose of the current class.", "Overloading Methods", "Object-Oriented Programming (OOP)", "Imperative Programming"],
 ["Internal Path Length", "In tree processing, this is the sum of all the lengths from the root to the external nodes in a tree.", "Depth", "Linked List", "Non-Linear Data Structure"],
@@ -636,7 +733,6 @@
 ["Dynamics", "describes the run-time behavior of the mechanics acting on player inputs and each others outputs over time.", "Mechanics", "What is a game", "Live Operating System"],
 ["Bot", "Derived from the word “robot”, ___ (also called zombies) automate tasks and provide information or services that would otherwise be conducted by a human being.", "Worm", "Virus Definitions", "Virus"],
 ["Fair Use", "The doctrine that permits limited use of copyrighted material without acquiring permission from the rights holders.", "Acceptable Use (acceptable use policy (AUP))", "Zombie", "Bot"],
-["Encryption Laws", "Regulate the import, export, sale, or patent of strong cryptography", "How Developing Laws Affect Digital Forensics Practices", "WHOIS", "Internet Assigned Numbers Authority IANA"],
 ["Leaf", "a node in a tree data structure that has no children, and is at the end of a branch in a tree.", "Post-Order Traversal", "In-Order Traversal", "Pre-Order Traversal"],
 ["Repeat Until Loop", "A type of loop in some languages that is a post test loop, similar in structure to a do while loop, but terminates when the check condition is true, unlike the do while which terminates when the check is false.", "While Loop", "For Loop", "Do While Loop"],
 ["To collect feedback to see if your game is achieving its purpose.", "If you are a developer spectating a playtest of a game, what is your goal?", "To provide technical insight into the games development.", "To see how your game would function without finalized art.", "To convince the playtester about your games objective."],
@@ -654,20 +750,16 @@
 ["Modern computers and code libraries ", "have the ability to process these threads seamlessly, one-by-one, but they can also be processed simultaneously, thanks to parallel programming.", "Modern multicore computers", "Multithreaded programming ", "User Input/Timed Events"],
 ["Read Only Memory (ROM)", "The memory that is hard-wired and used for system functions, very difficult if not impossible to change.", "Random Access Memory (RAM)", "Universal Serial Bus", "Output Device"],
 ["WHOIS", "A query and response protocol used against databases that store the registered users or assignees of an internet domain name or IP address so can tell a lot about a particular website.", "Internet Assigned Numbers Authority IANA", "Internet Corporation for Assigned Names and Numbers (ICANN)", "Where do I go for info for the allocation and management of IP addresses throughout the United States and the world."],
-["Internet Assigned Numbers Authority IANA", "A department of ICANN that is responsible for distributing of ICANN that is responsible for distributing blocks of IP addresses to Regional INternet Registires", "Internet Corporation for Assigned Names and Numbers (ICANN)", "Where do I go for info for the allocation and management of IP addresses throughout the United States and the world.", "Passive Reconnaissance"],
 ["Browser", "A software application used to explore web pages on the World Wide Web.", "Application", "Absolute Reference", "Frequently Asked Questions (FAQ)"],
 ["Pre-test Loop", "A loop where the check is made before the action of the loop takes place. It is possible for a ______ to NEVER act, specifically when the initial check is false.  Two examples of ________ are: while and for.", "Post-test Loop", "Iterative Processing", "Nested for Loop"],
 ["Maintenance", "After the software project is in service, periodic adjustments are made based on the observed performance of the software package over time, as well as in response to changing conditions.", "Testing", "Implementation (Coding)", "Design"],
 ["Metropolitan Area Network (MAN)", "A LAN that spans the geograhic area occupied by a city or town, usually using fiber as a backbone.", "Local Area Network (LAN)", "IP address (Internet Protocol)", "Hypertext Transfer Protocol (HTTP)"],
 ["Byte", "A unit of digital information that most commonly consists of 8 bits. In Java, an integer data type with a numerical range from -128 to 127.", "Bit", "Encryption", "Back Door"],
-["Actions on Objectives", "Only now, after progressing through the first six phases, can interuders take actions to achieve their original objectives. Typically, this objective is data exfiltration which involves colllecting, encrypting and extracting information from the victim environment; violations of data integrity or availability are potential objectives as well. Alternatively, the interuders may only desire access to the initial victim box for use as a hop point to compromise additional systems and move laterally inside the network.", "Command and Control", "Installation", "Exploitation"],
 ["Genre", "_________, can be thought of as a category of games with similar mechanics/rules.", "eSports", "Tutorial", "Video Games"],
 ["Void Method", "A method that starts with the word _____, which indicates no return value, but designates a process of some sort that occurs.", "Return Method", "Procedure", "Call"],
 ["Application Programming Interface (APIs)", "An _____ is the documented method and parameter interface for a software system component.  A good example is the the Google Maps _____/'s.  Often there are multiple interface specifications: 1 for each language that the system being accessed supports.", "Maintenance", "Testing", "Implementation (Coding)"],
-["Application Programming Interface (APIs)", "An _____ is the documented method and parameter interface for a software system component.  A good example is the the Google Maps _____/'s.  Often there are multiple interface specifications: 1 for each language that the system being accessed supports.", "Maintenance", "Testing", "Implementation (Coding)"],
 ["Platform-Specific", "means that the program only works on the specific platform (operating system) for which it was defined.", "Platform-Independent", "Phishing", "Parallel Processing"],
 ["Reindering - Raytracing", "a more accurate light simulation. Its a method that traces how rays of light bounce off objects. It can provide beautiful, high-quality images that simulate light to a great extent. However, it can be quite computationally intensive for most real-time use.", "Reindering - Raycasting", "Rendering - Rasterizing", "Rendering - Scanline"],
-["Write-Blocker", "An interface that sites between the storage device and the workstation that will create the forensic image. The interface makes it impossible to write onto the device that is being copied. Provides a hig level of assurance that the investigator did not tamper with the evidence", "Forensic Image - clone", "Level of Investigation Effort", "Digital Forensics in the Workplace Decisions"],
 ["Object-Oriented Programming (OOP)", "a programming language model organized around objects rather than (double quotes)actions(double quotes) and data rather than logic.", "Imperative Programming", "Functional programming", "Object"],
 ["Platform-Independent", "means that the same program works on any platform (operating system) without needing any modification.", "Phishing", "Parallel Processing", "Moores Law"],
 ["Binary Tree", "A data structure that consists of nodes, with one root node at the base of the tree, and two nodes (left child and right child) extending from the root, and from each child node.", "Complete Tree (not to be confused with a full tree)", "Children", "Internal Path Length"],
@@ -676,7 +768,6 @@
 ["Code", "A term that refers to the source code, or set of instructions found in a computer program.", "Interpreting", "Compiling", "Compiler"],
 ["Level of Investigation Effort", "Low: Rebuild System and Return to Production, Medium: Internal Investigation, High: Pursue Prosecution and Involve Law Enforcement", "Digital Forensics in the Workplace Decisions", "Computer Forensic Investigator/Analyst (Certified Ethical Hacker)", "US Sercet Service Electronic Crimes Task Force, FBI Cyber Task Force, LockMartin Computer Incident Response Team (LM-CIRT)"],
 ["Acceptable Use (acceptable use policy (AUP))", "a document stipulating constraints and practices that a user must agree to for access to a corporate network or the Internet.", "Zombie", "Bot", "Worm"],
-["Void Method", "A method that has no return type. A return statement may be used, but no data will be returned to the calling method.", "Floating Point", "Float", "Double"],
 ["Phishing", "A tactic used by internet attackers using fake emails or websites, appearing to come from a known and trustworthy source, in an attempt to gather personal or financial information from the recipients.", "Parallel Processing", "Moores Law", "Firewall"],
 ["agile model", "some modifications is used extensively by large game and mobile app design companies. Independent development companies dont necessarily follow this model.", "To simulate and develop software for multiple devices", "Software used to simulate a target platform/device", "All answer"],
 ["Ring Topology", "A network topology where all devices are connected in a circular fashion.", "Bus Topology", "Tree Topology", "Bandwidth"],
@@ -690,16 +781,12 @@
 ["Float", "A data type in programming that contains a floating point value, more commonly referred to as a decimal value, like 1.5 or 3.14.", "Double", "Declaration", "Integer (int)"],
 ["Firewall", "A virtual wall in protection software that prevents certain types of network traffic from entering a network, usually by the use of port numbers, an OSI level 4 feature.", "Antivirus Software", "Hardware", "Hard Drive"],
 ["Software Systems Life Cycle", "The stages of development for a software development project.  The 5 standard stages include requirements analysis, design, development, testing and maintenance.  These steps are not alway performed end to end, and the approach to executing the stages is referred to as the development methodology.", "Modular Programming", "Method Library", "Unified Modeling Language (UML)"],
-["Playtesting", "Name the process where prospective players would test a prototype game and provide feedback.", "Prototyping", "Paper Prototyping", "Proto Man"],
 ["Conventions", "In programming, a _______ is an agreed upon style of writing code by using indentation, capitalization practices, and use of meaningful identifier names to improve the readability of the code.", "Catch", "Constants", "Camel Case"],
 ["Integer Division", "A division process that results in a whole number answer, discarding or truncating any fractional remainder.", "Unary Operator", "Shortcut Operators", "Relational Operators"],
 ["Heuristic Search", "an AI search technique that employs _______ for its moves. _______ is a rule of thumb that probably leads to a solution.", "Depth First Search", "Brute Force Search", "Breadth First Search"],
 ["Object", "A programming entity that encapsulates data and related methods.", "Class", "Child Class", "(double quotes)Has-a(double quotes) Relationship"],
 ["Quadratic Run Time", "A level of complexity of an algorithm that is characterized by a nested loop process, taking roughly N2 steps to complete, so for an array size of 10 items, it would take roughly 100 steps to complete the process.", "Logarithmic Run Time", "Linear Run Time", "Constant Run Time"],
 ["Tree Topology", "A tree is a widely used abstract data type (ADT) or data structureimplementing this ADT that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.", "Bandwidth", "ARPANET", "Swap"],
-["Deleted Files", "When a file is delete from a folder, it is still there until another save operation writes over it, or over a part of it", "Deleted and Hidden Files", "Digital Forensics expert", "Using Digital Forensics Tools"],
-["Deleted Files", "When a file is delete from a folder, it is still there until another save operation writes over it, or over a part of it", "Deleted and Hidden Files", "Digital Forensics expert", "Using Digital Forensics Tools"],
-["Dynamics", "The set of behaviors, including strategy and randomness, that emerge from the rules is called __________.", "Mechanics", "Aesthetics", "Players"],
 ["Data Structure", "A way of organizing data in a computer so that it can be used efficiently, such as an array, linked list, stack, queue, or binary tree.", "Dynamic Memory", "Contiguous Memory", "Two-Dimensional (2D) Array"],
 ["Sort", "An algorithm used to arrange elements of an array into natural order, such as numeric or alphabetical.", "Selection Sort", "Quick Sort (sometimes called partition-exchange sort) ", "Merge Sort"],
 ["User Interface", "What does UI stand for?", "Universal Interface", "Usage Introduction", "User Interaction"],
@@ -713,7 +800,7 @@
 ["Complementary Colors", "What is the name for colors on the opposite side of the color wheel? This is often found in art and nature.", "Color Temperature", "Analogous Colors", "Tertiary Colors"],
 ["Complex Instruction Set Computing (CISC)", "A micro-processor architecture wherein the machine instruction set is designated as ________.  The antonym to ________ is reduced.", "Artificial Intelligence (AI)", "Polymorphic Objects", "Overriding Methods"],
 ["Input Protection and Data Validation", "These two ideas go hand in hand in the development of a robust software package.  Protecting against bad data entering a software process includes some way of testing a piece of data to make sure it is in the proper form, such as making sure that someone/'s name is actually a string of characters, and not a numeric value, or that someone\'s age is indeed a valid number, and not a word or phrase.", "Unit Testing", "Robust", "Robust Programs"],
-["Installation", "Installation of a remote access or backdoor on the victim system allows the adversary to maintain persistence inside the environment.", "Exploitation", "Delivery", "Weaponization"],
+["Installation", "_______ of a remote access or backdoor on the victim system allows the adversary to maintain persistence inside the environment.", "Exploitation", "Delivery", "Weaponization"],
 ["Parameter Passing", "The process in the source code of a program whereby data is passed from one section of the program to another, using method calls that send actual parameters and method definitions that receive the passed data using formal parameters.", "Method", "Function", "Pass by Value"],
 ["Multitasking", "The simultaneous execution of more than one program or task by a single computer processor.", "Multicore Processor", "Central Processing Unit (CPU)", "Client"],
 ["Child Class", "A class in object-oriented programming that inherits the characteristics of a parent class.", "(double quotes)Has-a(double quotes) Relationship", "(double quotes)Is-a(double quotes) Relationship", "Polymorphic"],
