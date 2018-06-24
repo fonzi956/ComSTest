@@ -496,14 +496,6 @@ function renderQuestion(){
         return false;
     }
 
-    if(sq.length == shq.length+1){
-        test.innerHTML = "<p>"+sq+"</p>";
-        test.innerHTML += "<br><p>"+hq+"</p>";
-    test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
-        pos = 0;
-        correct = 0;
-        return false;
-    }
 
     var tot = questions.length - sq.length;
     var totH = shq.length - sq.length;
@@ -538,7 +530,7 @@ function renderQuestion(){
         rq.push(questions[pos + rn.pop(rn[Math.floor(Math.random() * rn.length)]) ][0]);
         rq.push(questions[pos + rn.pop(rn[Math.floor(Math.random() * rn.length)]) ][0]);
 
-        //_("test_status").innerHTML = "Question "+(pos+1)+" of "+tot+" <button onclick='done()'>done</button>";
+
         question = questions[pos][1];
         chA = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
         chB = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
@@ -553,8 +545,7 @@ function renderQuestion(){
         //test.innerHTML += "<button onclick='nextQuestion()'>Next Question</button>";
         //test.innerHTML += "<button onclick='HQuestion()'>UnQuestion</button>";
       } catch (e) {
-        done();
-        //renderQuestion();
+        renderQuestion();
       }
     }
     if (questions[pos].length == 5) {
@@ -585,7 +576,7 @@ function renderQuestion(){
           test.innerHTML += "<input type='radio' name='choices' value='"+chD+"'> "+chD+"<br><br>";
           test.innerHTML += "<button onclick='checkAnswer()'>Submit</button>";
       } catch (e) {
-        done();
+        renderQuestion();
       }
 
     }
@@ -642,7 +633,7 @@ function nextQuestion(){
 
 function HQuestion(){
     hq.push(pos);
-sq.push(pos);
+    sq.push(pos);
     renderQuestion();
 }
 
