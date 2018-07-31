@@ -13,7 +13,7 @@ var questions = [
 ["Implementation (Coding)", "During this stage, developers write and document the code to implement the project, based on the design."],
 ["Testing", "Sample data is produced based on the analysis and design of the project, and then tests using the data are run against the code to ensure that the software performs as expected."],
 ["Maintenance", "After the software project is in service, periodic adjustments are made based on the observed performance of the software package over time, as well as in response to changing conditions."],
-["Application Programming Interface (API's)", "An _____ is the documented method and parameter interface for a software system component.  A good example is the the Google Maps _____'s.  Often there are multiple interface specifications: 1 for each language that the system being accessed supports."],
+["Application Programming Interface (APIs)", "An _____ is the documented method and parameter interface for a software system component. Often there are multiple interface specifications: 1 for each language that the system being accessed supports."],
 ["Black Box", "A device, system or object in computing which can be viewed in terms of its inputs and outputs, without requiring any knowledge of its internal workings."],
 ["Procedure Box", "A symbol used in flowcharting that represents a process or event that occurs within the flow of the program."],
 ["Decision Diamond", "This is the shape used in flowcharts that indicates a decision made in a program where an input situation is presented and the result is either true or false."],
@@ -122,8 +122,8 @@ var questions = [
 ["Instantiate",  "In object oriented programming, this is the process of bringing into existence an object defined by a class, in Java initiated by the term (double quotes)new(double quotes), which calls a constructor appropriate for that object."],
 ["Variable",  "A memory location in programming that is changeable during the execution of the program, unlike a constant which cannot be changed."],
 ["Meaningful Identifiers",  "Names used in programming for classes, methods, variables, and constants that help describe the general purpose and function associated with that item."],
-["Primitives",  "A _____ value or variable is basic in form; raw, if you will.  Data types such as the integer, character, floating point number, and boolean value all are considered to be ______s. This is because they occupy memory that is consistently the same size. For example, an integer value in Java always occupies 32 bits of memory, a double 64 bits, and a character 16 bits.  All three are ____s.  All ___s are stored and accessed directly in their memory.  The memory address of a variable that stores a ______ actually contains that ______ value. It is contained right there at that address in RAM For the scope of this course, the _______ data types used are: boolean, char, double, float, int and short."],
-["Objects",  "____ are not as consistent in how much memory they occupy, and because of that, the _____ itself cannot be stored or accessed directly, as a primitive can.  For example, a String variable could contain a single word, containing four characters, or a whole sentence with fifty characters, or be completely empty!  A more complex _____ could be defined in a class, and might be composed of several instance variables, methods, or even other _____!  As a result, ______ instead are accessed by reference through the use of pointers. The memory address of a variable that indicates an _____ does not itself contain the ____, but instead contains the memory address of that ____. It is a pointer that says to the program, \“it\’s over there if you want to use it\”. _____ variables that use references, or pointers, include Strings, one dimensional and two dimensional arrays."],
+["Primitives",  "A ____ data type uses a small amount of memory to represent a single item of data. All data of the same ____ type are the same size. For example, ____ type int represents integers using 32 bits. All variables of type int use 32 bits. There are only eight ____ data types in Java: byte, short, int, long, float, double, char, and boolean. A Java program cannot define any other ___ data types."],
+["Objects",  "An object is a large chunk of memory that can potentially contain a great deal of data along with methods (little programs) to process that data. There are thousands of object classes that come standard with Java, and a programmer can easily create additional classes. (Although there are thousands of standard classes, for this course you only need become familiar with a dozen or so classes.)"],
 ["Using Primitives vs Objects",  "there is no apparent difference, at the surface level at least, in how to use either of these two types of variables in a program.  You simply state the variable in a command or expression, and the compiler takes care of how to access them."],
 ["Sequential Processing", "The basic control structure in programming where commands are executed one after another, in the order in which they are listed."],
 ["Conditional Processing", "The process of using if and if-else type statements in a program to make a decision based on a boolean (true/false) condition."],
@@ -205,8 +205,8 @@ var questions = [
 ["Queue",  "A FIFO (first in first out) data structure, similar to a stack, but where the first element added to the queue will be the first one to be removed, and where a new element is added to the back of the _____, much like a waiting line."],
 ["Node", "In a linked list, tree, or similar graph-based structure, a _____ is an object linked to other objects, representing some entity in that data structure."],
 ["Parent Node", "in tree structure is a node, including the root, which has one or more child nodes connected to it."],
-["External Node", "A potential node in a tree, where currently either the left or right child pointer of a node is pointing to null, but potentially could reference another node. See internal node."],
-["Internal Node", "A existing node in a tree, either the root or any one of the children in the tree. See external node."],
+["External Node", "A potential node in a tree, where currently either the left or right child pointer of a node is pointing to null, but potentially could reference another node."],
+["Internal Node", "A existing node in a tree, either the root or any one of the children in the tree."],
 ["Non-Linear Data Structure", "A data structure that does not occupy contiguous memory, such as a linked list, graph, or tree."],
 ["Linked List", "A linear data structure, much like an array, that consists of nodes, where each node contains data as well as a link to the next node, but that does not use contiguous memory."],
 ["Depth", "In a tree data structure, the ____ of the tree is most commonly expressed as the number of steps from the root of the tree to the farthest outlying node in the tree. Height is also used to mean the same thing."],
@@ -261,7 +261,7 @@ var questions = [
 ["Binary Search", "The process of searching through an ordered set of data using the (double quotes)divide and conquer(double quotes) technique, which guarantees a final result in O(log N) times."],
 ["Breadth First Search", "An algorithm for traversing or searching a tree or graph data structures. It typically starts at the tree root and explores the neighbor nodes first, before moving to the next level neighbors."],
 ["Brute Force Search", "A very general problem-solving technique that consists of systematically checking all possible solutions or values. The breadth first search and depth first search are two examples of _______."],
-["Depth First Search", "In searching a tree structure, this brute force search process explores one complete branch of a tree all the way to the end of the branch before proceeding to another branch, as opposed to breadth first search."],
+["Depth First Search", "In searching a tree structure, this brute force search process explores one complete branch of a tree all the way to the end of the branch before proceeding to another branch"],
 ["Heuristic Search", "an AI search technique that employs _______ for its moves. _______ is a rule of thumb that probably leads to a solution."],
 ["Linear Search (Sequential Search)", "A loop based search process using an array of values that starts looking at the first of the list and continues towards the end of the list until the target is found, or until the end of the array is reached."],
 ["Linear Search (Sequential Search)", "A loop based search process using an array of values that starts looking at the first of the list and continues towards the end of the list until the target is found, or until the end of the array is reached."],
@@ -286,7 +286,7 @@ var questions = [
 ["Local Area Network (LAN)", "A section of network, local to a room, house, building, small campus, or even a metropolitan area (MAN), connected by some ___ protocol, most commonly Ethernet, either via wired connections, fiber, or wireless."],
 ["Metropolitan Area Network (MAN)", "A LAN that spans the geograhic area occupied by a city or town, usually using fiber as a backbone."],
 ["Routing Information Protocol (RIP)", "One of the most used routing protocols used in network routing configurations."],
-["Simple Mail Transfer Protocol SMTO", "An email protocol that enables the transfer of email messages across the network."],
+["Simple Mail Transfer Protocol SMTP", "An email protocol that enables the transfer of email messages across the network."],
 ["URL (Uniform Resource Locator)", "a reference (an address) to a resource on the Internet. A ____ has two main components: Protocol identifier: For the ____ http://example.com , the protocol identifier is http . Resource name: For the ____ http://example.com , the resource name is example.com ."],
 ["Wide Area Network (WAN)", "A computer network in which the computers connected may be far apart, separated by distances spanning half a mile to thousands of miles."],
 ["World Wide Web (WWW)", "A system of Internet servers that support specially formatted documents. The documents are formatted in a markup language called HTML."],
@@ -363,13 +363,13 @@ var questions = [
 ["Digital Forensics expert", "examines digital devices and artifacts to determine if criminal or otherwise unscrupulous activity has taken place. This expert can also help with the recovery of lost data that still remains on a device but whose location or address has been lost somehow, as in a corrupted index, or File Allocation Table."],
 ["Deleted and Hidden Files", "OS do not delete files, it only deletes the pointer or reference to the file from an index. The data remains on the stroage device until it is written over by something else."],
 ["Deleted Files", "When a file is delete from a folder, it is still there until another save operation writes over it, or over a part of it"],
-["Remanent", "a file that has been deleted, but is still wholly intact somewhere in memory storage"],
+["Remanent", "a file that has been deleted, but is still intact somewhere in memory storage"],
 ["Remnant", "a file that has been deleted, and has been partially overwritten by a subsequent save operation, using a part of the memory it previovously occupied in storage."],
 ["Cyber Kill Chain", "reconnaissance, weaponization, delivery, exploitation, Installation, Command and Control, Actions on Objectives"],
 ["Reconnaissance", "Research, identification and selection of targets: mailing lists for email addresses, social relationships, or information on specific technologies"],
-["Weaponization", "Combine a remote access trojan with an exploit into a deliverable payload. Files such as Adobe Portable Document Format (ODF) or Microsoft Office documents often serve as the weaponized deliverable."],
+["Weaponization", "Combine a remote access trojan with an exploit into a deliverable payload. Files such as Adobe Portable Document Format (ODF) or Microsoft Office documents often serve as the _____ deliverable."],
 ["Delivery", "Transmission of the weapon to targeted environment. Usually in the form of email attachments, websites, and USB removable media."],
-["Exploitation", "After the weapon is deliverd to victim host, exploitation triggers intruders code. Most often, exploitation targets an application or OS vulnerability, but it could also more simply exploit the users themselves."],
+["Exploitation", "After the weapon is deliverd to victim host, _____ triggers intruders code. Most often, _____ targets an application or OS vulnerability, but it could also more simply exploit the users themselves."],
 ["Installation", "_________ of a remote access or backdoor on the victim system allows the adversary to maintain persistence inside the environment."],
 ["Command and Control", "Typically, compromised hosts must connect to an internet controller server to establish a ______ communication channel. Enables the remote control and interaction for the attacker."],
 ["Actions on Objectives", "Only now, after progressing through the first six phases, can interuders take actions to achieve their original objectives. Typically, this objective is data exfiltration which involves colllecting, encrypting and extracting information from the victim environment; violations of data integrity or availability are potential objectives as well. Alternatively, the interuders may only desire access to the initial victim box for use as a hop point to compromise additional systems and move laterally inside the network."],
@@ -393,7 +393,7 @@ var questions = [
 ["Activity Trails (History and Logs)", "Every action a user makes on a computer leaves a trail. This trail, recorded in a log, can be researched to provide details of a users activity"],
 ["WireShark", "A free and open-source packet capture and analysis tool"],
 ["AccessData Forensic Toolkit (FTK)", "A multi-purpose digital investigations platform that can: Locate deleted emails, Scan a disk for text strings, and Crack encryption"],
-["(AccessData Forensic Toolkit) FTK Imager", "Included in the FTK, it is used to save an image of a hard disk and verify its integrity"],
+["(AccessData Forensic Toolkit) FTK Imager", "It is used to save an image of a hard disk and verify its integrity"],
 ["Live Operating System", "Storage media that contains a fully bootable operating system like Live CD or Live USB"],
 ["What is a game", "We become the player or players. Usually, when discovering a new game, we talk about the rules of the game. These are a set of limitations that we have to work with. We also talk about the goal, which shows how we would succeed in a game. The rules, also called game mechanics, give rise to game dynamics, or how players interact with the rules and each other, to either impede or facilitate progress towards the goal. This can include some strategy or randomness. There are also aesthetic."],
 ["Mechanics", "describes the particular components of the game, at the level of data representation and algorithms."],
@@ -463,11 +463,12 @@ var questions = [
 
 ];
 
-var shq = [369,155,372,20,116,45,221,186,178,46,78,405,156,288,230,218,284,297,368,63,107,16,431,407,265,306,250,147,416,425,378,350,249,287,257,248,276,111,126,428,109,252,177,185,173,319,243,408,430,146,268,56,309,219,71,404,406,104,59,34,391,54,316,17,433,386,52,226,142,267,18,187,119,445,364,333,247,88,361,367,215,30,285,377,239,331,171,204,232,37,259,7,44,334,202,124,87,426,11,401,224,231,366,
-41,181,388,138,258,188,149,280,441,262,394,47,0,113,128,329,10,129,195,174,201,19,244,283,6,97,85,15,200,240,125,134,235,307,380,411,163,121,352,413,153,42,389,414,295,105,421,182,117,322,95,358,13,32,303,234,294,135,260,242,379,48,437,120,233,449,23,438,293,365,206,101,291,35,1,93,210,154,166,342,392,400,429,256,308,53,362,12,272,263,175,313,253,74,296,393,432,114,83,359,65,49,225,434,61,57,270,184,387,289,108,321,417,353,115,355,51,269,130,96,328,356,70,217,24,169,216,222,14,27,326,112,443,339,424,91,50,435,148,62,43,412,122,282,281,395,363,228,72,118,100,145,198,8,209,450,397,332,40,208,444,203,318,442,255,176,76,123,423,58,143,194,90,205,55,197,360,179,180,345,344,354,251,92,170,403,196,39,79,390,141,237,94,290,261,370,357,330,399,375,26,384,75,229,374,376,275,337,447,398,157,199,168,373,351,77,381,73,266,80,246,38,136,132,158,236,82,448,152,220,324,383,223,5,5,159,312,292,427,264,245,446,29,167,
-238,346];
+var shq = [19,205,404,379,399,337,247,406,350,10,110,12,175,23,176,440,269,376,56,80,30,259,196,152,339,326,389,53,403,393,153,357,384,294,113,156,221,425,65,77,308,62,329,128,345,114,182,427,181,15,328,400,303,224,170,245,173,234,225,47,157,252,256,118,3,171,278,201,95,447,331,424,359,362,240,42,250,115,390,374,126,377,280,180,91,309,243,287,93,272,365,238,50,273,431,380,242,248,334,312,445,204,58,198,355,7,367,281,219,86,413,325,414,82,352,428,236,177,327,216,321,383,229,122,354,438,307,76,397,188,217,123,149,202,372,70,361,228,284,67,407,395,59,246,186,51,52,266,117,253,351,74,35,292,105,104,417,154,109,135,264,293,116,48,360,20,142,237,446,85,353,28,405,121,394,344,244,209,203,0,251,78,96,41,381,295,330,306,49,277,316,36,220,45,124,29,129,402,232,11,448,430,313,267,5,87,411,391,285,112,356,368,270,207,320,288,150,223,197,166,46,282,141,286,185,375,187,263,274,133,138,433,235,358,111,84,387,441,136,88,378,388,226,6,412];
 var hq = [];
-var sq = [];
+var sq = [
+203,52,80,217,400,326,427,182,355,269,95,117,446,219,196,7,186,67,84,368,187,397,320,209,135,270,181,87,58,129,316,76,260,23,361,36,430,6,274,180,114,306,234,109,263,11,405,391,389,358,438,62,47,288,351,223,396,352,330,118,329,303,228,412,122,50,99,284,447,220,112,78,375,266,96,242,197,381,376,264,153,30,419,357,367,113,356,201,88,199,226,411,59,433,164
+
+];
 
 
 function _(x){
@@ -486,7 +487,7 @@ var unique = a.filter( onlyUnique );
 function renderQuestion(){
     test = _("test");
 
-    if(sq.length == questions.length){
+    if(sq.length == shq.length){
         test.innerHTML = "<p>"+sq+"</p>";
         test.innerHTML += "<br><p>"+hq+"</p>";
     test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
