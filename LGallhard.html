@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=1000">
+<style>
+div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
+</style>
+<script>
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
+var questions = [
+	["Consider the following pseudocode for a linear search: <br>"
+	+"int linearSearch( int [] list, int target )<br>"
+	+"    for (int i ← 0; i < list.length; i ← i + 1 )<br>"
+	+"        if ( list[ i ] == target )<br>"
+	+"            return i<br>"
+	+"        end if<br>"
+	+"    end for<br>"
+	+"    return -1<br>"
+	+"end linearSearch<br>"
+	+"Which of the following is a pre-condition for this linear search?<br>",
+	"list is sorted",
+	"target is guaranteed to be a value contained in list",
+	"list must have a length of at least 1",
+	"None of the above", "None of the above"],
+	["Consider a list: <br>"
+	+"{ 9, 2, 6, 8, -3 }<br>"
+	+"If a linear search for the value 2 is performed, what will be returned?<br>",
+	"-1",
+	"1",
+	"2",
+	"5", "1"],
+	["Which of the following is not a post-condition of a linear search?",
+	"The index of the target value is returned if it occurs within the list",
+	"-1 is returned if the target value does not occur within the list",
+	"The list is modified to maintain a sorted order",
+	"The list does not get modified", "The list is modified to maintain a sorted order"],
+	["Which of the following is an application of a linear search?",
+	"Maintaining sorted order on a list",
+	"Determining if a value exists within a list",
+	"Determining the length of a list",
+	"Filling a list with a specified value", "Determining if a value exists within a list"],
+	["What is the worse case order of complexity for a linear search?",
+	"O(1)",
+	"O(N)",
+	"O(N log N)",
+	"O(N^2)", "O(N)"],
+	["In which of the cases listed below would a binary search perform worse than a linear search?",
+	"When the target value is the first element of the list.",
+	"When the target value is the middle element of the list.",
+	"When the target value is the last element of the list.",
+	"When the target value does not exist within the list.", "When the target value is the first element of the list."],
+	["A binary search is performed on a list of 40 elements in ascending sorted order. What is the worst case running time performance (most number of comparisions required) when searching for a value that does not exist within this list?",
+	"1 comparison",
+	"5 comparisons",
+	"6 comparisons",
+	"40 comparison", "6 comparisons"],
+	["Consider a list:<br>"
+	+"{ -3, 5, 9, 12, 24, 31, 46, 48 }<br>"
+	+"If a binary search for the value 48 is performed, how many comparison operations will be required to locate its index?",
+	"1",
+	"3",
+	"4",
+	"8", "4"],
+	["Which of the following is a required pre-condition of a binary search?",
+	"The target value exists within the list being searched.",
+	"The list being searched must be in random order.",
+	"The list being searched is in ascending sorted order",
+	"The number of elements in the list being searched is a power of 2.", "The list being searched is in ascending sorted order"],
+	["Which of the following describes a feature of the binary search?",
+	"Every element of a searched list is examined.",
+	"A divide and conquer strategy is used",
+	"A linear strategy is used",
+	"Random elements are chosen from the list until the item is found.", "A divide and conquer strategy is used"],
+	["Consider a list:<br>"
+	+"{ -3, 5, 9, 12, 24, 31, 46, 48 }<br>"
+	+"If a binary search for the value 33 is performed on this list, how many comparisons will occur before an answer is returned?",
+	"3",
+	"4",
+	"5",
+	"6", "3"],
+	["Consider the following array, to be sorted using selection sort:<br>"
+	+"{ 7, 2, 6, 4, 5, 0, 3, 1 }<br>"
+	+"How many passes must be performed on this selection sort before the value 3 is in its correct position, assuming that the selection sort is intended to produce a list sorted in ascending order?",
+	"3",
+	"4",
+	"7",
+	"8", "4"],
+	["Assume there is a function defined swap( pass-by-reference int [] list, int position1, int position2 ) which swaps values in the array list at index position1 and index position2. Now consider the following code for a selection sort: <br>"
+	+"void selectionSort( pass-by-reference int [] list ) <br>"
+	+"    for ( int k ← 0; k < list.length - 1; k ← k + 1 ) <br>"
+	+"        int best ← k <br>"
+	+"        for ( int q ← k + 1; q < list.length; q ← q + 1 ) <br>"
+	+"            if ( condition ) <br>"
+	+"                best ← q <br>"
+	+"            end if <br>"
+	+"        end for <br>"
+	+"        swap( list, best, k ) <br>"
+	+"    end for <br>"
+	+"end void <br>"
+	+"Which of the following boolean expressions would best replace condition to cause the selection sort to sort values in list in descending order?",
+	"best < list[ q ]",
+	"best > list[ q ]",
+	"list[ best ] > list[ q ]",
+	"list[ q ] > list[ best ]", "list[ q ] > list[ best ]"],
+	["Consider a partially sorted list that is undergoing the selection sort:<br>"
+	+"{ 0, 1, 7, 5, 4, 2, 3 }<br>"
+	+"If the values 0 and 1 have already been sorted, how many comparisons must be performed in the next pass of the selection sort?",
+	"1",
+	"3",
+	"4",
+	"5", "4"],
+	["Consider the following array, partially sorted with a selection sort.<br>"
+	+"{ 0, 1, 6, 4, 5, 2, 3, 7 }<br>"
+	+"If two passes have already been performed such that the values 0 and 1 are in the correct position, what will the array look like after the next pass?",
+	"{ 0, 1, 4, 5, 2, 3, 6, 7 }",
+	"{ 0, 1, 2, 4, 5, 6, 3, 7 }",
+	"{ 0, 1, 4, 6, 5, 2, 3, 7 }",
+	"{ 0, 1, 2, 6, 4, 5, 3, 7 }", "{ 0, 1, 2, 4, 5, 6, 3, 7 }"],
+	["Which of the following describes a selection sort?",
+	"Values that are out of place are shifted into order.",
+	"Adjacent values are compared and swapped if out of order.",
+	"The next \"best\" value is swapped into its correct position with each pass.",
+	"The list is partitioned around a pivot point.", "The next \"best\" value is swapped into its correct position with each pass."],
+	["Which of the following describes a bubble sort?",
+	"List contents are placed in a minimum heap.",
+	"Adjacent values are compared and swapped if out of order.",
+	"The next smallest value is moved directly into its correct position with each pass.",
+	"The list is partitioned around a pivot point.", "Adjacent values are compared and swapped if out of order."],
+	["Which of the following does not describe part of the process for an ascending bubble sort?",
+	"For n values, perform at least 1 pass, but no more than n-1 passes.",
+	"Compare adjacent values, and if they are out of order, swap them.",
+	"Find the next smallest value in the remaining unsorted elements.",
+	"After each pass, the next highest unsorted value should be in the correct position.", "Find the next smallest value in the remaining unsorted elements."],
+	["Assume there is a function defined swap( pass-by-reference int [] list, int position1, int position2 ) which swaps values in the array list at index position1 and index position2. Now consider the following code for a bubble sort: <br>"
+	+"void bubbleSort( pass-by-reference int [] list ) <br>"
+	+"    boolean b ← false <br>"
+	+"    while ( not b ) <br>"
+	+"        b ← true <br>"
+	+"        for ( int k ← 0; k < list.length - 1; k ← k + 1 ) <br>"
+	+"            if ( list[ k ] > list[ k + 1] ) <br>"
+	+"                swap( list, k, k + 1 ) <br>"
+	+"                b ← false <br>"
+	+"            end if <br>"
+	+"        end for <br>"
+	+"    end while <br>"
+	+"end void <br>"
+	+"What is the purpose of the b variable?",
+	"Determines if a swap should occur",
+	"Determines if swaps have occurred during a pass",
+	"Determines the number of comparisons that should occur during a pass",
+	"Determines if a comparison has taken place during a pass", "Determines if swaps have occurred during a pass"],
+	["Consider the following array, to be sorted using bubble sort in ascending order:<br>"
+	+"{ 7, 2, 6, 4, 5, 0, 3, 1 } <br>"
+	+"How many passes must be performed in this bubble sort before the value 7 is in its correct position at the end of the list?",
+	"0",
+	"1",
+	"7",
+	"8", "1"],
+	["Consider the following array:<br>"
+	+"{ 0, 1, 6, 4, 5, 2, 3, 7 }<br>"
+	+"After one pass of an ascending order bubble sort is applied, what will this array look like?",
+	"{ 0, 1, 4, 5, 2, 3, 6, 7 }",
+	"{ 0, 1, 2, 4, 5, 6, 3, 7 }",
+	"{ 0, 1, 4, 6, 5, 2, 3, 7 }",
+	"{ 0, 1, 2, 3, 4, 5, 6, 7 }", "{ 0, 1, 4, 5, 2, 3, 6, 7 }"],
+	["Consider a partially sorted list that is undergoing the bubble sort in ascending order:<br>"
+	+"{ 3, 4, 6, 5, 1, 2, 7 }<br>"
+	+"If the value 7 has already been sorted, which will be the next value to be placed in its final position after the next pass?",
+	"1",
+	"3",
+	"5",
+	"6", "6"],
+	["Which of the following does not describe part of the process for an ascending insertion sort?",
+	"For n values, perform n-1 passes.",
+	"During any given pass, a nested loop must search for the best position for the current value.",
+	"Compare adjacent neighbors and swap them if they are out of order.",
+	"The portion of the list containing inserted values must remain sorted.", "Compare adjacent neighbors and swap them if they are out of order."],
+	["Consider the following array, partially sorted with a ascending insertion sort.<br>"
+	+"{ 0, 1, 6, 4, 5, 2, 3, 7 }<br>"
+	+"If two passes have already been performed where 0, 1, and 6 are in correct relative order, what will the array look like after another insertion pass?",
+	"{ 0, 1, 4, 5, 2, 3, 6, 7 }",
+	"{ 0, 1, 2, 4, 5, 6, 3, 7 }",
+	"{ 0, 1, 4, 6, 5, 2, 3, 7 }",
+	"{ 0, 1, 2, 3, 4, 5, 6, 7 }", "{ 0, 1, 4, 6, 5, 2, 3, 7 }"],
+	["Consider the following array, to be sorted using insertion sort in ascending order:<br>"
+	+"{ 7, 2, 6, 4, 5, 0, 3, 1 }<br>"
+	+"How many passes must be performed in this insertion sort before the value 7 is in its correct position at the end of the list?",
+	"1",
+	"4",
+	"7",
+	"8", "7"],
+	["Consider a partially sorted list that is undergoing the insertion sort in ascending order:<br>"
+	+"{ 1, 6, 7, 5, 4, 2, 3 }<br>"
+	+"How many shifts must be performed to insert the value 5 into the correct position?",
+	"1",
+	"2",
+	"3",
+	"4", "2"],
+	["Consider the following code for an insertion sort in ascending order:"
+	+"void insertionSort( pass-by-reference int [] list ) <br>"
+	+"    for ( int k ← 1; k < list.length; k ← k + 1 ) <br>"
+	+"        int temp ← list [ k ] <br>"
+	+"        int best ← k <br>"
+	+"        while ( condition ) <br>"
+	+"            list[ best ] ← list[ best - 1] <br>"
+	+"            best ← best - 1 <br>"
+	+"        end while <br>"
+	+"        list[ best ] ← temp <br>"
+	+"    end for <br>"
+	+"end void <br>"
+	+"Which expression best replaces the condition so that the list is sorted in ascending order?",
+	"best < 0 AND temp < list[ best - 1 ]",
+	"best < 0 AND temp > list[ best - 1 ]",
+	"best > 0 AND temp < list[ best - 1 ]",
+	"best > 0 AND temp > list[ best - 1 ]", "best > 0 AND temp < list[ best - 1 ]"],
+	["Which of the following describes an insertion sort?",
+	"All values in a list are placed in a minimum heap, which is then traversed to produce the sorted list.",
+	"n-1 passes are performed for n values where adjacent values are compared and swapped if out of order.",
+	"Additional values are inserted each pass into a portion of the list that maintains a sorted order.",
+	"A \"divide and conquer\" approach is used to break apart the list and sort smaller portions of it.", "Additional values are inserted each pass into a portion of the list that maintains a sorted order."],
+	["Consider the following list:<br>"
+	+"{ 1, 6, 7, 3, 4, 2, 5, 8 }<br>"
+	+"If the list is sorted using the merge sort, how many total division operations will take place during the entire process of the merge sort?",
+	"1",
+	"3",
+	"7",
+	"8", "7"],
+	["Which of the following statements describes a merge sort?",
+	"Compare adjacent neighbors and swap them",
+	"Divide elements into sublists sorted around a pivot value",
+	"Select the next best value and insert them into a sorted sublist",
+	"Divide elements into sublists and then reassembles them into sorted order", "Divide elements into sublists and then reassembles them into sorted order"],
+	["Consider the following lists:<br>"
+	+"{ 1, 6, 7, 9 } and { 2, 3, 5, 8 }<br>"
+	+"If the lists are merged during a merge sort, what will be the resulting list?",
+	"{ 1, 6, 7, 9, 2, 3, 5, 8 }",
+	"{ 1, 2, 6, 3, 7, 5, 9, 8 }",
+	"{ 1, 2, 3, 5, 6, 7, 9, 8 }",
+	"{ 1, 2, 3, 5, 6, 7, 8, 9 }",  "{ 1, 2, 3, 5, 6, 7, 8, 9 }"],
+	["Which of the following statements does not describe part of the merge sort process?",
+	"Evenly divide lists into smaller lists",
+	"Merge smaller lists into ordered larger lists",
+	"Divide lists into partitions using a pivot value",
+	"Merge smaller lists until there is only one sorted list", "Divide lists into partitions using a pivot value"],
+	["Consider the following list:<br>"
+	+"{ 1, 6, 7, 3, 4, 2, 5, 8 }<br>"
+	+"If the list is divided into two lists during the Merge sort, what would be the contents of the two smaller lists?",
+	"{ 1, 3, 4, 2 } and { 6, 7, 5, 8 }",
+	"{ 1, 2, 3 } and { 6, 7, 4, 5, 8 }",
+	"{ 1, 6, 7, 3 } and { 4, 2, 5, 8 }",
+	"{ 1, 6, 7, 3, 4 } and { 2, 5, 8 }", "{ 1, 6, 7, 3 } and { 4, 2, 5, 8 }"],
+	["A merge sort is perfomed on a list with 16 items. How many merge operations must take place across the entire sort operation?",
+	"1",
+	"4",
+	"15",
+	"16", "15"],
+	["Consider the following list: <br>"
+	+"{ 3, 8, 7, 12, 24, 18, 16, 14 } <br>"
+	+"Now consider the pseudocode for a quick sort pass that selects a pivot point, given a lo and hi index representing the inclusive bounds of the partition to be sorted. <br>"
+	+"void quickSort(pass-by-reference int [] list, int lo, int hi ) <br>"
+	+"    int pivot = list[ ( lo + hi ) / 2 ] <br>"
+	+"    … <br>"
+	+"What will be the pivot value, if the quick sort pass is called with quickSort( list, 4, 7 )?",
+	"5",
+	"12",
+	"18",
+	"19", "18"],
+	["Consider the following list:<br>"
+	+"{ 1, 6, 7, 4, 3, 2, 5, 8 }<br>"
+	+"At what partition size will the quick sort cease the \"divide and conquer \" approach?",
+	"1 element",
+	"2 elements",
+	"4 elements",
+	"8 elements", "1 element"],
+	["Consider the following list:<br>"
+	+"{ 1, 6, 7, 4, 3, 2, 5, 8 }<br>"
+	+"If the list is undergoing quick sort with the value 4 as the pivot for the current pass, what will the list look like after the pass?",
+	"{ 1, 2, 3, 4, 5, 6, 7, 8 }",
+	"{ 1, 2, 3, 4, 7, 6, 5, 8 }",
+	"{ 8, 5, 2, 3, 4, 7, 6, 1 }",
+	"{ 1, 5, 2, 4, 3, 7, 6, 8 }", "{ 1, 2, 3, 4, 7, 6, 5, 8 }"],
+	["Consider the pseudocode for a quick sort pass, given a lo and hi index representing the inclusive bounds of the partition to be sorted. <br>"
+	+"void quickSort(pass-by-reference int [] list, int lo, int hi ) <br>"
+	+"    if ( lo ≥ hi ) <br>"
+	+"       return <br>"
+	+"    end if <br>"
+	+"    … <br>"
+	+"What is the purpose of the if statement in this pseudocode?",
+	"The if statement detects a pivot value and returns it",
+	"The if statement detects new bounds of a partition and returns it",
+	"The if statement detects that the entire list has been sorted and ends execution",
+	"The if statement detects a section of the list that is too small to partition any further and ends execution", "The if statement detects a section of the list that is too small to partition any further and ends execution"],
+	["Which of the following statements describes a quick sort?",
+	"Insert the \"next best \" value into a portion of a list maintaining a sorted order",
+	"Divide and conquer a list, merging portions of the list in sorted order",
+	"Partition a list and swap values around a pivot point",
+	"Select the \"next best \" value of a list and swap it into a portion of the list that has been sorted.", "Partition a list and swap values around a pivot point"],
+	["Which of the following terms is not associated with a quick sort?",
+	"merge",
+	"swap",
+	"partition",
+	"pivot", "merge"],
+	["Consider two data structures, where one is an Array and the other is a Linked List. Which of the following operations will complete with lower order of complexity for the Array?",
+	"Search for a value",
+	"Sum all values",
+	"Retrieve the nth element of the data structure",
+	"Sort all values", "Retrieve the nth element of the data structure"],
+	["Consider the following pseudocode for a sort: <br>"
+	+"void sort(pass-by-reference int [] list, int lo, int hi ) <br>"
+	+"    int mid ← (lo + hi) / 2 <br>"
+	+"    if ( lo ≠ hi ) <br>"
+	+"        sort( list, lo, mid ) <br>"
+	+"        sort( list, mid + 1, hi) <br>"
+	+"    end if <br>"
+	+"    merge( list, lo, mid, mid + 1, hi) <br>"
+	+"end void <br>"
+	+"Which is the average case Order of Complexity for this sort?",
+	"O(1)",
+	"O(N)",
+	"O(N log N)",
+	"O(N^2)", "O(N log N)"],
+	["In order to reduce best case Order of Complexity, a sort is implemented to immediately detect whether or not a list is sorted, and ends execution if that is the case. What is the Order of Complexity if this sort is called on a completely sorted list?",
+	"O(1)",
+	"O(N)",
+	"O(N log N)",
+	"O(N^2)", "O(N)"],
+	["Which of the following processes is not associated with an O(N log N) average case sort?",
+	"Selecting the best value for a position in the array",
+	"Partitioning an array using a pivot value",
+	"Combining two sorted lists into one sorted list",
+	"Selecting a pivot value", "Selecting the best value for a position in the array"],
+	["For the insertion sort, selection sort, bubble sort and quick sort, what is the running time efficiency for the worst case Order of Complexity?",
+	"O(1)",
+	"O(N)",
+	"O(N log N)",
+	"O(N^2)", "O(N^2)"],
+	["Which of the following is not considered an O(N^2) class sort for average cases?",
+	"Merge Sort",
+	"Selection Sort",
+	"Insertion Sort",
+	"Bubble Sort", "Merge Sort"],
+	["Consider a list: <br>"
+	+"{ 5, 2, 4, 3, 1 }<br>"
+	+"After one process step of a sort, the new value order of the list is:<br>"
+	+"{ 2, 4, 3, 1, 5 }<br>"
+	+"Which sort was most likely to have been applied to this list?",
+	"bubble sort",
+	"selection sort",
+	"merge sort",
+	"quick sort, with a pivot value of 4", "bubble sort"],
+	["Consider a list: <br>"
+	+"{ 5, 2, 4, 3, 1 } <br>"
+	+"After one process step of a sort, the new value order of the list is: <br>"
+	+"{ 1, 2, 4, 3, 5 } <br>"
+	+"Which sort could have been applied to this list?",
+	"bubble sort",
+	"selection sort",
+	"merge sort",
+	"quick sort, with a pivot value of 4", "selection sort"],
+	["Consider the following pseudocode for a sort: <br>"
+	+"void sort(pass-by-reference int [] list, int lo, int hi ) <br>"
+	+"    if ( lo ≠ hi ) <br>"
+	+"        sort( list, lo, (lo + hi) / 2 ) <br>"
+	+"        sort( list, (lo + hi) / 2 + 1, hi) <br>"
+	+"    end if <br>"
+	+"    merge( list, lo, (lo + hi) / 2, (lo + hi) / 2 + 1, hi) <br>"
+	+"end void <br>"
+	+"Which sort is this code most likely to represent?",
+	"insertion sort",
+	"selection sort",
+	"merge sort",
+	"quick sort", "merge sort"],
+	["Consider the following pseudocode for a sort: <br>"
+	+"void sort(pass-by-reference int [] list, int lo, int hi ) <br>"
+	+"    int pivot = list[ ( lo + hi ) / 2 ] <br>"
+	+"    … <br>"
+	+"Which sort is this code most likely to represent?",
+	"insertion sort",
+	"selection sort",
+	"merge sort",
+	"quick sort", "quick sort"],
+	["Which of the following groups of words are not commonly associated with sorting algorithms?",
+	"comparison, swap, pass",
+	"partition, pivot",
+	"divide, merge",
+	"inherit, instantiate", "inherit, instantiate"],
+	["A sort algorithm finds the best place in an already sorted portion of the list for the next unsorted item. Which sort algorithm best fits this description?",
+	"selection sort",
+	"insertion sort",
+	"merge sort",
+	"quick sort", "insertion sort"],
+	["An ISA that simplifies the processor by efficiently implementing only the instructions that are frequently used in programs.",
+	"CISC - Complex Instruction Set Computer",
+	"Artificial Intelligence",
+	"Architecture",
+	"RISC - Reduced Instruction Set Computer",
+	"RISC - Reduced Instruction Set Computer"],
+	["An ISA that has many specialized instructions, some of which may only be rarely used in practical programs.",
+	"CISC - Complex Instruction Set Computer",
+	"Artificial Intelligence",
+	"Architecture",
+	"RISC - Reduced Instruction Set Computer",
+	"CISC - Complex Instruction Set Computer"],
+	["A set of rules and methods that describe the functionality, organization and implementation of computer systems, often in terms of the type of processor being used.",
+	"Architecture",
+	"Artificial Intelligence",
+	"Operating System",
+	"UNIX",
+	"Architecture"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"Class names start with an upper case letter <br>",
+
+	"Convention",
+	"Good idea",
+	"Rule",
+	"None",
+	"Convention"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"Method names start with a lower case letter <br>",
+
+	"Convention",
+	"Good idea",
+	"Rule",
+	"None",
+	"Convention"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"floated <br>",
+
+	"Valid",
+	"Invalid - does not start with a letter or underscore",
+	"Invalid - contains invalid symbols",
+	"Invalid identifier - programming language reserved word",
+	"Valid"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"float <br>",
+
+	"Invalid - does not start with a letter or underscore",
+	"Invalid - contains invalid symbols",
+	"Invalid identifier - contains spaces",
+	"Invalid identifier - programming language reserved word",
+	"Invalid identifier - programming language reserved word"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"him and her <br>",
+
+	"Invalid - does not start with a letter or underscore",
+	"Invalid - contains invalid symbols",
+	"Invalid identifier - contains spaces",
+	"Invalid identifier - programming language reserved word",
+	"Invalid identifier - contains spaces"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"Identifiers should be meaningful <br>",
+
+	"Convention",
+	"Good idea",
+	"Rule",
+	"None",
+	"Good idea"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"4Gone <br>",
+
+	"Invalid - does not start with a letter or underscore","Good idea",
+	"Invalid - contains invalid symbols",
+	"Invalid identifier - contains spaces",
+	"Invalid identifier - programming language reserved word",
+	"Invalid - does not start with a letter or underscore","Good idea"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"No spaces or invalid symbols. <br>",
+
+	"Convention",
+	"Good idea",
+	"Rule",
+	"None",
+	"Rule"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"Variable names should be abbreviated <br>",
+
+	"Convention",
+	"Good idea",
+	"Rule",
+	"None",
+	"Good idea"],
+
+	["Choose the statement that best classifies the identifier creation guideline shown. <br>"
+
+	+"Variables start with a letter or the underscore character <br>",
+
+	"Convention",
+	"Good idea",
+	"Rule",
+	"None",
+	"Rule"],
+	["The concept where all of the characteristics and processes of a feature are included within that features definition.",
+
+
+	"Encapsulation",
+	"Abstraction",
+	"Inheritance",
+	"Composition",
+	"Encapsulation"],
+	["The most appropriate way to use a library of program code is to access the:",
+"methods or functions by way of the interface. ",
+"implementation details of the methods or functions.",
+"methods or functions by way of the source code.",
+"documentation of the methods or functions.",
+"methods or functions by way of the interface. "],
+["A formal comment block that describes what type of input a process expects to receive.",
+
+"Class",
+"Method",
+"Precondition",
+"Postcondition",
+"Precondition"],
+["A formal comment block that describes what type of result a process expects to provide.",
+
+
+"Try-catch Block",
+"Style Conventions",
+"Precondition",
+"Postcondition",
+"Postcondition"],
+["The idea that the program development process within the software system life cycle can take several iterations, and is rarely just a straight down the hill process from start to finish.",
+
+
+"Object oriented",
+"Robust",
+"Procedural",
+"Cyclical",
+"Cyclical"],
+["An object of class A contains instances of previously defined classes B and C.",
+"Encapsulation",
+"Polymorphism",
+"Inheritance",
+"Composition",
+"Composition"],
+["Which object-oriented programming concept is described by the following: Class M owns a data item defined by class N.",
+"Encapsulation",
+"Abstraction",
+"Inheritance",
+"Composition",
+"Composition"],
+["Class D contains several instances of data, and owns methods that work with that data.",
+"Encapsulation",
+"Polymorphism",
+"Inheritance",
+"Composition",
+"Encapsulation"],
+["Is this order of operator precedence right:<br>"
++"1. Unary (positive +, negative –, NOT !)<br>"
++"2. Multiplicative (*, /, %)<br>"
++"3. Additive (+, -)<br>"
++"4. Relational (<, >, <=, ≤, >=, ≥)<br>"
++"5. Equality (==, !=, <>, ≠)<br>"
++"6. Logical AND (&&)<br>"
++"7. Logical XOR (^)<br>"
++"8. Logical OR (||)<br>"
++"9. Assignment (<-, ←)<br>",
+"True",
+"False",
+"1 and 9 need to switch",
+"4 and 5 need to switch",
+"True"
+],
+["Is this order of operator precedence right:<br>"
++"1. Assignment (<-, ←)<br>"
++"2. Multiplicative (*, /, %)<br>"
++"3. Additive (+, -)<br>"
++"4. Relational (<, >, <=, ≤, >=, ≥)<br>"
++"5. Equality (==, !=, <>, ≠)<br>"
++"6. Logical AND (&&)<br>"
++"7. Logical XOR (^)<br>"
++"8. Logical OR (||)<br>"
++"9. Unary (positive +, negative –, NOT !)<br>",
+"True",
+"False",
+"1 and 9 need to switch",
+"4 and 5 need to switch",
+"1 and 9 need to switch"
+],
+["Is this order of operator precedence right: <br>"
++"1. Assignment (<-, ←) <br>"
++"2. Multiplicative (*, /, %) <br>"
++"3. Additive (+, -) <br>"
++"4. Equality (==, !=, <>, ≠) <br>"
++"5. Relational (<, >, <=, ≤, >=, ≥) <br>"
++"6. Logical AND (&&) <br>"
++"7. Logical XOR (^) <br>"
++"8. Logical OR (||) <br>"
++"9. Unary (positive +, negative –, NOT !) <br>",
+"True",
+"False",
+"1 and 9 need to switch",
+"4 and 5 need to switch",
+"4 and 5 need to switch"
+],
+["Is this order of operator precedence right:<br>"
++"1. Unary (positive +, negative –, NOT !)<br>"
++"2. Multiplicative (*, /, %)<br>"
++"3. Additive (+, -)<br>"
++"4. Relational (<, >, <=, ≤, >=, ≥)<br>"
++"5. Equality (==, !=, <>, ≠)<br>"
++"6. Logical AND (&&)<br>"
++"7. Logical OR (||)<br>"
++"8. Logical XOR (^)<br>"
++"9. Assignment (<-, ←)<br>",
+"True",
+"False",
+"1 and 9 need to switch",
+"4 and 5 need to switch",
+"False"
+],
+["What pseudocode is this: <br>"
++"int pseudocode(int[] list, int target)<br>"
+ +"for (int j ← 0; j < list.length; j ← j + 1)<br>"
+ +"if (list[j] == target)<br>"
+ +"return j<br>"
+ +"end if<br>"
+ +"end for<br>"
+ +"return −1<br>"
++"end pseudocode<br>",
+"Linear Search",
+"Binary Search",
+"Selection Sort",
+"Bubble Sort",
+"Linear Search"],
+["What pseudocode is this: <br>"
++"int pseudocode(int[] list, int target)<br>"
+ +"int left ← 0,right ← list.length–1    //left at start, right at end<br>"
++"while (left <= right)    //while left and right have not crossed<br>"
+ +"int middle ← (left + right)/2    //find the middle of the list<br>"
+ +"if (target == list[middle])<br>"
+ +"return middle<br>"
+ +"else<br>"
+ +"if (target < list[middle])    //if target less than middle<br>"
++"right ← middle – 1    //look left (change right marker to<br>"
+ +"   //position one place before the middle)<br>"
+ +"else<br>"
+ +"left ← middle + 1    //look right (change left marker to<br>"
+ +"end if else chain<br>"
++"end while<br>"
++"return -1    //target not found<br>"
+ +"end pseudocode <br>",
+"Linear Search",
+"Binary Search",
+"Selection Sort",
+"Bubble Sort",
+"Binary Search"],
+["What pseudocode is this: <br>"
++"void pseudocode(pass-by-reference int[] list)<br>"
+ +"for (int k ← 0;k<list.length-1;k←k+1)    //k loop starts at zero and stops<br>"
+ +"   //one position short of end of list<br>"
+ +"int best ← k    //assume that position k has best value<br>"
+ +"for (int q ← k+1;q<list.length;q ← q+1)   //q loop searches the rest of<br>"
+ +"   //the list for a better value<br>"
+ +"if (list[q] < list[best])    //if q indicates a better value,<br>"
+ +"best ← q    //best gets q<br>"
+ +"end q loop<br>"
+ +"swap(list, k, best)    //swap values at positions k and best<br>"
+ +"end k loop<br>"
++"end pseudocode<br>"
++"   //three step swap process<br>"
++"void swap (pass-by-reference int[] list, int i, int j)<br>"
+ +"int temp ← list[i]<br>"
+ +"list[i] ← list [j]<br>"
+ +"list [j] ← temp<br>"
++"end swap<br>",
+"Linear Search",
+"Binary Search",
+"Selection Sort",
+"Bubble Sort",
+"Selection Sort"],
+["What pseudocode is this: <br>"
++"void pseudocode(pass-by-reference int[] list)<br>"
+ +"boolean done ← false //assume sorting process is NOT done<br>"
+ +"while(not done)<br>"
+ +"done ← true //assume sorting process IS done, and list is sorted…BUT… <br>"
+ +"for (int k←0; k<list.length-1; k←k+1) //…look through the list anyway to see<br>"
+ +"//if any neighboring elements are out<br>"
+ +"//of order and need to be swapped<br>"
+ +"if (list[k+1] < list[k]) //if value of next-door neighbor is<br>"
++"//less than current value(neighbors are “out of sorts”)<br>"
++"swap(list, k, k+1) //swap the two values<br>"
++"done ← false //set done to false<br>"
++"end for k loop<br>"
+ +"end while loop<br>"
+ +"end pseudocode<br>"
++"//three step swap process<br>"
++"void swap (pass-by-reference int[] list, int i, int j)<br>"
+ +"int temp ← list[i]<br>"
+ +"list[i] ← list [j]<br>"
+ +"list [j] ← temp<br>"
++"end swap<br>",
+"Linear Search",
+"Binary Search",
+"Selection Sort",
+"Bubble Sort",
+"Bubble Sort"],
+["What pseudocode is this: <br>"
++"void pseudocode(pass-by-reference int[] list) <br>"
+ +"for (int k←1; k < list.length; k++)//outside loop starts at ONE and stops <br>"
++"//at end of list <br>"
+ +"int temp ← list[k] //save copy of current value to be inserted <br>"
+ +"int best ← k //assume best place is at current position…BUT…  <br>"
+ +"while (best > 0 AND temp < list[best - 1]) //…keep looking for a better place <br>"
+ +"list[best] ← list[best - 1] //shift values over one spot while the previous <br>"
+ +"best ← best-1 //place is better and haven’t reached the start <br>"
+ +"//of the list <br>"
+ +"end while <br>"
+ +"list[best] ← temp //insert the current value in the best place <br>"
++"end for <br>"
++"end pseudocode <br>",
+"Linear Search",
+"Insertion Sort",
+"Selection Sort",
+"Bubble Sort",
+"Insertion Sort"],
+
+["What pseudocode is this: <br>"
++"void Sort(pass-by-reference int[] list) //method for initial sort call <br>"
+ +"int n ← list.length <br>"
+ +"int[] temp ← new int[n] //creates a temporary array the same size as list <br>"
+ +"sortHelper(list, 0, n - 1, temp) <br>"
++"end Sort <br>"
++"//method that does the “divide and conquer” recursive process, receiving two arrays and two integers <br>"
++"//indicating front and back of portion of the current portion of the list being sorted <br>"
++"void sortHelper(pass-by-reference int[] list, int front, <br>"
+ +"int back, pass-by-reference int[] temp) <br>"
+ +"if (front < back) //if front and back positions have not crossed and are not the same <br>"
+ +"int mid ← (front + back)/2 //find the middle position between front and back <br>"
+ +"sortHelper(list, front, mid, temp)//sort the left side, from front to mid <br>"
+ +"sortHelper(list, mid + 1, back, temp)//sort the right side, mid+1 to back <br>"
+ +"otherMethod(list, front, mid, back, temp) //merge the left and right lists <br>"
+ +"end if <br>"
++"end sortHelper <br>",
+"Merge Sort",
+"Insertion Sort",
+"Selection Sort",
+"Bubble Sort",
+"Merge Sort"],
+
+["What pseudocode is this: <br>"
++"//method that merges two previously sorted lists, receiving two arrays and three integers <br>"
++"//indicating the front, mid, and back of the current portion of the list being sorted. <br>"
++"void otherMethod(pass-by-reference int_array list, int front, int mid, <br>"
+ +"int back, pass-by-reference int_array temp) <br>"
+ +"int i ← front //i marks the front of the left side of the list being sorted <br>"
+ +"int j ← mid + 1 //j marks the front of the right side of the list being sorted <br>"
+ +"int k ← front //k marks the front of the temporary list, into which the values <br>"
+ +"//will be merged <br>"
+ +"while (i <= mid && j <= back) //while neither front marker, i or j, have reached <br>"
+ +"//the end of their half of the list <br>"
++"if (list[i] < list[j]) //if i’s value is less than j’s value <br>"
+ +"temp[k] ← list[i] //put i’s value into the temporary list, and <br>"
+ +"i ← i+1 //step i one position to the right <br>"
++"end if <br>"
++"else <br>"
+ +"temp[k] ← list[j]; //otherwise, put j’s value into the temporary list, and <br>"
+ +"j ← j+1 //step j one position to the right <br>"
++"end else <br>"
+ +"k ← k+1 //step k one position to the right <br>"
+ +"end while <br>"
+ +"//at this point, one of the two halves of the list has been completely loaded into the <br>"
+ +"//temporary array, and the remaining half needs to be \“cleaned out\”  <br>"
+ +"//if i has not reached the middle, then the left half needs to be “cleaned out” and loaded <br>"
+ +"//into the temporary list <br>"
+ +"while (i <= mid) <br>"
+ +"temp[k] ← list[i] //put i’s value into the temporary list <br>"
++"k ← k+1 //step both k and i <br>"
++"I ← i+1 //one place to the right <br>"
+ +"end while <br>"
+ +"//if j has not reached the back, then the right half needs to be “cleaned out” and loaded <br>"
+ +"//into the temporary list <br>"
+ +"while (j <= back) <br>"
+ +"temp[k] ← list[j] //put j’s value into the temporary list <br>"
++"j ← j+1 //step both k and j <br>"
++"k ← k+1 //one place to the right <br>"
+ +"end while <br>"
++"//load all temporary values in this current list back into the original list <br>"
+ +"for(int x ← front; x <= back; x ← x+1) <br>"
++"list[x] ← temp[x] <br>"
++"end otherMethod <br>",
+"Merge Sort",
+"Insertion Sort",
+"Selection Sort",
+"Bubble Sort",
+"Merge Sort"],
+
+["What pseudocode is this: <br>"
++"void sort (pass-by-reference int[] list, int lo, int hi) <br>"
+ +"if (lo >= hi) //if the current values of lo and hi have met or crossed, <br>"
+ +"return //do not continue this process <br>"
+ +"end if <br>"
+ +"int left ← lo //left marker gets low end of current portion of list being sorted <br>"
+ +"int right ← hi //right marker gets high end of current portion of list being sorted <br>"
+ +"int pivot ← list[(lo+hi)/2] //pivot gets middle position value of current list <br>"
+ +"while ( left < right) //while left and right markers have not met or crossed <br>"
+ +"while (list[left] < pivot) //look for a value to the left of the pivot that is on the <br>"
+ +"//wrong side, and stop there, with left marking that position <br>"
+ +"left ← left+1 <br>"
+ +"end while <br>"
+ +"while (list[right] > pivot) //look for a value to the right of the pivot that is on the <br>"
+ +"//wrong side, and stop there, with right marking that position <br>"
+ +"right ← right-1 <br>"
+ +"end while <br>"
+ +"if (left <= right) //if the left and right positions have not crossed, swap the two <br>"
+ +"//values at those positions, and…   <br>"
+ +"swap (list, left, right) <br>"
+ +"left ← left+1 //…step left marker one position to the right, and…   <br>"
+ +"right ← right-1//…step right marker one position to the left <br>"
+ +"end if <br>"
+ +"end while <br>"
+ +"quickSort (list, lo, right) //quicksort the left side of the list <br>"
+ +"quickSort (list, left, hi) //quicksort the right side of the list <br>"
++"end sort <br>"
++"void swap (pass-by-reference int[] list, int i, int j) <br>"
+ +"int temp ← list[i] <br>"
+ +"list[i] ← list [j] <br>"
+ +"list [j] ← temp <br>"
++"end swap <br>",
+"Merge Sort",
+"Quick Sort",
+"Selection Sort",
+"Bubble Sort",
+"Quick Sort"],
+
+["What is array is this <br>"
++"void arraySomething (pass-by-reference int[] list, int i, int j) <br>"
+ +"int temp ← list[i] <br>"
+ +"list[i] ← list [j] <br>"
+ +"list [j] ← temp <br>"
++"end arraySomething <br>",
+"1D Array LeftShift",
+"1D Array Reverse",
+"1D Array Fibonacci",
+"1D Array Swap",
+"1D Array Swap"],
+
+["What is array is this <br>"
++"procedure arraySomething(int [] list, int places) <br>"
++"for (int i ← 0; i < places; i ← i + 1) <br>"
++"int first ← list[0] <br>"
++"for (int j ← 0; j < len(list) - 1; j ← j + 1) <br>"
++"list[j] ← list[j + 1] <br>"
++"end for <br>"
++"list[len(list) - 1] ← first <br>"
++"end for <br>"
++"end arraySomething <br>",
+"1D Array LeftShift",
+"1D Array Reverse",
+"1D Array Fibonacci",
+"1D Array Histogram",
+"1D Array LeftShift"],
+
+["What is array is this <br>"
++"procedure arraySomething(int [] list) <br>"
++"for (int i ← 0; i < len(list)/2; i ← i + 1) <br>"
++"// call to swap <br>"
++"swap(list, i, len(list) - i - 1) <br>"
++"end for <br>"
++"end arraySomething <br>",
+"1D Array LeftShift",
+"1D Array Reverse",
+"1D Array Fibonacci",
+"1D Array Histogram",
+"1D Array Reverse"],
+
+["What is array is this <br>"
++"int [] ← {0, 1, 0, 0, 0, 0, 0, 0, 0, 0} <br>"
++"for (int i ← 0; i < 10; i ← i + 1) <br>"
++"// loop body <br>"
++"if ( i < 8)  <br>"
++"list[ i + 2]  ← list[i] + list[i + 1] <br>"
++"end if <br>"
++"//another way is: <br>"
++"if ( i > 1)  <br>"
++"list[i]  ← list[i - 1] + list[i - 2] <br>"
++"end if <br>",
+"1D Array LeftShift",
+"1D Array Reverse",
+"1D Array Fibonacci",
+"1D Array Histogram",
+"1D Array Fibonacci"],
+
+["What is array is this <br>"
++"procedure arraySomething (pass-by-reference int[] result, pass-by-value int[] data) <br>"
+ +"for (int i ← 0; i < len(data); i ← i +1)<br>"
+ +"result[data[i]] ← result[data[i]] + 1 <br>"
+ +"end for <br>"
++"end arraySomething <br>",
+"1D Array Histogram",
+"1D Array Reverse",
+"1D Array Fibonacci",
+"1D Array Swap",
+"1D Array Histogram"],
+
+["What is array is this <br>"
++"procedure histogram (pass-by-reference int[] result, pass-by-value int[] data) <br>"
+ +"for (int i ← 0; i < len(data); i ← i +1)<br>"
+ +"result[data[i]] ← result[data[i]] + 1 <br>"
+ +"end for <br>"
++"end histogram <br>"
++"What pre-condition must be true for histogram to execute without error? <br>",
+"result last index must be greater than or equal to data greatest value",
+"result first index must be greater than or equal to data greatest value",
+"result first index must be greater than or equal to data lowest value",
+"result last index must be greater than or equal to data lowest value",
+"result last index must be greater than or equal to data greatest value"],
+
+["What is array is this <br>"
++"int arraySomething (int[] list1,  int[] list2) <br>"
++"int [] result ← new int [ len(list1) + len(list2) ] <br>"
++"for ( int i ← 0; i < len(result); i ← i + 1)<br>"
++"if ( i < len(list1) ) <br>"
++"result[i] ← list1[i] <br>"
++"else <br>"
++"result[i] ← list2[i - len(list1) ] <br>"
++"end if <br>"
+ +"end for <br>"
++"end arraySomething <br>",
+"1D Array Histogram",
+"1D Array Reverse",
+"1D Array Fibonacci",
+"1D Array Combine",
+"1D Array Combine"]
+
+
+];
+var shq = [];
+var hq = [];
+var sq = [];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+
+	if(sq.length == questions.length){
+			test.innerHTML = "<p>"+sq+"</p>";
+			test.innerHTML += "<br><p>"+hq+"</p>";
+	test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
+			pos = 0;
+			correct = 0;
+			return false;
+	}
+
+	   // if(pos >= questions.length){
+	   // 	test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" </h2> ";
+	   // 	_("test_status").innerHTML = "Test Completed";
+	   // 	pos = 0;
+	   // 	correct = 0;
+	   // 	return false;
+	   // }
+	var tot = questions.length - sq.length;
+	var rq = [];
+	var rpn = Math.floor(Math.random() * 3) + 1;
+	var rn = [1, 3, 4, 2];
+	rn = shuffle(rn);
+	pos = Math.floor(Math.random()*questions.length);
+	//pos = 91;
+	while(sq.includes(pos)){
+			pos = Math.floor(Math.random()*questions.length);
+			if(!sq.includes(pos)) break;
+	}
+	   //pos = questions.length - 5;
+	   //pos = 41;
+	if(pos == questions.length) --pos;
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq = shuffle(rq);
+
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+tot;
+	question = questions[pos][0];
+	chA = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	chB = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	chC = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	chD = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	test.innerHTML = "<h1>"+question+"</h1>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chA+"'> <p><font size='7'>"+chA+"</font></p><br>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chB+"'> <p><font size='7'>"+chB+"</font></p><br>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chC+"'> <p><font size='7'>"+chC+"</font></p><br>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chD+"'> <p><font size='7'>"+chD+"</font></p><br><br>";
+	test.innerHTML += "<button style='width:100px; height:100px;' onclick='checkAnswer()'>Submit</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][5]){
+		test.innerHTML += "<button style='width:100px; height:100px;' onclick='nextQuestion()'>Next Question</button>";
+		test.innerHTML += "<h1>Right! its: <br>"+questions[pos][5]+"</h1>";
+
+	}
+	else {
+		test.innerHTML += "<button style='width:100px; height:100px;' onclick='nextQuestion()'>Next Question</button>";
+		test.innerHTML += "<h1> Wrong its: <br>"+questions[pos][5]+"</h1>";
+		hq.push(pos);
+	}
+
+}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+     // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+       // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+       // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+function nextQuestion(){
+	sq.push(pos);
+	renderQuestion();
+}
+
+function HQuestion(){
+    hq.push(pos);
+sq.push(pos);
+    renderQuestion();
+}
+
+function done(){
+    test.innerHTML = "<p>"+sq+"</p>";
+    test.innerHTML += "<br><p>"+hq+"</p>";
+    test.innerHTML += "<br><button style='width:100px; height:100px;' onclick='nextQuestion()'>Next Question</button>";
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+</body>
+</html>

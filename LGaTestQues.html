@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
+</style>
+<script>
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
+var questions = [
+	["Choose the statement that best classifies the identifier creation guideline shown."
+	,"A- Constants in all upper case letters.",
+	"B- Good idea",
+	"C- Rule",
+	"D- Convention",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>This is a standard convention among most languages.)"],
+	["The stage in the software system life cycle that determines the structure of the software strategy and code."
+	,"A- Analysis",
+	"B- Maintenance",
+	"C- Design",
+	"D- Testing",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Software System Life Cycle - Five general steps"
+	+"<br>1 - Analysis"
+	+"<br>2 - Design"
+	+"<br>3 - Implementation (Coding)"
+	+"<br>4 - Testing"
+	+"<br>5 - Maintenance)"],
+	["A design process that takes previously developed and tested modules to build a larger software project."
+	,"A- Bottom up",
+	"B- Flowchart",
+	"C- Top down",
+	"D- Stepwise refinement",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>When previously developed and tested modules already exist that will accomplish part of the job, it is certainly wise to use them in the design and implementation process.)"],
+	["Development process that combines features of other development models into a cyclical process, including several phases, one of which is risk analysis."
+	,"A- Agile",
+	"B- Incremental",
+	"C- Waterfall",
+	"D- Spiral",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Similar to the incremental process, an additional risk assessment was included in the process, deciding whether the change to be made was a risk worth taking in the whole process.)"],
+	["A certain method of class A works in a certain way, but how this is accomplished is not known."
+	,"A- Composition",
+	"B- Encapsulation",
+	"C- Polymorphism",
+	"D- Abstraction",
+	 "D"
+	+"<br>(Explanation:"
+	,"Abstraction refers to the idea that not all about an object needs to be known or accessible in order to interface with it or use it.)"],
+	["The definition of an object in OOP, describing the type of data owned by the object, as well as methods that act on that data."
+	,"A- object",
+	"B- method",
+	"C- class",
+	"D- procedure",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The class is the definition of the \"thing\", and the object IS the \"thing\".)"],
+	["An aspect of object oriented programming that incorporates related data items and methods into a class definition, including instance variables, constructors, accessor and modifer methods."
+	,"A- Composition",
+	"B- Encapsulation",
+	"C- Abstraction",
+	"D- Polymorphism",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>Encapsulation refers to the idea that an object is all packaged together in a bundle, to be used as one entity.)"],
+	["A general term that refers to information used by a computer program, such as words and values."
+	,"A- procedure",
+	"B- data structure",
+	"C- data",
+	"D- data type",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Data is simply information that comes in several data types, such as numbers, text, and true or false values.)"],
+	["Identify the data type for this value:"
+	+"<br>   \"G\""
+	,"A- boolean",
+	"B- char",
+	"C- float",
+	"D- string",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>The main data types are:"
+	+"<br>int - integer, non decimal"
+	+"<br>float - decimal, like 3.14"
+	+"<br>char - single character, enclosed in single quotes, like \'A\'"
+	+"<br>string - a row of characters, enclosed in double quotes, like \"HELLO\""
+	+"<br>boolean - a true or false value)"],
+	["The feature of OOP that allows for classes to be defined based on previously defined and developed classes, receiving all of the characteristics of the original class, and then expanding on those features, easily identified as an \"is a\" relationship."
+	,"A- Composition",
+	"B- Inheritance",
+	"C- Polymorphism",
+	"D- Encapsulation",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>Inheritance is a key feature of OOP, where new objects are based on previously created, defined, and tested objects, streamlining the software development process.)"],
+	["A structured comment block that describes what type of result a process expects to provide."
+	,"A- Class",
+	"B- Precondition",
+	"C- Postcondition",
+	"D- Constant",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The postcondition statement is used to help the reader of the code know what can be expected as the result of a process.)"],
+	["Choose the statement that best classifies the identifier creation guideline shown."
+	+"<br>Contains only alphanumeric characters, or the underscore character"
+	,"A- Good idea",
+	"B- Rule",
+	"C- Convention",
+	"D- Constants in all upper case letters.",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>This is the primary rule for creating identifiers.)"],
+	["Identify the data type for this value:"
+	+"<br>9.532"
+	,"A- float",
+	"B- string",
+	"C- char",
+	"D- int",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>The main data types are:"
+	+"<br>int - integer, non decimal"
+	+"<br>float - decimal, like 3.14"
+	+"<br>char - single character, enclosed in single quotes, like \'A\'"
+	+"<br>string - a row of characters, enclosed in double quotes, like \"HELLO\""
+	+"<br>boolean - a true or false value)"],
+	["The term that means \"many forms\", and which indicates a key element of object oriented programming, where methods can be overloaded or overridden as needed and desired."
+	,"A- Polymorphism",
+	"B- Encapsulation",
+	"C- Abstraction",
+	"D- Composition",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Polymorphism relates to overloading, overriding, and the ability of parent objects to refer to child objects.)"],
+	["A method of class F that was inherited from class G is redefined."
+	,"A- Composition",
+	"B- Polymorphism - polymorphic object",
+	"C- Polymorphism - overriding",
+	"D- Polymorphism - overloading",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Overriding is when a method inherited from another class is customized for more specific use for the new object.)"],
+	["A programming language using words and commands easy for humans to understand and organize, but which must be translated into a language easy for the computer to understand and execute."
+	,"A- Low Level",
+	"B- Syntax diagram",
+	"C- High Level ",
+	"D- Backus-Naur",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>High level languages were created to make it easier to develop programs, which were then translated to machine language using a compiler or interpreter.)"],
+	["The language directly understood and executed by a computer, consisting of pure 0s and 1s."
+	,"A- Architecture",
+	"B- Pseudocode",
+	"C- Assembly Language",
+	"D- Machine Language",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Machine code is pure binary digits, zeros and ones.)"],
+	["Choose the statement below that best classifies the following identifier example."
+	+"<br>me%You"
+	,"A- Invalid - does not start with a letter or underscore",
+	"B- Valid",
+	"C- Invalid identifier - contains spaces",
+	"D- Invalid - contains invalid symbols",
+	 "D"
+	+"<br>(Explanation:"
+	,"An identifier cannot contain any symbols, except for the underscore character.)"],
+	["The fundamental type of data in a computer, often represented as zero and 1, false and true, off and on, etc."
+	,"A- AI",
+	"B- Bit",
+	"C- DOS",
+	"D- Byte",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The term \"bit\" stands for \"binary digit\", and represents an electronic impulse that is either zero volts or around 5 volts of power.)"],
+	["Choose the statement below that best classifies the following identifier example."
+	+"<br>name"
+	,"A- Valid",
+	"B- Invalid identifier - contains spaces",
+	"C- Invalid - contains invalid symbols",
+	"D- Invalid identifier - Java reserved word",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>This is perfectly good identifier.)"],
+	["A statement that activates a procedure, function, or method"
+	,"A- Return method",
+	"B- Call",
+	"C- Definition",
+	"D- Header",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The statement that executes the process, either from another location in the program, or through a recursive statement inside the process, is referred to as the method call.)"],
+	["When a program executes just fine, but the outcome is incorrect, this is a ______________ error."
+	,"A- Lexical",
+	"B- Runtime",
+	"C- Syntax",
+	"D- Logic",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>The most difficult errors to discover and correct are logic errors, when there are no compile or runtime errors, but the program just doesn\'t work correctly.)"],
+	["Which of the following is NOT a good program debugging strategy?"
+	,"A- Look at the arrows in the error messages to locate the error",
+	"B- Intentionally use bad data to see if your program can handle it",
+	"C- Read the error messages provided by the compiler",
+	"D- Delete the entire program and start all over again.",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Deleting the entire program would be a terribly inefficient way to debug a program, especially if you have already spent significant time and effort, althought sometimes, if your program is hopelessly mangled, it may be the only option.)"],
+	["A programming block of code that returns a calculated value."
+	,"A- Definition",
+	"B- Call",
+	"C- Header",
+	"D- Function, return method",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Procedures (void methods) perform tasks without returning values."
+	+"<br>Fuctions (return methods) return some kind of value based on a calculation of some sort.)"],
+	["In the switch statement shown below, what is the output when the letter \'a\' is input?"
+	+"<br>char let"
+	+"<br>print \"Enter a letter...\""
+	+"<br>input let"
+	+"<br>switch(let)"
+	+"<br> case \'a\':"
+	+"<br> case \'A\': print \"dog\"; break;"
+	+"<br> case \'b\':"
+	+"<br> case \'B\': print \"cat\";"
+	+"<br> case \'c\':"
+	+"<br> case \'C\': print \"pig\";break;"
+	+"<br> case \'d\':"
+	+"<br> case \'D\': print \"horse\";"
+	+"<br> case \'e\':"
+	+"<br> case \'E\': print \"cow\"; break;"
+	+"<br>end switch"
+	,"A- dogcatpig",
+	"B- dog",
+	"C- dogcatpighorsecow",
+	"D- nothing",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The letter \'a\' matches the first case, which has no action directly associated with it, but since there is no break, control falls down to the next statement, which is executed, resulting in \"dog\" being output, and then stopped by the break.)"],
+	["In this pseudocode example, string name is an example of a(an) __________ parameter"
+	+"<br>void sayHello(string name)"
+	+"<br> print(\"Hello \"+name+\"!\")"
+	+"<br>void main"
+	+"<br> sayHello(\"Suzy\")"
+	,"A- Formal",
+	"B- Actual",
+	"C- value",
+	"D- reference",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Variables in method headers are called formal parameters.)"],
+	["Not capitalizing a reserved word that should be capitalized in a programming statement is a ______________ error."
+	,"A- Syntax",
+	"B- Runtime",
+	"C- Lexical",
+	"D- Logic",
+	 "C"
+	+"<br>(Explanation:"
+	,"Any word related error, including mixed up order or misspelling, is considered a lexical error.)"],
+	["Which symbol below will correctly fill the blank to output the value 14?"
+	+"<br>int num1 ← 14"
+	+"<br>int num2 ← 35"
+	+"<br>if(num1 ____ num2)"
+	+"<br> println num1"
+	+"<br>else"
+	+"<br> println num2"
+	+"<br>I. <"
+	+"<br>II. >"
+	+"<br>III. ≤"
+	+"<br>IV. ≥"
+	+"<br>V. =="
+	+"<br>VI. ≠"
+	,"A- I, III, VI",
+	"B- III, IV, V",
+	"C- II, IV, VI",
+	"D- I, II, III, IV, VI",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Since the value 14 is LESS THAN 35, and num1 will output when the expression is true, three operators will make this happen: <, ≤, and ≠.)"],
+	["What is output by the pseudocode segment shown?"
+	+"<br>int num1 ← 35, num2 ← 17"
+	+"<br>int num3 ← num1 % num2"
+	+"<br>int num4 ← num2 % num1"
+	+"<br>if(num3 < num4)"
+	+"<br> print num3"
+	+"<br>else"
+	+"<br> print num4"
+	,"A- 18",
+	"B- 1",
+	"C- 17",
+	"D- 0",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The variable num3 is assigned the mod value of 35 and 17, which is 1, and num4 is assigned the mod value of 17 and 35, which is 17. Since 1 is LESS THAN 17, the if expression is true, and num3 is output, which has the value 1.)"],
+	["Which combination below will make this expression FALSE?"
+	+"<br>p AND q OR p XOR q"
+	,"A- boolean p ← false, boolean q ← false",
+	"B- boolean p ← true, boolean q ← false",
+	"C- boolean p ← true, boolean q ← true",
+	"D- boolean p ← false, boolean q ← true",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Since the Boolean order of priority is NOT, AND, XOR, then OR, to make this compound expression false, the two combinations on either side of the OR are evalatued first, and must both be false, which is: boolean p ← false, boolean q ← false"
+	+"<br>The other three combinations make this expression true."
+	+"<br>boolean p ← true, boolean q ← true makes the AND expression true"
+	+"<br>boolean p ← true, boolean q ← false makes the XOR expression true"
+	+"<br>as does boolean p ← false, boolean q ← true)"],
+	["Forgetting to end a string with a double quote symbol is a ______________ error."
+	,"A- Lexical",
+	"B- Syntax",
+	"C- Runtime",
+	"D- Logic",
+	 "B"
+	+"<br>(Explanation:"
+	,"Any punctuation type error is referred to as a syntax error.)"],
+	["Problem Statement"
+	+"<br>The switch statement below should calculate a week\'s pay based on number of years experience. For 1 year of experience, the hourly wage is $7, for 2 years $8 an hour, 3 years $10, 4 years $12, and 5 years $15 per hour. The number of hours will vary between 1 and 40 hours. What input value for years will result in a totalWeekPay output value of $480?"
+	+"<br>int years"
+	+"<br>input years"
+	+"<br>int hours ← 40"
+	+"<br>int totalWeekPay = 0;"
+	+"<br>switch(years)"
+	+"<br> case 1: totalWeekPay = hours*7;break;"
+	+"<br> case 2: totalWeekPay = hours*8;break;"
+	+"<br> case 3: totalWeekPay = hours*10;break;"
+	+"<br> case 4: totalWeekPay = hours*12;break;"
+	+"<br> case 5: totalWeekPay = hours*15;break;"
+	+"<br>end switch"
+	+"<br>print \"$\"+totalWeekPay"
+	,"A- 5",
+	"B- 4",
+	"C- 2",
+	"D- 1",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>To get paycheck value of $480 for 40 hours work, a wage of $12 an hour is required, which is achieved the 4 case, therefore the input value in years must be 4.)"],
+	["What is output by the pseudocode segment shown?"
+	+"<br>int x ← 10"
+	+"<br>int y ← 10"
+	+"<br>print x ≤ y"
+	,"A- false",
+	"B- true",
+	"C- not clear",
+	"D- undifend",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The value 10 is indeed equal to 10, therefore this expression is true.)"],
+	["What is output by the pseudocode segment shown?"
+	+"<br>boolean p ← true"
+	+"<br>boolean q ← true"
+	+"<br>print NOT p OR q"
+	,"A- true",
+	"B- false",
+	"C- undefine",
+	"D- error",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Since p is true, NOT p is false"
+	+"<br>false OR true (the value of q) is true since OR only requires one operand to be true in order to evaluate to true)"],
+	["During the execution of a program, entering a string when an integer is expected is a ______________ error."
+	,"A- Syntax",
+	"B- Lexical",
+	"C- Runtime",
+	"D- Logic",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>For most languages, string variables will accept anything input from the keyboard, but more specialized variables, such as numeric values, boolean values, and characters, require precise data entry, otherwise a runtime error will occur.)"],
+	["What is output by the pseudocode segment shown?"
+	+"<br>int x ← 5"
+	+"<br>int y ← 10"
+	+"<br>int z ← -3"
+	+"<br>print x≤y AND x≥z"
+	,"A- false",
+	"B- true",
+	"C- undefine",
+	"D- error",
+	 "B"
+	+"<br>Explanation:"
+	+"<br>Since 5 is indeed LESS THAN OR EQUAL TO 10 and 5 IS GREATER THAN OR EQUAL TO -3, this AND expression, which requires both operands to be true for a true result, is indeed true."],
+	["What is the complete output of the pseudocode example shown here?"
+	+"<br>void doStuff (passed_by_reference int x, passed_by_value y)"
+	+"<br> print(x + \":\" + y + \":\")"
+	+"<br> x ← x+5"
+	+"<br> y ← y+3"
+	+"<br> print(x + \":\" + y + \":\")"
+	+"<br>void main"
+	+"<br> int a ← 2"
+	+"<br> print(a + \"-\")"
+	+"<br> doStuff(a, a)"
+	+"<br> print(a + \"-\")"
+	,"A- 2-2:2:10:10:10-",
+	"B- 2-2:2:7:10:2-",
+	"C- 2-2:2:7:10:10-",
+	"D- 2-2:2:7:5:7",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>The sequence is:"
+	+"<br>a gets 2, and is printed (2-)"
+	+"<br>a is then passed twice to the doStuff method, first by reference to x, and then by value to y"
+	+"<br>x and y are both printed (2:2:)"
+	+"<br>x is incremented to 7, which automatically changes a in main to 7 since it was passed by reference"
+	+"<br>this action has no affect on y, which was passed by value, and still contains the value 2"
+	+"<br>y is incremented to 5, which has no affect on either a or x"
+	+"<br>x and y are printed (7:5:)"
+	+"<br>control returns to main, where a is printed (7-))"],
+	["A switch statement is useful when your program logic contains a chain of ______."
+	,"A- if else statements",
+	"B- variable declarations",
+	"C- parameters",
+	"D- method calls",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>The primary use of a switch statement is to provide a more clarified structure to use in the event a chain of else statements gets too long winded.)"],
+	["The type of parameter where changes by the method DO affect the original data."
+	,"A- Formal parameter",
+	"B- Actual parameter",
+	"C- Reference parameter",
+	"D- Value parameter",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>A parameter passed by reference sends the memory location of the actual parameter to the formal parameter, where any changes made in the method by the formal parameter instantly change the state of the actual paramter.)"],
+	["What is output by the pseudocode segment shown?"
+	+"<br>int x ← 6"
+	+"<br>int y ← 10"
+	+"<br>print x ≠ y"
+	,"A- false",
+	"B- true",
+	"C- undefine",
+	"D- error",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>Since x and y are indeed different values, x NOT EQUAL TO y is indeed true)"],
+	["Which of these terms refers to the process of using a loop in a program?"
+	,"A- iteration",
+	"B- sequence",
+	"C- recursion",
+	"D- branching",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Iteration is a term that means repeating a process. One way to do that is through the use of a loop structure, such as the while, do while, or for loop.)"],
+	["Which of the choices below is NOT one of the 3 standard parts of a loop?"
+	,"A- start",
+	"B- check",
+	"C- step",
+	"D- break",
+	 "D"
+	+"<br>(Explanation:"
+	,"Although the word \"break\" is indeed a command to stop a loop before its normal process of completion, it is not often used, and therefore is not considered one of the four standard parts of a loop.)"],
+	["How many times can the start of a loop happen?"
+	,"A- Three times",
+	"B- Once",
+	"C- More than four times",
+	"D- Twice",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The start of a loop only happens once.)"],
+	["How many times can the check of a loop happen?"
+	,"A- Only three times",
+	"B- Only once",
+	"C- One or more times",
+	"D- Only twice",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The check of a loop can happen many times, only once if the check is false, or more than once if the check is true, and finally, hopefully, reaching a false condition to stop the loop.)"],
+	["Which of the choices shown could be the action part of a loop?"
+	,"A- Calculation",
+	"B- Another loop",
+	"C- Input and Output",
+	"D- All of these",
+	 "D"
+	+"<br>(Explanation:"
+	,"All of these choices can be actions of a loop.)"],
+	["How many times will the <action> statement happen in the loop shown?"
+	+"<br>int x ← 0"
+	+"<br>while(x < 23)"
+	+"<br> <action>"
+	+"<br> x ← x + 1"
+	,"A- 21",
+	"B- 22",
+	"C- 23",
+	"D- 24",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The action happens when \"x < 23\" is true, which is the case for the x values of 0 through 22, a total of 23 actions.)"],
+	["Which <start>, <check> and <step> options in the choices below will cause the action of this loop to occur 10 times?"
+	+"<br><start>"
+	+"<br>do{"
+	+"<br> <action>"
+	+"<br> <step>"
+	+"<br>}while(<check>)"
+	,"A- int x ← 0 ; x < 10; x ← x + 1",
+	"B- int x ← 1 ; x ≤ 10 ; x ← x + 1",
+	"C- All of these",
+	"D- int x ← 5 ; x < 33; x ← x + 3",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The sequence of values for the three loops are:"
+	+"<br>0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+	+"<br>1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+	+"<br>5, 8, 11, 14, 17, 20, 23, 26, 29, 32)"],
+	["Which loop style will ALWAYS act at least once?"
+	,"A- do while",
+	"B- for",
+	"C- All will act at least once",
+	"D- while",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Since the do while is a posttest loop, the action of the loop takes place BEFORE the while condition is checked, and therefore will always act at least once. The for and while check the condition BEFORE the action takes place. If the condition is false from the start, no action will take place in these two loop structures.)"],
+	["How many stars will be output by this loop?"
+	+"<br>int x ← -4"
+	+"<br>while(x < 0)"
+	+"<br> print \"*\""
+	+"<br> x ← x - 1"
+	,"A- None",
+	"B- 4",
+	"C- Infinitely many",
+	"D- 3",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Since x decrements, getting smaller and smaller, this causes an infinite loop.)"],
+	["What is output by this pseudocode segment?"
+	+"<br>int sum ← 0"
+	+"<br> for(int x ← 100; x > 0 ; x ← x / 2) //assume integer division"
+	+"<br> sum ← sum + 1"
+	+"<br>print sum"
+	,"A- 4",
+	"B- 8",
+	"C- 7",
+	"D- 6",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>sum is 0"
+	+"<br>x is 100, sum is 1, 100 / 2 is 50"
+	+"<br>x is 50, sum is 2, 50 / 2 is 25,"
+	+"<br>x is 25, sum is 3, 25 / 2 is 12"
+	+"<br>x is 12, sum is 4, 12 / 2 is 6"
+	+"<br>x is 6, sum is 5, 6 / 2 is 3"
+	+"<br>x is 3, sum is 6, 3 / 2 is 1"
+	+"<br>x is 1, sum is 7, 1 / 2 is 0"
+	+"<br>loop stops)"],
+	["What is output by this pseudocode segment?"
+	+"<br>int x ← 15"
+	+"<br>int sum ← 0"
+	+"<br>do{"
+	+"<br> sum ← sum - x * 2"
+	+"<br> x ← x-3"
+	+"<br>}while(x > 0)"
+	+"<br>print sum"
+	,"A- -90",
+	"B- -774",
+	"C- -186",
+	"D- -84",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>x is 15, sum is 0"
+	+"<br>sum becomes -30, x becomes 12"
+	+"<br>sum becomes -54, x becomes 9"
+	+"<br>sum becomes -72, x becomes 6"
+	+"<br>sum becomes -84, x becomes 3"
+	+"<br>sum becomes -90, x becomes 0"
+	+"<br>loop stops)"],
+	["Which control structure listed below is the primary one used in a recursive method?"
+	,"A- Switch statement",
+	"B- Loop",
+	"C- if else statement",
+	"D- Sequential processing",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The if else statement is the key control structure for recursive methods.)"],
+	["Which of the terms listed represents the part of the recursive method that causes repetition?"
+	,"A- Recursive call",
+	"B- Loop",
+	"C- Base case",
+	"D- if else statement",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>The recursive call causes another method call to stack up, causing the repetitive nature of this method style.)"],
+	["Which of the terms listed represents the part of the recursive method that stops the repetitive process?"
+	,"A- Loop",
+	"B- Base case",
+	"C- Recursive call",
+	"D- if else statement",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>The base case is the part of the recursive process that causes the stacking process to stop.)"],
+	["Which of the statements listed below is NOT true regarding the use of loops and recursion?"
+	,"A- There are some things a recursive process can do that a loop cannot.",
+	"B- Both loops and recursion are processes used to repeat tasks in a program",
+	"C- Loops are more memory efficient than recursive processes. And When possible, use a loop, and only use recursion when a loop is not possible, or is less effective.",
+	"D- All of these statements are true.",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Indeed, all of the statements are true regarding the use of loops and recursion.)"],
+	["What is output by this pseudocode segment?"
+	+"<br>int f(int x)"
+	+"<br> if(x ≥ 10)"
+	+"<br> return f(x - 4) - 2"
+	+"<br> else"
+	+"<br> return -4"
+	+"<br> end if"
+	+"<br>end f"
+	+"<br>print f(18)"
+	,"A- -10",
+	"B- -4",
+	"C- -6",
+	"D- -8",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>f(18) = f(14) - 2 = -8 - 2 = -10"
+	+"<br>f(14) = f(10 - 2 = -6 - 2 = -8"
+	+"<br>f(10) = f(6) - 2 = -4 - 2 = -6"
+	+"<br>f(6) = -4)"],
+	["What is output by this pseudocode segment?"
+	+"<br>int f(int x)"
+	+"<br> if(x > 0 AND x % 2 == 0)"
+	+"<br> return 2"
+	+"<br> else"
+	+"<br> if(x > 0 AND x % 2 == 1)"
+	+"<br> return -1"
+	+"<br> else"
+	+"<br> return f(x + 5) + f(x + 8)"
+	+"<br> end if else chain"
+	+"<br>end f"
+	+"<br>print f(-10)"
+	,"A- 1",
+	"B- 4",
+	"C- 0",
+	"D- 2",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>f(-10) = f(-5) + f(-2) = 0 + 1 = 1"
+	+"<br>f(-5) = f(0) + f(3) = 1 + -1 = 0"
+	+"<br>f(0) = f(5) + f(8) = -1 + 2 = 1"
+	+"<br>f(3) = -1"
+	+"<br>f(-2) = f(3) + f(6) = -1 + 2 = 1"
+	+"<br>f(5) = -1"
+	+"<br>f(8) = 2"
+	+"<br>f(6) = 2)"],
+	["What value could be input for num in order to produce the output shown below?"
+	+"<br>int x ← 0"
+	+"<br>int num"
+	+"<br>input num"
+	+"<br>for(x ← 14; x < num ; x ← x + 2)"
+	+"<br> print \"*\""
+	+"<br>print x"
+	+"<br>//output"
+	+"<br>*****24"
+	,"A- 23",
+	"B- 25",
+	"C- 27",
+	"D- 21",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>x is 14"
+	+"<br>* is printed"
+	+"<br>x is 16"
+	+"<br>* is printed"
+	+"<br>x is 18"
+	+"<br>* is printed"
+	+"<br>x is 20"
+	+"<br>* is printed"
+	+"<br>x is 22"
+	+"<br>* is printed"
+	+"<br>final value of x is 24"
+	+"<br>loop stops)"],
+	["What statement best describes a value that could be input for x so that the while loop shown below will never act?"
+	+"<br>int x"
+	+"<br>input x"
+	+"<br>while(x ≤ 23)"
+	+"<br> <action>"
+	+"<br> x ← x + 1"
+	,"A- The value 23",
+	"B- Any value except 23",
+	"C- Any value less than 23",
+	"D- Any value greater than 23",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Since any value equal to or less than 23 will allow the loop to execute, all values GREATER than 23 will immediately cause the condition to be false, thus preventing the loop from acting at all.)"],
+	["How many times will the action statement happen in the loop shown?"
+	+"<br>int x ← 24"
+	+"<br>do{"
+	+"<br> <action>"
+	+"<br> x ← x + 1"
+	+"<br>}while(x < 23)"
+	,"A- 1",
+	"B- 2",
+	"C- 4",
+	"D- 0",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Since the do while is a posttest loop, and always acts at least once, this loop will act one time before the while condition is deemed false, since 25 < 23 is a false condition.)"],
+	["The adjacency matrix of a 4-node graph is given below. How many direct connection paths exist in the graph that is represented by this matrix?"
+	+"<br>PQRS"
+	+"<br>P1010"
+	+"<br>Q0101"
+	+"<br>R1100"
+	+"<br>S0001"
+	,"A- 6",
+	"B- 4",
+	"C- 7",
+	"D- 5",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>In an adjacency matrix, each value 1 represents the number of direct connections, or 1-hop paths from a vertex to another vertex. The sum of the 1s in the matrix represents the number of direct connections.)"],
+	["Which choice below is best described by the following statement?"
+	+"<br>Linear data structure that is contained in fixed, non-adjustable memory, where all items can be easily assigned and accessed using an indexing process."
+	,"A- Graph",
+	"B- Stack",
+	"C- Tree",
+	"D- Array",
+	 "D"
+	+"<br>(Explanation:"
+	,"An array is contained in contiguous memory, which is static and unable to grow or shrink in size once created.)"],
+	["After the integer elements 5, 3, 7, 1, 2, 4 are correctly inserted into a minimum heap tree, with the value 5 as the initial root, what is the preorder traversal of the tree?"
+	,"A- 5 3 2 7 4 1",
+	"B- 1 2 3 4 5 7",
+	"C- 1 2 5 3 4 7",
+	"D- 5 2 3 1 7 4",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The heap insertion process starts with 5 as the root, which is then switched with the 3 when that is added to the left, in order to restore the min heap state (all parents less than kids)."
+	+"<br>The 7 is added to the right, with no adjustment necessary."
+	+"<br>When the 1 is added to the left of the 3, it must be moved all the way to the root, moving the 5 and 3 down the left subtree one level each."
+	+"<br>When the 2 is added to the right of the 3, those two elements must be switched to maintain the min heap state."
+	+"<br>The 4 is added to the left of the 7, and then those two values are switched, resulting in the tree with 1 as the root, 2 and 4 at the next level, and 5, 3, and 7 at the lowest level."
+	+"<br> 5 3 3 1 1 1"
+	+"<br> / / \ / \ / \ / \""
+	+"<br> 5 5 7 3 7 2 7 2 4"
+	+"<br> / / \ / \ /"
+	+"<br> 5 5 3 5 3 7"
+	+"<br>The pre-order traversal starts at the root and retrieves the value of each node as it is visited on the left, starting with the 1, then the 2, 5, 3, 4, and 7.)"],
+	["After the integer elements 5, 3, 7, 1, 2, 4 are correctly inserted into a binary search tree, and the value 6 is then added to the tree, which statement below best describes the resulting position of the node that contains the 6?"
+	,"A- Right child of 4",
+	"B- Left child of 1",
+	"C- Root node",
+	"D- Left child of 7",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Since the 6 is greater than the 5, it slides to the right, and then to the left of the 7, inserted in the left child position of the 7."
+	+"<br> 5"
+	+"<br> / \""
+	+"<br> 3 7"
+	+"<br> / \ /"
+	+"<br>1 4 6"
+	+"<br>)"],
+	["If a linked list contains N elements, and only the head of the list is referenced, which statement below best describes how many steps it will take to insert another element at the back of the list?"
+	,"A- N steps",
+	"B- One step",
+	"C- N*2 steps",
+	"D- N/2 steps",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>In order to insert an element of a linked list where only the head is referenced, it requires traversing the entire list using a temporary pointer object until it reaches the last element, at which time the new element is attached to the back of the list. This will take as many steps as there are elements in the list._)"],
+	["What is output by the code shown below, where length represents the number of elements?"
+	+"<br>char [ ][ ] lets ←"
+	+"<br> {{\'H\',\'O\',\'W\'},{\'N\',\'O\',\'W\'},{\'B\',\'R\',\'O\',\'W\',\'N\'},{\'C\',\'O\',\'W\'}}"
+	+"<br>print lets.length * lets[2].length"
+	,"A- 6",
+	"B- 12",
+	"C- 16",
+	"D- 20",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>The value of lets.length is 4, since there are four rows in this matrix, and the value of lets[2] is 5, since there are five elements in row 2. The product of 4 and 5 is 20.)"],
+	["Which choice is NOT true about one dimensional arrays?"
+	,"A- Once an array has been created, it is static, and cannot grow or shrink in size.",
+	"B- An array can contain elements of different data types at the same time.",
+	"C- Values are accessed using an indexing process.",
+	"D- Values are stored in contiguous memory.",
+	 "B"
+	+"<br>(Explanation:"
+	,"All elements contained in an array must be of the same data type.)"],
+	["After the integer elements 5, 3, 7, 1, 2, 4 are correctly inserted into an ascending order binary search tree, what is the resulting inorder traversal?"
+	,"A- 1 2 5 3 4 7",
+	"B- 5 3 1 2 4 7",
+	"C- 1 2 3 4 5 7",
+	"D- 5 3 1 2 7 4",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The nature of the binary search tree is that all of the elements are in relative order, and when an inorder traversal is performed, the result is just that...the elements in ascending order. The resulting tree has 5 as the root, 3 and 7 at the next level, 1 and 4 as children of 3, and 2 as the right child of 1."
+	+"<br> 5"
+	+"<br> / \""
+	+"<br> 3 7"
+	+"<br> / \""
+	+"<br> 1 4"
+	+"<br> \""
+	+"<br> 2"
+	+"<br>)"],
+	["What is output by the following code sequence?"
+	+"<br>Queue q ← new Queue()"
+	+"<br>q.push(7)"
+	+"<br>q.push(3)"
+	+"<br>q.push(q.peek() * 2)"
+	+"<br>q.push(q.pop() + q.pop() + q.peek())"
+	+"<br>print q.peek()"
+	,"A- 14",
+	"B- 22",
+	"C- 24",
+	"D- 16",
+	 "A"
+	+"<br>(Explanation:"
+	,"After the first two values (7 and 3) are pushed, the front value 7 is doubled and pushed (14), and then the front two values (7 and 3) are removed and added to the remaining front value (14) for a total of 24, which is then pushed. The front value 14 is then output.)"],
+	["What is output by the following code sequence?"
+	+"<br>Stack s ← new Stack()"
+	+"<br>s.push(7)"
+	+"<br>s.push(3)"
+	+"<br>s.push(s.peek() * 2)"
+	+"<br>s.push(s.pop() + s.pop() + s.peek())"
+	+"<br>print s.pop()"
+	,"A- 24",
+	"B- 22",
+	"C- 14",
+	"D- 16",
+	 "D"
+	+"<br>(Explanation:"
+	,"After the first two values (7 and 3) are pushed, the top value 3 is doubled and pushed (6), and then the top two values (6 and 3) are removed and added to the remaining top value (7) for a total of 16, which is then pushed. The top value 16 is then output and removed.)"],
+	["Which choice below is best described by the following statement?"
+	+"<br>Data structure that resembles a waiting line in a cafeteria, where elements join the list at the back, and are accessed or removed from the list at the front."
+	,"A- Stack",
+	"B- Queue",
+	"C- Tree",
+	"D- Linked List",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>A queue pushes items to the back of the list, and peeks or pops elements from the front of the list.)"],
+	["After the integer elements 5, 3, 7, 1, 2, 4 are correctly inserted into a minimum heap tree, with the value 5 as the initial root, and the value 6 added to the heap, which term or terms below best describes the resulting tree?"
+	+"<br>I. Full tree"
+	+"<br>II. Complete tree"
+	+"<br>III. Balanced tree"
+	,"A- II only",
+	"B- III only",
+	"C- I only",
+	"D- All of these",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Since all positions are filled at all levels, this is a full, complete, and balanced tree.)"],
+	["Which choice below is best described by the following statement?"
+	+"<br>Data structure containing several nodes, often called vertices, which are connected to other nodes using edges."
+	,"A- Tree",
+	"B- Graph",
+	"C- Stack",
+	"D- Linked List",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>A graph is a collection of interconnected nodes, or vertices, with edges that are directed or undirected, linking them together into a system of nodes, which could represent a roadmap of system of interconnected tasks in a large project.)"],
+	["What is output by the code shown below?"
+	+"<br>int [ ][ ] grid ← new grid[3][4]"
+	+"<br>for(int r ← 0;r < grid.length;r ← r + 1)"
+	+"<br> for(int c ← 0;c < grid[r].length;c ← c + 1)"
+	+"<br> grid[r][c] ← r * c"
+	+"<br>print grid[2][3]"
+	,"A- 2",
+	"B- 12",
+	"C- 6",
+	"D- 5",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Since every grid element is assigned the product of its row and column index values, the element contained in row 2, column 3 is 2*3, or 6)"],
+	["Which choice is NOT true about two dimensional arrays?"
+	,"A- Values are accessed using an indexing process, where the first index represents the column, and the second represents the row.",
+	"B- The number of columns in each row can be different.",
+	"C- Values are stored in contiguous memory.",
+	"D- All elements contained in the array must be of the same data type.",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>In most modern languages, two-dimensional arrays are accessed in \"row major\" order, with the row indicated first, and then the column.)"],
+	["A special kind of queue is required where elements are inserted in natural ascending order, often called a priority queue. The element popped from the front of this queue is always the smallest item in the list. Which of the following data structures will best implement this requirement?"
+	,"A- Linked List",
+	"B- Array",
+	"C- Binary Search Tree",
+	"D- Minimum Heap",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>The state of a minimum heap is that the root node is always the smallest value, and is optimal for implementing a priority queue, where the root is removed each time during a pop operation. The last element of the tree is placed in the root position after the pop operation, and the min heap state is restored, ready for the next pop operation.)"],
+	["What is output by the code shown below?"
+	+"<br>int [ ] list ← {7,2,3,8,1,3}"
+	+"<br>print list[2] + list[ list[2] ]"
+	,"A- 11",
+	"B- 5",
+	"C- 10",
+	"D- 4",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>The value in list[2] is 3, and the value in list[list[2]], or list[3] is 8, therefore the sum of 3 and 8 is 11.)"],
+	["Which choice below is best described by the following statement?"
+	+"<br>Data structure containing several nodes, each of which can point to two other nodes, often referred to as children."
+	,"A- Tree",
+	"B- Stack",
+	"C- Queue",
+	"D- Array",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>A tree, more commonly a binary tree, has nodes called parents, and other nodes pointed to by the parent node called children.)"],
+	["Which choice below is best described by the following statement?"
+	+"<br>Data structure where insertion or deletion of elements is restricted to only one end of the list."
+	,"A- Array",
+	"B- Tree",
+	"C- Queue",
+	"D- Stack",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>A stack uses the push, pop, and peek commands to insert, delete, and access elements from only the top of the stack.)"],
+	["A linear data structure is required that needs to be flexible in size, where elements can be added and accessed anywhere in the list. Which of the following data structures meets these requirements?"
+	,"A- Array",
+	"B- Tree",
+	"C- Linked List",
+	"D- Graph",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>A linked list is linear, and has the ability to add, access, and delete elements as necessary, anywhere in the collection.)"],
+	["Which of the following NOT a true statement about the binary search process?"
+	,"A- The precondition is that the list must be sorted.",
+	"B- The target value must be contained within the list.",
+	"C- The process checks the middle item for a match, and then looks to the right or to the left if it doesn\'t match, repeating this process until a match is found, or not.",
+	"D- The average case scenario Big O running time is O(log N).",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>The only requirement for a binary search is that the list being searched is in ascending sorted order.)"],
+	["Which of the following is considered an O(N log N) class sort for a worst case scenario?"
+	,"A- Merge Sort",
+	"B- Selection Sort",
+	"C- Insertion Sort",
+	"D- Quick Sort",
+	 "A"
+	+"<br>(Explanation"
+	+"<br>Due to the \"divide and conquer\" nature of the merge sort, it is considered an O(N log N) class sort for all cases, average, worst, and best. The quick sort is also considered O(N log N) for best and average cases, but not in the worst case scenario, when its running time is considered to be O(N^2).)"],
+	["Which of these would be considered the worst case scenario for a linear search?"
+	,"A- The target value is found at the beginning of the list.",
+	"B- The target value is found at the end of the list.",
+	"C- The target value is found somewhere in the middle of the list.",
+	"D- The target value is not found in the list.",
+	 "D"
+	+"<br>(Explanation"
+	,"Although finding the target at the end of the list could be considered a worst case scenario, NOT finding it is actually one step worse than that.)"],
+	["Consider a list that contains eight integer values. If the list is sorted using the merge sort, how many total division operations will take place during the entire process?"
+	,"A- 1",
+	"B- 3",
+	"C- 7",
+	"D- 8",
+	 "C"
+	+"<br>(Explanation"
+	+"<br>Ultimately, the entire list must be divided into sublists with only 1 element each. Since there are 8 elements to begin with, it will take 7 divisions to create 8 sublists with 1 element each. The first division creates two lists of four elements each. The next division splits the left side into two elements each, then the left side of that division splits into one element each, stopping the division process for that portion, and then merging those two into a sorted portion. The right side containing two elements is then split into halves of size one, and then merged back into a sorted portion. Those two sorted two-element portions are then merged back into the sorted left half four-element portion. The right half of the original list then undergoes the same division and merging process, until the entire list is merged back into a completely sorted list.)"],
+	["Which of the following describes a selection sort?"
+	,"A- The list is partitioned around a pivot point.",
+	"B- Unsorted values are shifted into their \"best position\" in the list.",
+	"C- Adjacent values are compared and swapped if out of order.",
+	"D- The \"best value for each position\" is found and swapped into place with each pass.",
+	 "D"
+	+"<br>(Explanation"
+	+"<br>A selection sort selects the next \"best\" value and swaps it into its correct position with each pass. An insertion sort shifts values that are out of place into the correct order. A bubble sort compares adjacent values and performs swaps. A quicksort partitions a list around pivot points.)"],
+	["Which of the following descriptions of the Big O analysis categories is NOT correct?"
+	,"A- An O(1) process only works on a data set of 100 items or less.",
+	"B- An O(N) process is characterized by a loop that spans the entire data set of size N.",
+	"C- An O(N^2) process is characterized by a nested loop process based on the size of the data set.",
+	"D- An O(N log N) process is characterized by a divide and conquer process combined with an N based loop.",
+	 "A"
+	+"<br>(Explanation"
+	+"<br>The nature of an O(1) process is that, regardless of the size of the data set, it takes one step to achieve the task.)"],
+	["Consider a list:"
+	+"<br>{ 3, 5, 8, 10, 14, 34, 78, 123, 513, 999 }"
+	+"<br>If a binary search for the value 34 is performed, how many comparison operations will be required to find it?"
+	,"A- 1",
+	"B- 3",
+	"C- 5",
+	"D- 6",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>Three operations are required. The first \"middle\" value considered is 14 in position 4(middle of positions 0-9), then 123 in position 7(middle of 5-9), and finally 34 in position 5(middle of 5-6).)"],
+	["Assume there is a function defined swap( pass-by-reference int [] list, int position1, int position2 ) which swaps values in the array list at index position1 and index position2. What sorting routine is represented by the code shown below?"
+	+"<br>void mystSort( pass-by-reference int [] list )"
+	+"<br> boolean b ← false"
+	+"<br> while ( not b )"
+	+"<br> b ← true"
+	+"<br> for ( int k ← 0; k < list.length - 1; k ← k + 1 )"
+	+"<br> if ( list[ k ] > list[ k + 1] )"
+	+"<br> swap( list, k, k + 1 )"
+	+"<br> b ← false"
+	+"<br> end if"
+	+"<br> end for"
+	+"<br> end while"
+	+"<br>end void"
+	,"A- Selection",
+	"B- Bubble",
+	"C- Insertion",
+	"D- Quick",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>The bubble sort is characterized by the use of a boolean value that helps detect a clear pass when all values are in sorted order. A pass through the list is made repeatedly, swapping neighboring elements that are out of order. The boolean value is initially set to true at the beginning of each pass, and set to false whenever a swap is made. Once a clear pass is achieved, and the boolean value remains true, the sort is completed.)"],
+	["Consider a list:"
+	+"<br>{ 9, 2, 6, 8, -3, 7, 2, 15, 0, -1, 14, 99, -1 }"
+	+"<br>If a linear search for the value -1 is performed, what will be returned?"
+	,"A- -1",
+	"B- 9",
+	"C- 10",
+	"D- 12",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>A linear search will return the index of the target value. In this case, the first instance of the value -1 occupies position 9 in the list.)"],
+	["Consider a partially sorted list that is undergoing the insertion sort in ascending order, with the first four values already in sorted order:"
+	+"<br>{ 1, 5, 6, 7, 4, 2, 3 }"
+	+"<br>How many shifts must be performed to insert the value 4 into the correct position?"
+	,"A- 1",
+	"B- 2",
+	"C- 3",
+	"D- 4",
+	 "C"
+	+"<br>(Explanation"
+	+"<br>During an ascending order insertion sort, the value to be inserted will occupy a space made available by shifting greater values one space to the right until the next value is no longer greater than the value being considered. In this case, 5, 6 and 7 must be shifted so that 4 must be placed after the 1. Therefore, 3 shifts will occur.)"],
+	["Consider the following list:"
+	+"<br>{ 1, 6, 7, 4, 3, 9, 2, 5, 8 }"
+	+"<br>If the entire list is undergoing the initial partitioning pass using a quick sort process, with the middle value as the pivot, what will the list look like after the first pass?"
+	,"A- { 1, 2, 7, 4, 3, 9, 6, 5, 8 }",
+	"B- { 1, 6, 7, 4, 3, 9, 2, 5, 8 }",
+	"C- { 1, 2, 3, 4, 7, 9, 6, 5, 8 }",
+	"D- { 1, 6, 4, 3, 7, 2, 5, 8, 9 }",
+	 "C"
+	+"<br>(Explanation"
+	+"<br>Working from the outside ends of the list towards the pivot value, a quick sort pass will swap elements on either side of the pivot that are on the wrong side. During this process, a right side index and left side index move toward the pivot and swap \"out of position\" values. In this case, 6 and 2 will swap positions and 7 and 3 will swap positions.)"],
+	["A sort algorithm finds the best place in an already sorted portion of the list for the next unsorted item. Which sort algorithm best fits this description?"
+	,"A- selection sort",
+	"B- insertion sort",
+	"C- merge sort",
+	"D- quick sort",
+	 "B"
+	+"<br>(Explanation"
+	,"Although selection sort also appears to be a close fit, recall that selection sort finds the best value for the next place, where the insertion sort finds the best place for the next value.)"],
+	["Consider the following array, partially sorted using a selection sort process."
+	+"<br>{ 0, 1, 2, 4, 5, 7, 3, 6 }"
+	+"<br>If elements have been correctly selected for the first three positions, what will the array look like after the next pass?"
+	,"A- { 0, 1, 2, 3, 5, 7, 4, 6 }",
+	"B- { 0, 1, 2, 3, 5, 6, 4, 7 }",
+	"C- { 0, 1, 2, 3, 5, 4, 6, 7 }",
+	"D- { 0, 1, 2, 3, 4, 5, 7, 6 }",
+	 "A"
+	+"<br>(Explanation"
+	+"<br>In each pass of a selection sort, the next smallest value (in an ascending sort) is placed in the correct position. The only values that are swapped are the next smallest value and the value in the position where the next smallest value should go. In this case, the next smallest value after 0, 1 and 2 is 3. Therefore, the values 3 and 4 will be swapped in the next pass.)"],
+	["Consider the following array:"
+	+"<br>{ 0, 1, 6, 4, 2}"
+	+"<br>In how many passes will an ascending order bubble sort be accomplished?"
+	,"A- 2",
+	"B- 3",
+	"C- 4",
+	"D- 5",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>During the first pass, the 6 makes its way to the end, swapping places with 4, and then 2, with a final first pass order of 0, 1, 4, 2, 6. In the second pass, 4 swaps with the 2, with a final order of 0, 1, 2, 4, 6. Although the list is clearly in order, a final clear pass is required for the bubble sort, which makes a total of three passes to sort this list.)"],
+	["Consider the following partial pseudocode for a sort:"
+	+"<br>void sort(pass-by-reference int [] list, int lo, int hi )"
+	+"<br> if ( lo ≠ hi )"
+	+"<br> sort( list, lo, (lo + hi) / 2 )"
+	+"<br> sort( list, (lo + hi) / 2 + 1, hi)"
+	+"<br> end if"
+	+"<br> ...more code here"
+	+"<br>end void"
+	+"<br>Which sort is this code most likely to represent?"
+	,"A- insertion sort",
+	"B- selection sort",
+	"C- merge sort",
+	"D- quick sort",
+	 "C"
+	+"<br>(Explanation"
+	+"<br>The code shows the list being repeatedly divided into two halves, with no regard to the actual values contained, using a recursive process. The rest of the code merges each pair of divided lists back into the larger list in sorted order, resulting in a final sorted list. This is the nature of the merge sort.)"],
+	["Consider this partial pseudocode segment for a quick sort, given a lo and hi index representing the inclusive bounds of the partition to be sorted."
+	+"<br>void quickSort(pass-by-reference int [] list, int lo, int hi )"
+	+"<br> if ( lo ≥ hi )"
+	+"<br> return"
+	+"<br> end if"
+	+"<br> ...more code here"
+	+"<br>What is the purpose of the if statement in this pseudocode?"
+	,"A- The if statement detects a pivot value and returns it.",
+	"B- The if statement detects new bounds of a partition and returns it.",
+	"C- The if statement detects that the entire list has been sorted and ends execution.",
+	"D- The if statement detects a section of the list that is too small to partition any further and ends execution for that part of the process.",
+	 "D"
+	+"<br>(Explanation"
+	+"<br>If the size of the partition is 1 (lo is equal to hi), or zero (lo is greater than hi), a base case of the quick sort process has been reached with this partition, and no attempt will be made to further partition this segment of the list.)"],
+	["For a list of 1000 elements, using a process that is considered to have an O(log N) running time in all situations, what value below represents the maximum number of steps it will take for the algorithm to complete its task?"
+	,"A- 1",
+	"B- 10",
+	"C- 500",
+	"D- 1000",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>The nature of an O(log N) process is that the maximum number of steps required to complete the task is the log value, base 2, of the size of the data set. In this case, 10 is the log value, base 2, of 1024, which is the closest exact power of 2 just beyond 1000. This means that it will take no more than 10 steps to process this list of 1000 elements using an O(log N) process.)"],
+	["1 class StudentInfo"
+	+"<br> 2 private int age"
+	+"<br> 3 private string name"
+	+"<br> 4 StudentInfo(string n, int a)"
+	+"<br> 5 name ← n"
+	+"<br> 6 age ← a"
+	+"<br> 7 string toString()"
+	+"<br> 8 return \"Name:\"+name+\", Age:\"+age"
+	+"<br> 9 void setName(string n)"
+	+"<br>10 name ← n"
+	+"<br>11 void setAge(int a)"
+	+"<br>12 age ← a"
+	+"<br>13 string getName()"
+	+"<br>14 return name"
+	+"<br>15 int getAge()"
+	+"<br>16 return age"
+	+"<br>17 end class StudentInfo"
+	+"<br>Which of the statements below is NOT correct regarding the class definition shown above?"
+	,"A- Lines 2 and 3 contain private instance field declarations",
+	"B- The method defined in lines 7 and 8 controls the construction of a StudentInfo object",
+	"C- The methods defined in lines 9 through 12 are mutator methods",
+	"D- The methods defined in lines 13 through 16 are accessor methods",
+	 "B"
+	+"<br>(Explanation"
+	+"<br>The constructor is defined in lines 4 through 6. The toString method defined in lines 7 and 8 controls how the object will be displayed when output.)"],
+	["1 class StudentInfo"
+	+"<br> 2 private int age"
+	+"<br> 3 private string name"
+	+"<br> 4 StudentInfo(string n, int a)"
+	+"<br> 5 name ← n"
+	+"<br> 6 age ← a"
+	+"<br> 7 string toString()"
+	+"<br> 8 return \"Name:\"+name+\", Age:\"+age"
+	+"<br> 9 void setName(string n)"
+	+"<br>10 name ← n"
+	+"<br>11 void setAge(int a)"
+	+"<br>12 age ← a"
+	+"<br>13 string getName()"
+	+"<br>14 return name"
+	+"<br>15 int getAge()"
+	+"<br>16 return age"
+	+"<br>17 end class StudentInfo"
+	+"<br>18 //client code"
+	+"<br>19 StudentInfo s ← new StudentInfo(\"Harry\",23)"
+	+"<br>20 client code statement"
+	+"<br>Using the class definition and client code shown above, which of the following is NOT a valid client code statement for line 20?"
+	,"A- print s.age",
+	"B- s.setAge(24)",
+	"C- print s.toString()",
+	"D- print s.getAge()",
+	 "A"
+	+"<br>(Explanation"
+	+"<br>Since the instance field age is private, it is not possible to directly access it using dot notation. The proper way is to use the getAge() accessor method.)"],
+	["Which choice below best describes the situation where the running time of a binary search is O(1)?"
+	,"A- When the target value being searched is not found.",
+	"B- When the target value being searched is found at the end of the list.",
+	"C- When the target value being searched is found at the beginning of the list.",
+	"D- When the target value being searched is found in the middle of the list. ",
+	 "D"
+	+"<br>(Explanation"
+	+"<br>The binary search first considers the middle element of the list. If that middle element matches the target, only one step has occurred, representing the best case scenario of the binary search.)"],
+	["Which of the following search phrases will find all instances of text that contain the exact phrase, peanuts and coke ?"
+	,"A- peanuts and coke",
+	"B- peanuts or coke",
+	"C- \"peanuts and coke\"",
+	"D- peanuts not coke",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Putting quotes around a search phrase limits the search to EXACTLY what is shown inside the quotes. The phrase in Choice A will narrow the search to text that contains both parts. Using \"or\" expands the search to find text with either part, and putting \"not\" in front of a word indicates to search for instances with only the first part, but not the second.)"],
+	["Which of the following networking protocols does NOT have to do with the transfer or storage of information?"
+	,"A- SMTP",
+	"B- HTTP",
+	"C- HTML",
+	"D- POP",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>SMTP controls the transfer of email messages. HTTP controls the transfer of web pages. HTML controls how web pages look in a browser. POP controls how email messages are stored.)"],
+	["Which of the following uses of school email is NOT appropriate according to a typical \"acceptable use policy\" for a school district?"
+	,"A- An administrator sending a message congratulating a teacher for an excellent lesson presented during an observation.",
+	"B- Sending a broadcast message to all staff members advertising the sale of a personal item.",
+	"C- Sending a group message to a department announcing an important curriculum meeting.",
+	"D- Sending a help message to the technology department to assist with a broken school printer.",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>School email is to be used for school related items, and not for personal use.)"],
+	["Which of the following picture file formats is best-suited for use with web pages, and for storing images during the editing process because of its lossless compression?"
+	,"A- JPEG",
+	"B- TIFF",
+	"C- BMP",
+	"D- PNG",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Compared to JPEG, PNG excels when the image has large, uniformly colored areas. Even for photographs - where JPEG is often the choice for final distribution since its compression technique typically yields smaller file sizes - PNG is still well-suited to storing images during the editing process because of its lossless compression. BMP files are uncompressed, and therefore large and lossless. TIFF image format is not widely supported by web browsers. (https://en.wikipedia.org/wiki/Image_file_formats))"],
+	["A teacher is preparing an introductory computer science lesson to show basic information about data types, displaying the various types and what they contain. Which of the following applications would be most appropriate to use for this part of the lesson?"
+	,"A- Word processing document",
+	"B- Spreadsheet document",
+	"C- Database file",
+	"D- Slide show presentation",
+	 "D"
+	+"<br>(Explanation:"
+	,"Although it would be possible to use a word processing document or perhaps spreadsheet to present this lesson, a slide show would be the most effective for this situation.)"],
+	["A teacher is needing to store data for a research project, with various sets of complex data related to student performances in a recent lesson unit, and wants to tie all the data together using student IDs as the key field. Which of these applications would be most effective for this purpose?"
+	,"A- Word processing document",
+	"B- Spreadsheet document",
+	"C- Database file",
+	"D- Slide show presentation",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The main purpose of a database is to store information like this, tied together by a key field, enabling various types of searches and queries.)"],
+	["A computer has been infected with a harmful piece of software that tricked the user into loading and executing it on the system, but does not reproduce or self-replicate. Which term below best describes this software?"
+	,"A- Worm",
+	"B- Trojan",
+	"C- Virus",
+	"D- Zombie",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>Disguised as legitimate software, a Trojan is a harmful piece of software that tricks users into loading and executing it on their systems. Unlike viruses and worms they do not reproduce by infecting files, nor do they self-replicate. A Virus is a type of malware that propagates by inserting a copy of itself into another program. Viruses spread when the software or document they are attached to is transferred from one computer to another.Worms are similar to viruses in that they replicate functional copies of themselves, but are standalone software that do not require a host program to propagate. A zombie is a computer connected to the Internet that has been compromised by a hacker with the intent of future damage initiated by a Trojan or virus.)"],
+	["A new printer is being installed on a teacher\'s workstation, but isn\'t printing. The printer is plugged in, turned on, and connected properly to the computer, which is also on and functioning properly. Which of the following is NOT a likely cause of the problem."
+	,"A- The proper driver software has not been installed on the computer.",
+	"B- The new printer was not correctly selected when the print request was made",
+	"C- There is no paper in the printer",
+	"D- The printer\'s IP address has not been properly configured.",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>If this is a networked printer, the IP address would indeed be an issue, but since it is directly connected to the computer, no IP address is necessary.)"],
+	["Which of the choices below indicates the network protocol that controls the entire internet?"
+	,"A- RIP",
+	"B- SMTP",
+	"C- TCP/IP",
+	"D- OSI",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>TCP/IP, developed by ARPANET, is the original and current network protocol that controls how the internet works.)"],
+	["A computer science teacher is planning a unit on sorting routines and is considering several approaches, including the ones listed below. Which of the activities listed below would be the LEAST effective to use when first introducing the lesson for a particular sort."
+	,"A- Work through the pseudocode for the sort",
+	"B- View a video of folk dancers simulating the sort",
+	"C- Use playing cards to simulate the sorting process",
+	"D- Demonstrate the sort process on the board by tracing through the steps with a sample array of values, without any discussion of the code needed to implement the sort.",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Working through the pseudocode for a sorting routine is certainly an important final step, but would not be a good first step when introducing the concept of any particular sorting routine.)"],
+	["Which of the following defines the principle of \"fair use\"?"
+	,"A- a legal principle that defines the limitations on the exclusive rights of copyright holders.",
+	"B- a government license that gives the holder exclusive rights to a process, design or new invention for a designated period of time.",
+	"C- any name, symbol, figure, letter, word, or mark adopted and used by a manufacturer or merchant in order to designate his or her goods and to distinguish them from those manufactured or sold by others.",
+	"D- the exclusive legal right to reproduce, publish, sell, or distribute the matter and form of something.",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>Choice B describes a patent, C defines a trademark, and D a copyright.)"],
+	["Which of the choices below indicates the system programs that are permanently \"burned\" into ROM chips that contain basic startup routines for a computer?"
+	,"A- hardware",
+	"B- software",
+	"C- firmware",
+	"D- cloud",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>Hardware relates to the physical devices of a computer system, software the programs that run once the computer is on, and the cloud refers to the portion of the network where specific details are not immediately known to the user.)"],
+	["Which choice below best describes the reason a switch is a better device than a hub to serve as the center of a star topology."
+	,"A- A switch can handle more connections than a hub.",
+	"B- A switch preserves bandwidth, where a hub dilutes bandwidth.",
+	"C- A switch uses less electrical energy than a hub.",
+	"D- All of these reasons are valid.",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>A switch uses technology that maintains the same bandwidth for all devices, regardless of how many are connected, whereas a hub spreads out the bandwidth among all connected devices, causing less bandwidth available to each one, effectively slowing the performance of the network. Both devices come in all sizes, and both are about the same in use of electrical energy.)"],
+	["Which of the following is considered to be BOTH a valid input and output device?"
+	,"A- Mouse",
+	"B- Printer",
+	"C- Flash drive",
+	"D- Keyboard",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>A mouse and keyboard are only used for input, and a printer is only used for output. One might argue that a 3-in-1 printer is also used for input, but it is the scanner feature of that printer that is the input device, not the printer itself. A flash drive serves as both input and output.)"],
+	["What will be the value shown in cell D5 if a copy of the formula in cell D2 is made there?"
+	,"A- 1.75",
+	"B- 3",
+	"C- 6",
+	"D- 0",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>The copied formula will adjust to row 5, keeping the same column values, resulting in the formula =C5*E5, which multiplies 12 times 50%, resulting in the value 6.)"],
+	["There is an ongoing debate about which style of font is better to use, serif or sans serif. Which of the statements is considered to be true, according to current general opinions?"
+	,"A- Serif fonts are usually easier to read in printed works than sans-serif fonts, since they help the brain more easily recognize the letter.",
+	"B- The commonly used convention for printed work is to use a serif font for the body of the work. A sans-serif font is often used for headings, table text and captions.",
+	"C- Sans serif fonts are considered better suited for online purposes due to the fact that monitors often have much poorer resolutions than printed works, making it more difficult to discern the small serifs.",
+	"D- All of these statements represent valid opinions of the day regarding serif vs sans serif fonts.",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>See the following link for the source of the choices for this question.)"],
+	["Which of the statements below is NOT considered an appropriate part of the collaborative group learning process?"
+	,"A- Have the group help decide what the goal for the project should be.",
+	"B- Be open to others\' ideas, listen to all viewpoints, and be willing to compromise in order to reach a joint consensus.",
+	"C- Have the students take on specific tasks within the group, all contributing differently, but with relatively equal efforts.",
+	"D- Determine how the success of the project will be measured only after it has been completed.",
+	 "D"
+	+"<br>(Explanation:"
+	+"<br>Let the students know at the start exactly how you will be measuring their success, so they will know what they are working towards. This will help them avoid drifting off the goal. It may be helpful to write these measures out clearly on the board, so they can always refer back to them. See the following link for the source of the choices for this question.)"],
+	["Which term below describes the type of software characterized by word processors, spreadsheets, data bases, and presentation programs?"
+	,"A- Browser",
+	"B- Application",
+	"C- Protection",
+	"D- System",
+	 "B"
+	+"<br>(Explanation:"
+	+"<br>Browsers are programs that access and display web pages, like Chrome, Firefox, and Safari. Protection software includes virus and malware protection, like McAfee or Kasperskys. System software includes operating systems, like Windows, MAC for Apple based computers, UNIX or Linux.)"],
+	["Which of the choices below indicates a connector that has 15-pins and is used to connect a computer to a monitor."
+	,"A- HDMI",
+	"B- USB",
+	"C- VGA",
+	"D- Serial",
+	 "C"
+	+"<br>(Explanation:"
+	+"<br>A USB cable has 4 or five pins and comes in several different configurations. An HDMI connector is the newest connector used for monitor connection, and also provides audio. The serial connector is the oldest version with 9 pins that can be customized in various ways, depending on the application.)"],
+	["A formula has been entered into cell D2 and copied down to cells D3 through D6 to calculate the values shown based on the percentage value in cell E2. Which of the choices below would NOT work as the formula in cell D2 that will also produce the values below it when copied down?"
+	,"A- =C2*E2",
+	"B- =C2*E$2",
+	"C- =C2*$E$2",
+	"D- =C2*.25",
+	 "A"
+	+"<br>(Explanation:"
+	+"<br>The \"$\" is an absolute reference indicator, which locks the column and/or row indicated when copying down a formula. Since the factor is cell E2, that cell must always be used, and choices B and C effectively do that. Choice D works as long as the factor remains 25%. Choice A will never work since the formulas will use the blanks in each row down for the calculation, resulting in zero values in cells E3 through E6, for example, the formula in row 3 will be =C2*E3. Since E3 is blank, the value used in the calculation will be zero, resulting in zero as the calculated value.)"]
+
+];
+
+var shq = [];
+var hq = [];
+var sq = [];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+
+	if(sq.length == questions.length){
+			test.innerHTML = "<p>"+sq+"</p>";
+			test.innerHTML += "<br><p>"+hq+"</p>";
+	test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
+			pos = 0;
+			correct = 0;
+			return false;
+	}
+
+
+	// if(sq.length == questions.length){
+	// 	test.innerHTML = "<h2> You got "+correct+" right out of "+questions.length+" </h2>";
+	// 	_("test_status").innerHTML = "Test Completed";
+	// 	pos = 0;
+	// 	correct = 0;
+	// 	return false;
+	// }
+
+	var tot = questions.length - sq.length;
+	var rq = [];
+	var rpn = Math.floor(Math.random() * 3) + 1;
+	var rn = [1, 3, 4, 2];
+	rn = shuffle(rn);
+	pos = Math.floor(Math.random()*questions.length);
+	while(sq.includes(pos)){
+		pos = Math.floor(Math.random()*questions.length);
+		if(!sq.includes(pos)) break;
+	}
+	//pos = questions.length - 5;
+	//pos = 71;
+
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+	rq = shuffle(rq);
+
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+tot+" <button onclick='done()'>done</button>";;
+	question = questions[pos][0];
+	chA = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	chB = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	chC = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	chD = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+	test.innerHTML = "<h1>"+question+"</h1>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chA+"'> <p><font size='7'>"+chA+"</font></p><br>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chB+"'> <p><font size='7'>"+chB+"</font></p><br>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chC+"'> <p><font size='7'>"+chC+"</font></p><br>";
+	test.innerHTML += "<input type='radio' style='width:75px; height:75px;' name='choices' value='"+chD+"'> <p><font size='7'>"+chD+"</font></p><br><br>";
+	test.innerHTML += "<button style='width:100px; height:100px;' onclick='checkAnswer()'>Submit</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice.charAt(0) == questions[pos][5].charAt(0)){
+		test.innerHTML += "<button style='width:100px; height:100px;' onclick='nextQuestion()'>Next Question</button>";
+		test.innerHTML += "<h1>Right! its: <br> "+questions[pos][5]+"</h1>";
+	}
+	else {
+		test.innerHTML += "<button style='width:100px; height:100px;' onclick='nextQuestion()'>Next Question</button>";
+		test.innerHTML += "<h1> Wrong its: <br>"+questions[pos][5]+"</h1>";
+		hq.push(pos);
+	}
+}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+function nextQuestion(){
+	sq.push(pos);
+	renderQuestion();
+}
+
+function HQuestion(){
+    hq.push(pos);
+sq.push(pos);
+    renderQuestion();
+}
+
+function done(){
+    test.innerHTML = "<p>"+sq+"</p>";
+    test.innerHTML += "<br><p>"+hq+"</p>";
+    test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
+}
+
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+</body>
+</html>
