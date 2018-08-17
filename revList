@@ -1,0 +1,132 @@
+["DBMS ", "Database Management System "],
+ ["RDBMS ", "Relational DBMS. Stores data in tables and rows. "],
+ ["What does SQL stand for? ", "Structured Query Language "],
+ ["Who determines SQL standards? ", "ANSI (American National Standards Institute) "],
+ ["What are the versions of SQL? ", "Oracle, Postgre, mysql, microsoft "],
+ ["Difference between users and schema? ", "Users are the account holders. Schema is the set of objects in the users\' account. "],
+ ["4 main categories of sql statements? ", "DDL, DML, DCL, TCL "],
+ ["DDL ", "Data definition Language: Create, Alter, Drop "],
+ ["Constraints ", "Rules for data storage in a table. Ex: primary key, unique, Index, not null. "],
+ ["DML ", "Data Manipulation Language: Select, Delete, Insert, Update, Join "],
+ ["Types of Joins ", "Left, RIght, Full "],
+ ["Left Join ", "returns all records from the left table and the matched records from the right table "],
+ ["Right Join ", "returns all records from the right table and the matched records from the left table. "],
+ ["Full Join ", "returns all records of both tables "],
+ ["DCL ", "Data Control Language "],
+ ["TCL ", "Transaction Control Language: COMMIT, ROLLBACK "],
+ ["COMMIT ", "Saves changes in transaction control "],
+ ["ROLLBACK ", "Removes previous changes "],
+ ["Truncate vs drop? ", "Truncate wipes all entries from a table. Drop deletes the table entirely. "],
+ ["What are set Operators ", "Combine results of two component queries into a single result. ex: Union, Union All, Intersect, Minus "],
+ ["What is the Union Operator ", "Returns all distinct rows selected by either query "],
+ ["ORDER BY vs GROUP BY ", "Order simply sorts records. Group By uses an aggregate function to group the result sets by one or more columns. "],
+ ["WHERE vs HAVING ", "Where is a conditional keyword for normal results. Having is a conditional for Grouped results. "],
+ ["What does JOIN do? ", "Combines one or more tables in a relational database. "],
+ ["How do you select all rows and columns of a table in SQL? ", "SELECT * FROM table "],
+ ["Using NULL ", "IS NULL (correct) "],
+ ["What is a subquery? ", "A query within a larger query. "],
+ ["Examples of oracle datatypes ", "Char, number, float, integer, varchar, text "],
+ ["normalization ", "A process to remove redundancy across tables, use ids and joins to avoid storing values twice "],
+ ["INNER JOIN vs OUTER JOIN ", "Inner returns records with matching values in both tables. Outer returns records with matches in either table. "],
+ ["Foreign key ", "A primary key for another table. "],
+ ["Primary Key ", "The unique identifier for each record in a table "],
+ ["CRUD query ", "Create table users2 (userID int not null, username varchar(45), primary key(userID)); <br>"
++"Select * from users2; <br>"
++"Insert into users2 (username) Values (\'billy\'); <br>"
++"Update users2 set username=\'John\' where userID=0; <br>"
++"Delete from users2 where userID=0; "],
+ ["4 pillars of OOP ", "Inheritance, Encapsulation, Polymorphism, Abstraction "],
+ ["What does finalize() do? ", "Fininalize() is called when an object has no more references to dispose free up the unused resources. "],
+ ["final vs static ", "final prevents changes while static allows an entire class to alter the same variable. "],
+ ["How to create a variable in JS? ", "var name = whatever "],
+ ["What is JS used for? ", "It is a client side scripting language that often accompanies HTML "],
+ ["What is a stored procedure? ", "It is a stored group of optimized sql statements that reduces network traffic and increases performance. Any changes to the stored statements changes for all clients. "],
+ ["== vs === in JS? ", "=== forces the types to be the same, while == does not "],
+ ["== vs .equals() ", "== compares addresses while .equals compares object content "],
+ ["Method Overloading ", "define several methods with the same name but different parameters "],
+ ["Method Overriding ", "A sub-class is allowed to provide its own implementation of a method in the super class. "],
+ ["Access modifiers ", "private: available in its own class, <br>"
++"public: all classes can view, <br>"
++"protected: all subclasses can view <br>"
++"default: available within package "],
+ ["Jagged array ", "an array of arrays "],
+ ["Abstract Class ", "must be a super class, cannot be instantiated, implementation is handled by the subclass. "],
+ ["interface vs abstract ", "Interface has no implementation, abstract does. Interface is used when implementation changes, abstract provides the basic behavior for a class. "],
+ ["list vs set vs map ", "List is an order collection of duplicates,  <br>"
++"set is an unordered collection with no duplicates. <br>"
++"Map provides a data structure based on key-value pair and hashing "],
+ ["arraylist vs linked list ", "linked list faster for add/remove but slower for get. Linkedlists can function as queues and lists. Arraylist is stuck as a list. "],
+ ["Object ", "A software bundle of related state and behavior. States are stored in fields and behavior in methods. "],
+ ["object vs class ", "A class is the blueprint from which an object is created. "],
+ ["wrapper class ", "A class that turns a primitive data type into an object. Capitalized version of primitives: Integer, Short, etc "],
+ ["how to initialize an object in Java ", "Type name = new Type(params) "],
+ ["What are undeclared variables in JS ", "variables that were not declared with a var = "],
+ ["What are getters and setters? ", "AKA accessor and mutator, methods used to retrieve state information and alter state information, respectively "],
+ ["Can you have multiple catch blocks on a try statement? ", "yes as long as the default catch statement comes last. "],
+ ["can you overload a constructor? ", "yes ex: strings have many different constructor overloads "],
+ ["Why are strings immutable? ", "Allows strings to cache their hashcode, improves security by validating a string has not been altered maliciously "],
+ ["JVM ", "Java virtual machine, runs bytecode "],
+ ["JRE ", "Contians jvm and other supporting files to run the actual application "],
+ ["JDK ", "Tools needed to develop java programs plus JRE "],
+ ["WHat does the \$ mean in jquery? ", "It is shorthand for jQuery "],
+ ["How to mimic multiple inheritance in Java ", "mimic multiple inheritance by implementing many interfaces "],
+ ["Casting ", "forcing a type change using (type) "],
+ ["hashmap vs hash table ", "hashmap is allows null values and keys while Hashtable does not allow nulls and is synchronized "],
+ ["What is an interface? ", "It is a template that defines the basic structure of a class. "],
+ ["CSS ", "Cascading style sheets "],
+ ["How is css used in web dev? ", "it describe the presentation of web pages "],
+ ["How do you insert and Image in HTML? ", "img src=image_url (one tag) "],
+ ["How to change background color? ", "in the body element set background-color: red "],
+ ["HTML Elements ", "the entire object: open and close tags + attributes. "],
+ ["HTML attributes ", "Parameters for an element "],
+ ["HTML tags ", "the less than and greater than themselves "],
+ ["Main HTML Elements ", "HTML tag, head tag, body tag, title tag and break line tag "],
+ ["Name some HTML Tags ", "img tag. button tag, input tag, paragraph tag, and h1 tag"],
+ ["What does DOCTYPE do for HTML? ", "It informs the browser which version of html the page is written in. "],
+ ["How to create an html button? ", "using the button tag with the attitude type to button with text in betwwen the two tags"],
+ ["How do you comment in HTML? ", "less than --comment-- greater than "],
+ ["Inheritance ", "The ability of a new class to be created, from an existing class by extending it and receiving all of its states and behaviors. "],
+ ["Interface duplicate ", "a contract with the class that is enforced at runtime by the compiler. It forces the class to contain certain behaviors. "],
+ ["Package ", "a namespace that organizes a set of related classes and interfaces. Prevents type name conflicts. Created with the package keyword at the top of each file involved. "],
+ ["OOP ", "A programming strategy that uses objects to encapsulate data fields, methods, and interactions. "],
+ ["Encapsulation ", "Hiding data implementation by restricting access to getter and setters. "],
+ ["Abstraction ", "Development of classes and objects in terms of their interfaces and functionality instead of implementation details. "],
+ ["Polymorphism ", "An object is able to take on many forms. This is achieved through method overriding and overloading. "],
+ ["Aggregation ", "uses to imply weak ownership: department uses teachers, teachers exist without department. "],
+ ["Composition ", "owns strong ownership: department owns courses, courses die with department. "],
+ ["Use Case ", "a typical user interaction with the system. "],
+ ["Instance Variables ", "private non-static fields, unique value for each instance of a class "],
+ ["Class variables ", "Static fields, a variable that exists across all instances "],
+ ["Local variables ", "a state stored inside a method that is destroyed upon return "],
+ ["Java primitives ", "byte, short, int, long, float, double, boolean, char "],
+ ["Array ", "container object that holds a fixed number of values of a single type. <br>"
++"int[] anArray; <br>"
++"anArray = new int[10]; "],
+ ["Class implementation ", "public class quiz extends study implements exam{ <br>"
++"class:quiz <br>"
++"inherits: study superclass <br>"
++"interface: exam "],
+ ["Defining methods ", "access return name (params) {body} ex: <br>"
++"private int add(int x, int y) { <br>"
+ +"return x+y;"
++"} "],
+ ["constructor ", "called upon new and fills in fields using params "],
+ ["arbitrary # of params ", "use ... then param name "],
+ ["Passing data into methods ", "primitives are lost upon return. references (objects) persist after return. "],
+ ["Instantiating objects ", "Type name = new Type(params) "],
+ ["Interface inheritance ", "public interface foo extends, foo1, foo2, foo3 {} <br>"
++"no limit on extensions unlike classes. "],
+ ["Print an int ", "System.out.format(\"%d%n\", int) "],
+ ["print a double ", "System.out.format(\"%f%n\", float) "],
+ ["Strings to number ", "Wrapper.valueof(string): <br>"
++"Integer.valueOf(\"2\") "],
+ ["StringBuilder() vs string ", "basicall ArrayList vs array <br>"
++"string is fixed builder is not "],
+ ["Generic Type ", "List<String> list = new ArrayList<String>(); <br>"
++"specifically the stuff tag <br>"
++"Allows stronger type checks at compile time, catches bugs and security issues. "],
+ ["Raw types ", "A generic class without any type arguments. Mostly a work around for legacy code. "],
+ ["Package usage ", "Import entire package: import graphics.*, <br>"
++"import one member: import graphics.rectangle, <br>"
+ +"use its full name <br>"
++"ex: graphics.rectangle "]
