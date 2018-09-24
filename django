@@ -1,0 +1,58 @@
+["how do you create a new project" , "django-admin startproject name"],
+  ["how do you run your server" , "python3 manage.py runserver"],
+  ["what local host will the project display on" , "8000"],
+  ["how do you create a new app in django" , "python manage.py startapp name"],
+  ["Every app has three very important files. Those are:" , "urls.py, models.py, and views.py"],
+  ["How do you add an app to your project?" , "you visit the settings.py file and add it to the installed apps array. update url patterns in urls.py to include your apps urls."],
+  ["how you include an apps urls?" , "url(r\'^name/\', include(\'name.urls\'))"],
+  ["Where does the include function come from?" , "django.conf.urls"],
+  ["How do you create view in the views.py file?" , "from django.shortcuts import render <br>"
++"from django.http import HttpResponse <br> <br>"
+
++"def nameofview(request): <br>"
+ +"return.."],
+  ["how do you create a custom urls.py file for your app and return one of your views" , "from django.conf.urls import url <br>"
++"from . import views <br> <br>"
+
++"urlpatterns = [ <br>"
+ +"url(r\'^$\', views.index, name=\"index\")]"],
+  ["What is Jinja" , "templating language for django."],
+  ["how do you return an html file from your template?" , "from django.shortcuts import render <br> <br>"
+
++"+def index(request): <br>"
+ +"return render(request, \'location/file.html\', optionaldictionary)"],
+  ["Where do you keep templates for you app?" , "you make a templates directory"],
+  ["How do we put a marker to inject html inside a template" , "{% block content %} <br> <br>"
++"{% endblock %}"],
+  ["How do we expand an html template" , "{% extends \"location/header.html\" %} <br> <br>"
+
++"{% block content %} <br>"
++"content <br>"
++"{% endblock %}"],
+  ["What is another way of using html inside an html template" , "{% include \"location/includes/snippet.html\" %}"],
+  ["where do you add things like bootstrap" , "in a static directory. you also want to add in the settings.py of your app. <br>"
++"STATIC_URL = \'/static/\'"],
+  ["How do you include static file in your header template?" , "{% load staticfiles %} <br>"
++"<link rel=\"stylesheet\" href=\"{% static \'css/bootstrap.min.css\' %}\" type=\'text/css\'>"],
+  ["how do you pass variables from python to html with jinja" , "you go to the views.py file and add a third parameter to the render method. A dictionary."],
+  ["How do you loop in jinja" , "{% for c in content %} <br>"
++"# content comes from the dictionary passed down <br>"
++"{% endfor %}"],
+  ["you models.py file basically represents what?" , "you database"],
+  ["Each class in your models represents a" , "a table in your database"],
+  ["Each variable in you class represents" , "a column of your table"],
+  ["how can you create a model" , "class Post(models.Model): <br>"
+ +"title = modles.Charfield(max_length=140) <br> <br>"
+
+ +"def __str__(self):"
+ +"eturn self.title"],
+  ["When you make models you should think" , "make migrations"],
+  ["What are the actions we need to make in order to use mdels" , "create and apply migrations"],
+  ["how do we make migrations" , "python3 manage.py makemigrations app"],
+  ["how do we run migrations" , "python3 manage.py migrate"],
+  ["how do you create a super user in django" , "python3 manage.py createsuperuser"],
+  ["where do you register your models to work with admin?" , "admin.py"],
+  ["how do import your models" , "from django.contrib import admin <br>"
++"from app.models import modelname <br>"
+
++"admin.site.register(modelname)"],
