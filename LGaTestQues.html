@@ -8,14 +8,6 @@ div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
 <script>
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
 var questions = [
-	["Choose the statement that best classifies the identifier creation guideline shown."
-	,"A- Constants in all upper case letters.",
-	"B- Good idea",
-	"C- Rule",
-	"D- Convention",
-	 "D"
-	+"<br>(Explanation:"
-	+"<br>This is a standard convention among most languages.)"],
 	["The stage in the software system life cycle that determines the structure of the software strategy and code."
 	,"A- Analysis",
 	"B- Maintenance",
@@ -116,20 +108,7 @@ var questions = [
 	 "B"
 	+"<br>(Explanation:"
 	+"<br>This is the primary rule for creating identifiers.)"],
-	["Identify the data type for this value:"
-	+"<br>9.532"
-	,"A- float",
-	"B- string",
-	"C- char",
-	"D- int",
-	 "A"
-	+"<br>(Explanation:"
-	+"<br>The main data types are:"
-	+"<br>int - integer, non decimal"
-	+"<br>float - decimal, like 3.14"
-	+"<br>char - single character, enclosed in single quotes, like \'A\'"
-	+"<br>string - a row of characters, enclosed in double quotes, like \"HELLO\""
-	+"<br>boolean - a true or false value)"],
+
 	["The term that means \"many forms\", and which indicates a key element of object oriented programming, where methods can be overloaded or overridden as needed and desired."
 	,"A- Polymorphism",
 	"B- Encapsulation",
@@ -264,26 +243,7 @@ var questions = [
 	 "C"
 	+"<br>(Explanation:"
 	,"Any word related error, including mixed up order or misspelling, is considered a lexical error.)"],
-	["Which symbol below will correctly fill the blank to output the value 14?"
-	+"<br>int num1 ← 14"
-	+"<br>int num2 ← 35"
-	+"<br>if(num1 ____ num2)"
-	+"<br> println num1"
-	+"<br>else"
-	+"<br> println num2"
-	+"<br>I. <"
-	+"<br>II. >"
-	+"<br>III. ≤"
-	+"<br>IV. ≥"
-	+"<br>V. =="
-	+"<br>VI. ≠"
-	,"A- I, III, VI",
-	"B- III, IV, V",
-	"C- II, IV, VI",
-	"D- I, II, III, IV, VI",
-	 "A"
-	+"<br>(Explanation:"
-	+"<br>Since the value 14 is LESS THAN 35, and num1 will output when the expression is true, three operators will make this happen: <, ≤, and ≠.)"],
+
 	["What is output by the pseudocode segment shown?"
 	+"<br>int num1 ← 35, num2 ← 17"
 	+"<br>int num3 ← num1 % num2"
@@ -342,17 +302,6 @@ var questions = [
 	+"<br>(Explanation:"
 	+"<br>To get paycheck value of $480 for 40 hours work, a wage of $12 an hour is required, which is achieved the 4 case, therefore the input value in years must be 4.)"],
 	["What is output by the pseudocode segment shown?"
-	+"<br>int x ← 10"
-	+"<br>int y ← 10"
-	+"<br>print x ≤ y"
-	,"A- false",
-	"B- true",
-	"C- not clear",
-	"D- undifend",
-	 "B"
-	+"<br>(Explanation:"
-	+"<br>The value 10 is indeed equal to 10, therefore this expression is true.)"],
-	["What is output by the pseudocode segment shown?"
 	+"<br>boolean p ← true"
 	+"<br>boolean q ← true"
 	+"<br>print NOT p OR q"
@@ -372,18 +321,7 @@ var questions = [
 	 "C"
 	+"<br>(Explanation:"
 	+"<br>For most languages, string variables will accept anything input from the keyboard, but more specialized variables, such as numeric values, boolean values, and characters, require precise data entry, otherwise a runtime error will occur.)"],
-	["What is output by the pseudocode segment shown?"
-	+"<br>int x ← 5"
-	+"<br>int y ← 10"
-	+"<br>int z ← -3"
-	+"<br>print x≤y AND x≥z"
-	,"A- false",
-	"B- true",
-	"C- undefine",
-	"D- error",
-	 "B"
-	+"<br>Explanation:"
-	+"<br>Since 5 is indeed LESS THAN OR EQUAL TO 10 and 5 IS GREATER THAN OR EQUAL TO -3, this AND expression, which requires both operands to be true for a true result, is indeed true."],
+
 	["What is the complete output of the pseudocode example shown here?"
 	+"<br>void doStuff (passed_by_reference int x, passed_by_value y)"
 	+"<br> print(x + \":\" + y + \":\")"
@@ -426,17 +364,7 @@ var questions = [
 	 "C"
 	+"<br>(Explanation:"
 	+"<br>A parameter passed by reference sends the memory location of the actual parameter to the formal parameter, where any changes made in the method by the formal parameter instantly change the state of the actual paramter.)"],
-	["What is output by the pseudocode segment shown?"
-	+"<br>int x ← 6"
-	+"<br>int y ← 10"
-	+"<br>print x ≠ y"
-	,"A- false",
-	"B- true",
-	"C- undefine",
-	"D- error",
-	 "B"
-	+"<br>(Explanation:"
-	+"<br>Since x and y are indeed different values, x NOT EQUAL TO y is indeed true)"],
+
 	["Which of these terms refers to the process of using a loop in a program?"
 	,"A- iteration",
 	"B- sequence",
@@ -469,14 +397,7 @@ var questions = [
 	 "C"
 	+"<br>(Explanation:"
 	+"<br>The check of a loop can happen many times, only once if the check is false, or more than once if the check is true, and finally, hopefully, reaching a false condition to stop the loop.)"],
-	["Which of the choices shown could be the action part of a loop?"
-	,"A- Calculation",
-	"B- Another loop",
-	"C- Input and Output",
-	"D- All of these",
-	 "D"
-	+"<br>(Explanation:"
-	,"All of these choices can be actions of a loop.)"],
+
 	["How many times will the <action> statement happen in the loop shown?"
 	+"<br>int x ← 0"
 	+"<br>while(x < 23)"
@@ -671,19 +592,7 @@ var questions = [
 	+"<br>* is printed"
 	+"<br>final value of x is 24"
 	+"<br>loop stops)"],
-	["What statement best describes a value that could be input for x so that the while loop shown below will never act?"
-	+"<br>int x"
-	+"<br>input x"
-	+"<br>while(x ≤ 23)"
-	+"<br> <action>"
-	+"<br> x ← x + 1"
-	,"A- The value 23",
-	"B- Any value except 23",
-	"C- Any value less than 23",
-	"D- Any value greater than 23",
-	 "D"
-	+"<br>(Explanation:"
-	+"<br>Since any value equal to or less than 23 will allow the loop to execute, all values GREATER than 23 will immediately cause the condition to be false, thus preventing the loop from acting at all.)"],
+
 	["How many times will the action statement happen in the loop shown?"
 	+"<br>int x ← 24"
 	+"<br>do{"
@@ -1167,14 +1076,7 @@ var questions = [
 	 "C"
 	+"<br>(Explanation:"
 	+"<br>SMTP controls the transfer of email messages. HTTP controls the transfer of web pages. HTML controls how web pages look in a browser. POP controls how email messages are stored.)"],
-	["Which of the following uses of school email is NOT appropriate according to a typical \"acceptable use policy\" for a school district?"
-	,"A- An administrator sending a message congratulating a teacher for an excellent lesson presented during an observation.",
-	"B- Sending a broadcast message to all staff members advertising the sale of a personal item.",
-	"C- Sending a group message to a department announcing an important curriculum meeting.",
-	"D- Sending a help message to the technology department to assist with a broken school printer.",
-	 "B"
-	+"<br>(Explanation:"
-	+"<br>School email is to be used for school related items, and not for personal use.)"],
+
 	["Which of the following picture file formats is best-suited for use with web pages, and for storing images during the editing process because of its lossless compression?"
 	,"A- JPEG",
 	"B- TIFF",
@@ -1183,22 +1085,6 @@ var questions = [
 	 "D"
 	+"<br>(Explanation:"
 	+"<br>Compared to JPEG, PNG excels when the image has large, uniformly colored areas. Even for photographs - where JPEG is often the choice for final distribution since its compression technique typically yields smaller file sizes - PNG is still well-suited to storing images during the editing process because of its lossless compression. BMP files are uncompressed, and therefore large and lossless. TIFF image format is not widely supported by web browsers."],
-	["A teacher is preparing an introductory computer science lesson to show basic information about data types, displaying the various types and what they contain. Which of the following applications would be most appropriate to use for this part of the lesson?"
-	,"A- Word processing document",
-	"B- Spreadsheet document",
-	"C- Database file",
-	"D- Slide show presentation",
-	 "D"
-	+"<br>(Explanation:"
-	,"Although it would be possible to use a word processing document or perhaps spreadsheet to present this lesson, a slide show would be the most effective for this situation.)"],
-	["A teacher is needing to store data for a research project, with various sets of complex data related to student performances in a recent lesson unit, and wants to tie all the data together using student IDs as the key field. Which of these applications would be most effective for this purpose?"
-	,"A- Word processing document",
-	"B- Spreadsheet document",
-	"C- Database file",
-	"D- Slide show presentation",
-	 "C"
-	+"<br>(Explanation:"
-	+"<br>The main purpose of a database is to store information like this, tied together by a key field, enabling various types of searches and queries.)"],
 	["A computer has been infected with a harmful piece of software that tricked the user into loading and executing it on the system, but does not reproduce or self-replicate. Which term below best describes this software?"
 	,"A- Worm",
 	"B- Trojan",
@@ -1207,14 +1093,7 @@ var questions = [
 	 "B"
 	+"<br>(Explanation:"
 	+"<br>Disguised as legitimate software, a Trojan is a harmful piece of software that tricks users into loading and executing it on their systems. Unlike viruses and worms they do not reproduce by infecting files, nor do they self-replicate. A Virus is a type of malware that propagates by inserting a copy of itself into another program. Viruses spread when the software or document they are attached to is transferred from one computer to another.Worms are similar to viruses in that they replicate functional copies of themselves, but are standalone software that do not require a host program to propagate. A zombie is a computer connected to the Internet that has been compromised by a hacker with the intent of future damage initiated by a Trojan or virus.)"],
-	["A new printer is being installed on a teacher\'s workstation, but isn\'t printing. The printer is plugged in, turned on, and connected properly to the computer, which is also on and functioning properly. Which of the following is NOT a likely cause of the problem."
-	,"A- The proper driver software has not been installed on the computer.",
-	"B- The new printer was not correctly selected when the print request was made",
-	"C- There is no paper in the printer",
-	"D- The printer\'s IP address has not been properly configured.",
-	 "D"
-	+"<br>(Explanation:"
-	+"<br>If this is a networked printer, the IP address would indeed be an issue, but since it is directly connected to the computer, no IP address is necessary.)"],
+
 	["Which of the choices below indicates the network protocol that controls the entire internet?"
 	,"A- RIP",
 	"B- SMTP",
@@ -1223,14 +1102,7 @@ var questions = [
 	 "C"
 	+"<br>(Explanation:"
 	+"<br>TCP/IP, developed by ARPANET, is the original and current network protocol that controls how the internet works.)"],
-	["A computer science teacher is planning a unit on sorting routines and is considering several approaches, including the ones listed below. Which of the activities listed below would be the LEAST effective to use when first introducing the lesson for a particular sort."
-	,"A- Work through the pseudocode for the sort",
-	"B- View a video of folk dancers simulating the sort",
-	"C- Use playing cards to simulate the sorting process",
-	"D- Demonstrate the sort process on the board by tracing through the steps with a sample array of values, without any discussion of the code needed to implement the sort.",
-	 "A"
-	+"<br>(Explanation:"
-	+"<br>Working through the pseudocode for a sorting routine is certainly an important final step, but would not be a good first step when introducing the concept of any particular sorting routine.)"],
+
 	["Which of the following defines the principle of \"fair use\"?"
 	,"A- a legal principle that defines the limitations on the exclusive rights of copyright holders.",
 	"B- a government license that gives the holder exclusive rights to a process, design or new invention for a designated period of time.",
@@ -1278,15 +1150,8 @@ var questions = [
 	"D- All of these statements represent valid opinions of the day regarding serif vs sans serif fonts.",
 	 "D"
 	+"<br>(Explanation:"
-	+"<br>See the following link for the source of the choices for this question.)"],
-	["Which of the statements below is NOT considered an appropriate part of the collaborative group learning process?"
-	,"A- Have the group help decide what the goal for the project should be.",
-	"B- Be open to others\' ideas, listen to all viewpoints, and be willing to compromise in order to reach a joint consensus.",
-	"C- Have the students take on specific tasks within the group, all contributing differently, but with relatively equal efforts.",
-	"D- Determine how the success of the project will be measured only after it has been completed.",
-	 "D"
-	+"<br>(Explanation:"
-	+"<br>Let the students know at the start exactly how you will be measuring their success, so they will know what they are working towards. This will help them avoid drifting off the goal. It may be helpful to write these measures out clearly on the board, so they can always refer back to them. See the following link for the source of the choices for this question.)"],
+	+"<br>san serif is good for online use and serif is good for print)"],
+
 	["Which term below describes the type of software characterized by word processors, spreadsheets, data bases, and presentation programs?"
 	,"A- Browser",
 	"B- Application",
