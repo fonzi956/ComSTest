@@ -431,32 +431,32 @@ var questions = [
 "C++ allows operator overloading."],
 
 ["picture.jpg is located in the same folder as the current page",
-"<img src=\"picture.jpg\">",
-"<img src=\"images/picture.jpg\">",
-"<img src=\"/images/picture.jpg\">",
-"<img src=\"../picture.jpg\">",
-"<img src=\"picture.jpg\">"],
+"img src=\"picture.jpg\">",
+"img src=\"images/picture.jpg\">",
+"img src=\"/images/picture.jpg\">",
+"img src=\"../picture.jpg\">",
+"img src=\"picture.jpg\">"],
 
 ["picture.jpg is located in the images folder in the current folder",
-"<img src=\"picture.jpg\">",
-"<img src=\"images/picture.jpg\">",
-"<img src=\"/images/picture.jpg\">",
-"<img src=\"../picture.jpg\">",
-"<img src=\"images/picture.jpg\">"],
+"img src=\"picture.jpg\">",
+"img src=\"images/picture.jpg\">",
+"img src=\"/images/picture.jpg\">",
+"img src=\"../picture.jpg\">",
+"img src=\"images/picture.jpg\">"],
 
 ["picture.jpg is located in the images folder at the root of the current web",
-"<img src=\"picture.jpg\">",
-"<img src=\"images/picture.jpg\">",
-"<img src=\"/images/picture.jpg\">",
-"<img src=\"../picture.jpg\">",
-"<img src=\"/images/picture.jpg\">"],
+"img src=\"picture.jpg\">",
+"img src=\"images/picture.jpg\">",
+"img src=\"/images/picture.jpg\">",
+"img src=\"../picture.jpg\">",
+"img src=\"/images/picture.jpg\">"],
 
 ["picture.jpg is located in the folder one level up from the current folder",
-"<img src=\"picture.jpg\">",
-"<img src=\"images/picture.jpg\">",
-"<img src=\"/images/picture.jpg\">",
-"<img src=\"../picture.jpg\">",
-"<img src=\"../picture.jpg\">"],
+"img src=\"picture.jpg\">",
+"img src=\"images/picture.jpg\">",
+"img src=\"/images/picture.jpg\">",
+"img src=\"../picture.jpg\">",
+"img src=\"../picture.jpg\">"],
 
 /*
 ["",
@@ -574,6 +574,8 @@ function shuffle(array) {
 function nextQuestion(){
 	sq.push(pos);
 	renderQuestion();
+  //here
+  window.scrollTo(0, 0);
 }
 
 function HQuestion(){
