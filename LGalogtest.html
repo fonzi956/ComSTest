@@ -87,6 +87,7 @@ var questions = [
 "Selection Sort",
 "Bubble Sort",
 "Linear Search"],
+
 ["What pseudocode is this: <br>"
 +"int pseudocode(int[] list, int target)<br>"
 +"//left at start, right at end<br>"
@@ -115,6 +116,7 @@ var questions = [
 "Selection Sort",
 "Bubble Sort",
 "Binary Search"],
+
 ["What pseudocode is this: <br>"
 +"void pseudocode(pass-by-reference int[] list)<br>"
  +"for (int k <- 0; k < list.length - 1; k <- k+1)   <br>"
@@ -143,6 +145,31 @@ var questions = [
 "Selection Sort",
 "Bubble Sort",
 "Selection Sort"],
+
+["What pseudocode is CODEHERE to make it work: <br>"
++"void selectionsort(pass-by-reference int[] list)<br>"
+ +"for (int k <- 0; k < list.length - 1; k <- k+1)   <br>"
+ +" //k loop starts at zero and stops & one position short of end of list<br>"
+ +"//assume that position k has best value<br>"
+ +"int best <- k <br> "
+ +"//q loop searches the rest of<br>"
+ +"for (int q <- k+1; q < list.length; q <- q + 1)   <br>"
+ +"   //the list for a better value<br>"
+ +"//if q indicates a better value,<br>"
+ +"if (CODEHERE)    <br>"
+ +"best <- q //best gets q<br>"
+ +"end q loop<br>"
+ +"//swap values at positions k and best<br>"
+ +"swap(list, k, best)    <br>"
+ +"end k loop<br>"
++"end pseudocode<br>"
++"   //three step swap process<br>",
+"list[q] < list[best]",
+"list[best] > list[q]",
+"list[q] > list[best]",
+"list[best] < list[q]",
+"list[q] < list[best]"],
+
 ["What pseudocode is this: <br>"
 +"void pseudocode(pass-by-reference int[] list)<br>"
 +"//assume sorting process is NOT done<br>"
@@ -175,6 +202,35 @@ var questions = [
 "Selection Sort",
 "Bubble Sort",
 "Bubble Sort"],
+
+["What pseudocode is CODEHERE: <br>"
++"void pseudocode(pass-by-reference int[] list)<br>"
++"//assume sorting process is NOT done<br>"
+ +"boolean done <- false <br>"
+ +"while(not done)<br>"
+ +"//assume sorting process IS done, and list is sorted…BUT… <br>"
+ +"done <- true <br>"
+ +"//…look through the list anyway to see<br>"
+ +"for (int k <- 0; k<list.length-1; k <- k+1) <br>"
+ +"//if any neighboring elements are out<br>"
+ +"//of order and need to be swapped<br>"
+ +"//if value of next-door neighbor is<br>"
+ +"if (CODEHERE) <br>"
++"//less than current value(neighbors are “out of sorts”)<br>"
++"//swap the two values<br>"
++"swap(list, k, k+1) <br>"
++"//set done to false<br>"
++"done <- false <br>"
++"end for k loop<br>"
+ +"end while loop<br>"
+ +"end pseudocode<br>"
++"//three step swap process<br>",
+"list[k+1] < list[k]",
+"list[k] < list[k+1]",
+"list[k+1] > list[k]",
+"list[k] > list[k+1]",
+"list[k+1] < list[k]"],
+
 ["What pseudocode is this: <br>"
 +"void pseudocode(pass-by-reference int[] list) <br>"
 +"//outside loop starts at ONE and stops <br>"
@@ -201,6 +257,33 @@ var questions = [
 "Selection Sort",
 "Bubble Sort",
 "Insertion Sort"],
+
+["What pseudocode is CODEHERE: <br>"
++"void pseudocode(pass-by-reference int[] list) <br>"
++"//outside loop starts at ONE and stops <br>"
+ +"for (int k <- 1; k < list.length; k++) <br>"
++"//at end of list <br>"
++"//save copy of current value to be inserted <br>"
+ +"int temp <- list[k] <br>"
+ +"//assume best place is at current position…BUT…  <br>"
+ +"int best <- k <br>"
+ +"//…keep looking for a better place <br>"
+ +"while (CODEHERE) <br>"
+ +"//shift values over one spot while the previous <br>"
+ +"list[best] <- list[best - 1] <br>"
+ +"//place is better and haven’t reached the start <br>"
+ +"best <- best-1 <br>"
+ +"//of the list <br>"
+ +"end while <br>"
+ +"//insert the current value in the best place <br>"
+ +"list[best] <- temp <br>"
++"end for <br>"
++"end pseudocode <br>",
+"best > 0 AND temp < list[best - 1]",
+"best > 0 AND temp > list[best - 1]",
+"best < 0 AND temp < list[best - 1]",
+"best < 0 AND temp > list[best - 1]",
+"best > 0 AND temp < list[best - 1]"],
 
 ["What pseudocode is this: <br>"
 +"//method for initial sort call <br>"
