@@ -378,6 +378,92 @@ var questions = [
 "Bubble Sort",
 "Merge Sort"],
 
+["What pseudocode part of Merge Sort is this: <br>"
++"void Sort(pass-by-reference int[] list) <br>"
+ +"int n <- list.length <br>"
+ +"int[] temp <- new int[n] <br>"
+ +"sortHelper(list, 0, n - 1, temp) <br>"
++"end Sort <br>",
+"initial sort call creating a temporary array same size as list",
+"Merge Sort the method that divide and conquer ",
+"Merge Sort receiving two arrays and three integers ",
+"Merge Sort the end of it",
+"initial sort call creating a temporary array same size as list"],
+
+["What pseudocode part of Merge Sort is this: <br>"
++"void sortHelper(pass-by-reference int[] list, int front, <br>"
+ +"int back, pass-by-reference int[] temp) <br>"
+ +"if (front < back) <br>"
+ +"int mid <- (front + back)/2 <br>"
+ +"sortHelper(list, front, mid, temp) <br>"
+ +"sortHelper(list, mid + 1, back, temp) <br>"
+ +"otherMethod(list, front, mid, back, temp) <br>"
+ +"end if <br>"
++"end sortHelper <br>",
+"divid and conquer process, if the front and back havent crossed and not equal, find the middle position, sort left side, sort right, merge two sides",
+"initial sort call creating a temporary array same size as list",
+"front of left and right side, front od temporary, receives 2 merfed sides, while both sides cantain values, if left front < rigth front, put left in temp and k steps 1",
+"Bubble Sort",
+"divid and conquer process, if the front and back havent crossed and not equal, find the middle position, sort left side, sort right, merge two sides"],
+
+["What pseudocode part of Merge Sort is this: <br>"
++"void otherMethod(pass-by-reference int_array list, int front, int mid, <br>"
+ +"int back, pass-by-reference int_array temp) <br>"
+ +"int i <- front <br>"
+ +"int j <- mid + 1 <br>"
+ +"int k <- front <br>"
+ +"while (i <= mid && j <= back) <br>"
++"if (list[i] < list[j]) <br>"
+ +"temp[k] <- list[i] <br>"
+ +"i <- i+1 <br>"
++"end if <br>...<br>"
++"k <- k+1 <br>"
++"end while <br>",
+"front of left and right side, front od temporary, receives 2 merfed sides, while both sides cantain values, if left front < rigth front, put left in temp and k steps 1",
+"divid and conquer process, if the front and back havent crossed and not equal, find the middle position, sort left side, sort right, merge two sides",
+"initial sort call creating a temporary array same size as list",
+"One of the 2 sides are empty, (i <= mid) cleans left, (j <= back) cleans right, for loop all temporary values back to the original list",
+"front of left and right side, front od temporary, receives 2 merfed sides, while both sides cantain values, if left front < rigth front, put left in temp and k steps 1"],
+
+["What pseudocode part of Merge Sort is this: <br>"
++"void otherMethod(pass-by-reference int_array list, int front, int mid, <br>"
+ +"int back, pass-by-reference int_array temp) <br>"
+ +"int i <- front <br>"
+ +"int j <- mid + 1 <br>"
+ +"int k <- front <br>"
+ +"while (i <= mid && j <= back) <br>...<br>"
++"else <br>"
+ +"temp[k] <- list[j]; <br>"
+ +"j <- j+1 <br>"
++"end else <br>"
+ +"k <- k+1 <br>"
+ +"end while <br>",
+ "front of left and right side, front od temporary, receives 2 merfed sides, while both sides cantain values, if left front < rigth front, else put rigth in temp and k steps 1",
+ "initial sort call creating a temporary array same size as list",
+ "front of left and right side, front od temporary, receives 2 merfed sides, while both sides cantain values, if left front < rigth front, put left in temp and k steps 1",
+ "One of the 2 sides are empty, (i <= mid) cleans left, (j <= back) cleans right, for loop all temporary values back to the original list",
+ "front of left and right side, front od temporary, receives 2 merfed sides, while both sides cantain values, if left front < rigth front, else put rigth in temp and k steps 1"],
+
+["What pseudocode part of Merge Sort is this: <br>"
+ +"while (i <= mid) <br>"
+ +"temp[k] <- list[i] <br>"
++"k <- k+1 <br>"
++"I <- i+1 <br>"
+ +"end while <br>"
+ +"while (j <= back) <br>"
+ +"temp[k] <- list[j] <br>"
++"j <- j+1 <br>"
++"k <- k+1 <br>"
+ +"end while <br>"
+ +"for (int x <- front; x <= back; x <- x+1) <br>"
++"list[x] <- temp[x] <br>"
++"end otherMethod <br>",
+"One of the 2 sides are empty, (i <= mid) cleans left, (j <= back) cleans right, for loop all temporary values back to the original list",
+"initial sort call creating a temporary array same size as list",
+"Merge Sort the method that divide and conquer ",
+"Merge Sort receiving two arrays and three integers ",
+"One of the 2 sides are empty, (i <= mid) cleans left, (j <= back) cleans right, for loop all temporary values back to the original list"],
+
 ["What pseudocode is this: <br>"
 +"void sort (pass-by-reference int[] list, int lo, int hi) <br>"
 +"//if the current values of lo and hi have met or crossed, <br>"
@@ -428,6 +514,62 @@ var questions = [
 "Selection Sort",
 "Bubble Sort",
 "Quick Sort"],
+
+["What pseudocode part of Quick Sort is this: <br>"
++"void sort (pass-by-reference int[] list, int lo, int hi) <br>"
+ +"if (lo >= hi) <br>"
+ +"return <br>"
+ +"end if <br>"
+ +"int left <- lo <br>"
+ +"int right <- hi <br>"
+ +"int pivot <- list[(lo+hi)/2] <br>",
+ "initial, if lo and hi meet or cross return(dont continue), left marker gets low end, right marker gets hi end, pivot gets middle",
+ "in the same petition(markers not met or cress), look for a value to the left of pivot if wrong side and stop with left mark, look for a value to the right of pivot if wrong side and stop with rigth mark",
+ "if left and right positions not cross, swap the two values at positions, step left marker to right, step right marker to left",
+ "last quicksort to the left partition and quicksort to the right partition",
+ "initial, if lo and hi meet or cross return(dont continue), left marker gets low end, right marker gets hi end, pivot gets middle"],
+
+["What pseudocode part of Quick Sort is this: <br>"
+ +"while ( left < right) <br>"
+ +"while (list[left] < pivot) <br>"
+ +"left <- left+1 <br>"
+ +"end while <br>"
+ +"while (list[right] > pivot) <br>"
+ +"right <- right-1 <br>"
+ +"end while <br>",
+ "in the same petition(markers not met or cress), look for a value to the left of pivot if wrong side and stop with left mark, look for a value to the right of pivot if wrong side and stop with rigth mark",
+ "initial, if lo and hi meet or cross return(dont continue), left marker gets low end, right marker gets hi end, pivot gets middle",
+ "if left and right positions not cross, swap the two values at positions, step left marker to right, step right marker to left",
+ "last quicksort to the left partition and quicksort to the right partition",
+ "in the same petition(markers not met or cress), look for a value to the left of pivot if wrong side and stop with left mark, look for a value to the right of pivot if wrong side and stop with rigth mark"],
+
+ ["What pseudocode part of Quick Sort is this: <br>"
+ +"if (left <= right) <br>"
+ +"swap (list, left, right) <br>"
+ +"left <- left+1 <br>"
+ +"right <- right-1 "
+ +"end if <br>"
+ +"end while <br>",
+ "if left and right positions not cross, swap the two values at positions, step left marker to right, step right marker to left",
+ "in the same petition(markers not met or cress), look for a value to the left of pivot if wrong side and stop with left mark, look for a value to the right of pivot if wrong side and stop with rigth mark",
+ "initial, if lo and hi meet or cross return(dont continue), left marker gets low end, right marker gets hi end, pivot gets middle",
+ "last quicksort to the left partition and quicksort to the right partition",
+ "if left and right positions not cross, swap the two values at positions, step left marker to right, step right marker to left"],
+
+ ["What pseudocode part of Quick Sort is this: <br>"
+ +"quickSort (list, lo, right) <br>"
+ +"quickSort (list, left, hi) <br>"
++"end sort <br>"
++"void swap (pass-by-reference int[] list, int i, int j) <br>"
+ +"int temp <- list[i] <br>"
+ +"list[i] <- list [j] <br>"
+ +"list [j] <- temp <br>"
++"end swap <br>",
+"last quicksort to the left partition and quicksort to the right partition",
+"if left and right positions not cross, swap the two values at positions, step left marker to right, step right marker to left",
+"in the same petition(markers not met or cress), look for a value to the left of pivot if wrong side and stop with left mark, look for a value to the right of pivot if wrong side and stop with rigth mark",
+"initial, if lo and hi meet or cross return(dont continue), left marker gets low end, right marker gets hi end, pivot gets middle",
+"last quicksort to the left partition and quicksort to the right partition"],
 
 
 ["What is array is this <br>"
