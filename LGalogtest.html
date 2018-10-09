@@ -860,7 +860,7 @@ var questions = [
 "put in the place value system of 1 0 0 1 0 1 so then",
 "times all integer so its 1",
 "other",
-"1st the base 8 to base 2 chart so start from the right to left: 101 is 5 and 100 is 4 so its 45"],
+"1st the base 8 to base 2 chart so start from the right to left in 3s: 101 is 5 and 100 is 4 so its 45"],
 
 ["How to start with the base 16 (hexadecimal) to base 2 (binary)",
 "top 8 4 2 1 blank and right side blank 0 1 2 3 4 5 6 7 8 9 A B C D E F",
@@ -1018,6 +1018,87 @@ var questions = [
 "undefine",
 "error",
 "False"],
+
+["Assume there is a function tail which returns a reference to the last Node of a linked list, given the head Node. For this problem, also assume there is a non-empty linked list reference declared as list. Now consider the following line of code:<br>"
++"Node temp <- tail ( list )<br>"
++"Immediately after this line of code is executed, which of the following conditions will be true, according to the postcondition of tail",
+"temp is equal to null",
+"temp.item is equal to 0",
+"temp.next is equal to null",
+"temp.next.item is equal to null",
+"temp.next is equal to null"],
+
+["Assume there is a function tail which returns a reference to the last Node of a list. Assuming that there is a reference head which points to the head Node of a linked list, which of the following pseudo-code descriptions would append a Node with the value newItem to the end of the list?",
+"Set the tail Node\'s item value to the newItem",
+"Set the tail Node\'s next link to the newItem",
+"Create a new Node with the value newItem; set the tail Node\'s item value to the new Node",
+"Create a new Node with the value newItem; set the tail Node\'s next link to the new Node",
+"Create a new Node with the value newItem; set the tail Node\'s next link to the new Node"],
+
+["head <br> &darr <br> 5 -> 3 -> 5 -> null <br> Assuming that a Node reference head is null, which of the following code blocks will NOT result in the Linked List pictured above?",
+"head <- new Node( ) <br>"
++"head.item <- 5 <br>"
++"head.next <- new Node ( ) <br>"
++"head.next.item <- 3 <br>"
++"head.next.next <- new Node ( ) <br>"
++"head.next.next.item <- 6 <br>",
+"head <- new Node( ) <br>"
++"head.item <- 5 <br>"
++"head.next <- new Node ( ) <br>"
++"head.item <- 3 <br>"
++"head.next <- new Node ( ) <br>"
++"head.item <- 6 <br>",
+"head <- new Node( ) <br>"
++"head.next <- new Node ( ) <br>"
++"head.next.next <- new Node ( ) <br>"
++"head.item <- 5 <br>"
++"head.next.item <- 3 <br>"
++"head.next.next.item <- 6 <br>",
+"head <- new Node( ) <br>"
++"head.item <- 5 <br>"
++"temp <- new Node ( ) <br>"
++"temp.item <- 3 <br>"
++"head.next <- temp <br>"
++"temp <- new Node ( ) <br>"
++"temp.item <- 6 <br>"
++"head.next.next <- temp <br>",
+"head <- new Node( ) <br>"
++"head.item <- 5 <br>"
++"head.next <- new Node ( ) <br>"
++"head.item <- 3 <br>"
++"head.next <- new Node ( ) <br>"
++"head.item <- 6 <br>"],
+
+["head <br> &darr <br> 5 -> 3 -> 5 -> null <br> Now consider the following block of code: <br>"
++"int num ← 0 <br>"
++"Node temp ← head <br>"
++"while ( temp ≠ null ) <br>"
++"    if ( temp.item == 3 ) <br>"
++"        print num <br>"
++"    end if <br>"
++"    num ← num + 1 <br>"
++"    temp ← temp.next <br>"
++"end while <br>"
++"What will be printed by the above block of code? <br>",
+"0",
+"1",
+"2",
+"3",
+"1"],
+
+["head <br> &darr <br> 5 -> 3 -> 5 -> null <br> Which of the following is not a true statement about this linked list? <br>",
+"The head node contains the value 5",
+"head.next.next.item is equal to 6",
+"There are three nodes in this list",
+"null represents a node that exists but does not contain a value",
+"null represents a node that exists but does not contain a value"],
+
+["Which of the following does not describe a feature of linked lists?",
+"Dynamically allocated in memory",
+"Abstract data type",
+"Fixed length",
+"O(N) complexity to access any node in the list",
+"Fixed length"],
 
 /*
 ["",
