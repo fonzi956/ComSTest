@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=1000">
 <style>
 div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
+input{float: right;}
 </style>
 <script>
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
@@ -997,7 +998,27 @@ var questions = [
 "none",
 "grid &nbsp | [0] | &nbsp | [1] | &nbsp | [2] | &nbsp [3] <br> [0] &nbsp | 0 | &nbsp | 0 | &nbsp | 0 | &nbsp 0 <br> [1] &nbsp | 0 | &nbsp | 0 | &nbsp | 0 | &nbsp 0 <br> [2] &nbsp | 0 | &nbsp | 0 | &nbsp | 0 | &nbsp 0 <br>"],
 
-	
+["if(False XOR False) what is the result",
+"False",
+"True",
+"undefine",
+"error",
+"False"],
+
+["if(True XOR False) what is the result",
+"False",
+"True",
+"undefine",
+"error",
+"True"],
+
+["if(True XOR True) what is the result",
+"False",
+"True",
+"undefine",
+"error",
+"False"],
+
 /*
 ["",
 "",
