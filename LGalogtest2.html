@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=1000">
+	<style>
+		div#test {
+			border: #000 1px solid;
+			padding: 10px 40px 40px 40px;
+		}
+
+		input {
+			float: right;
+		}
+	</style>
+	<script>
+		var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
+		var questions = [
+
+			["Assume there is a function tail which returns a reference to the last Node of a linked list, given the head Node. For this problem, also assume there is a non-empty linked list reference declared as list. Now consider the following line of code:<br>"
+				+ "Node temp <- tail ( list )<br>"
+				+ "Immediately after this line of code is executed, which of the following conditions will be true, according to the postcondition of tail",
+				"temp is equal to null",
+				"temp.item is equal to 0",
+				"temp.next is equal to null",
+				"temp.next.item is equal to null",
+				"temp.next is equal to null"],
+
+			["Assume there is a function tail which returns a reference to the last Node of a list. Assuming that there is a reference head which points to the head Node of a linked list, which of the following pseudo-code descriptions would append a Node with the value newItem to the end of the list?",
+				"Set the tail Node\'s item value to the newItem",
+				"Set the tail Node\'s next link to the newItem",
+				"Create a new Node with the value newItem; set the tail Node\'s item value to the new Node",
+				"Create a new Node with the value newItem; set the tail Node\'s next link to the new Node",
+				"Create a new Node with the value newItem; set the tail Node\'s next link to the new Node"],
+
+			["head <br> &darr <br> 5 -> 3 -> 5 -> null <br> Assuming that a Node reference head is null, which of the following code blocks will NOT result in the Linked List pictured above?",
+				"head <- new Node( ) <br>"
+				+ "head.item <- 5 <br>"
+				+ "head.next <- new Node ( ) <br>"
+				+ "head.next.item <- 3 <br>"
+				+ "head.next.next <- new Node ( ) <br>"
+				+ "head.next.next.item <- 6 <br>",
+				"head <- new Node( ) <br>"
+				+ "head.item <- 5 <br>"
+				+ "head.next <- new Node ( ) <br>"
+				+ "head.item <- 3 <br>"
+				+ "head.next <- new Node ( ) <br>"
+				+ "head.item <- 6 <br>",
+				"head <- new Node( ) <br>"
+				+ "head.next <- new Node ( ) <br>"
+				+ "head.next.next <- new Node ( ) <br>"
+				+ "head.item <- 5 <br>"
+				+ "head.next.item <- 3 <br>"
+				+ "head.next.next.item <- 6 <br>",
+				"head <- new Node( ) <br>"
+				+ "head.item <- 5 <br>"
+				+ "temp <- new Node ( ) <br>"
+				+ "temp.item <- 3 <br>"
+				+ "head.next <- temp <br>"
+				+ "temp <- new Node ( ) <br>"
+				+ "temp.item <- 6 <br>"
+				+ "head.next.next <- temp <br>",
+				"head <- new Node( ) <br>"
+				+ "head.item <- 5 <br>"
+				+ "head.next <- new Node ( ) <br>"
+				+ "head.item <- 3 <br>"
+				+ "head.next <- new Node ( ) <br>"
+				+ "head.item <- 6 <br>"],
+
+			["head <br> &darr <br> 5 -> 3 -> 5 -> null <br> Now consider the following block of code: <br>"
+				+ "int num ← 0 <br>"
+				+ "Node temp ← head <br>"
+				+ "while ( temp ≠ null ) <br>"
+				+ "    if ( temp.item == 3 ) <br>"
+				+ "        print num <br>"
+				+ "    end if <br>"
+				+ "    num ← num + 1 <br>"
+				+ "    temp ← temp.next <br>"
+				+ "end while <br>"
+				+ "What will be printed by the above block of code? <br>",
+				"0",
+				"1",
+				"2",
+				"3",
+				"1"],
+
+			["head <br> &darr <br> 5 -> 3 -> 5 -> null <br> Which of the following is not a true statement about this linked list? <br>",
+				"The head node contains the value 5",
+				"head.next.next.item is equal to 5",
+				"There are three nodes in this list",
+				"null represents a node that exists but does not contain a value",
+				"null represents a node that exists but does not contain a value"],
+
+			["Which of the following does not describe a feature of linked lists?",
+				"Dynamically allocated in memory",
+				"Abstract data type",
+				"Fixed length",
+				"O(N) complexity to access any node in the list",
+				"Fixed length"],
+
+			["What is not a pro in Waterfall",
+				"Offers a clear, staightforward process",
+				"Stages can be easily tracked and managed",
+				"It\'s easy to see progess and to document",
+				"build in iteration",
+				"build in iteration"],
+
+			["What is not a con in Waterfall",
+				"Assumes reqirements are clear and unchanging",
+				"Does not build in iteration",
+				"Does not build testing and review into each step, therefore changes can be costly",
+				"Stages can be hard to tracked and managed",
+				"Stages can be hard to tracked and managed"],
+
+			["What is not a pro in incremental",
+				"Introduces more flexibility to change",
+				"Builds in customer testing and evaluation",
+				"Easier to manage risk",
+				"Requires good planning and design to work effectively",
+				"Requires good planning and design to work effectively"],
+
+			["What is not a pro in SCRUM",
+				"Very flexible",
+				"Builds in rapid iteration and feedback",
+				"Can reduce total number of bugs in final product",
+				"Good for documentation",
+				"Good for documentation"],
+
+			["What is not a pro in Spiral",
+				"Very flexible and excellent at managing risky projects",
+				"Uses the best of other models",
+				"Uses prototyping extensively",
+				"Document is easy and cheap",
+				"Document is easy and cheap"],
+
+			["What is not a con in Spiral",
+				"Can be difficult to stop the process of iteration",
+				"Complex to manage",
+				"Documentation is difficult and costly",
+				"Not flexible",
+				"Not flexible"],
+
+			["Commonly used for years in standard industry production. This model is sequential in nature, with progress flowing steadily down through the phases of idea, analysis, design, development and test. The disadvantage of this methodology is that it is rigid and does not easily allow for modifications.",
+				"Waterfall",
+				"Incremental",
+				"Agile Methodologies (SCRUM, XP, Kanban)",
+				"Spiral",
+				"Waterfall"],
+
+			["The system software development process in small steps, completing all of the SSLC phases for each subset of the application, and then repeating the cycle for each portion until the project is complete. This is an improvement over the waterfall model because it provides more opportunity to make adjustments as needed with less cost involved in making changes along the way.",
+				"Waterfall",
+				"Incremental",
+				"Agile Methodologies (SCRUM, XP, Kanban)",
+				"Spiral",
+				"Incremental"],
+
+			["Are both incremental and iterative. Emphasizes continuous delivery of working software that is coded, tested and fixed over short intervals that are typically one to three weeks in duration. A subset of system requirements are selected from the backlog and implemented and delivered in each iteration.",
+				"Waterfall",
+				"Incremental",
+				"Agile Methodologies (SCRUM, XP, Kanban)",
+				"Spiral",
+				"Agile Methodologies (SCRUM, XP, Kanban)"],
+
+			["A risk-driven process model generator for software projects. Based on the unique risk patterns of a given project, the model guides a team to adopt elements of one or more process models. Before any changes are made to the original plan, a risk assessment is performed, helping to decide the nature and degree of the recommended change.",
+				"Waterfall",
+				"Incremental",
+				"Agile Methodologies (SCRUM, XP, Kanban)",
+				"Spiral",
+				"Spiral"],
+
+			["BLACK BOX TESTING",
+				"also known as Behavioral Testing, is a software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional.",
+				"a pure functional approach to problem solving. Programming is a form of declarative programming. Languages that fit this description include Scheme, Haskell, LISP, Racket, and F#.",
+				"a paradigm in programming that is often referred to as procedural, where a developer writes code that describes in exacting detail the steps that the computer must take to accomplish the goal. Most of the mainstream programming languages, such as C++, Java, and Python, are considered imperative languages.",
+				" how a parent object can reference any of its child objects, or any descendant several levels of inheritance down the way.",
+				"also known as Behavioral Testing, is a software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional."],
+
+			["What is the generic steps to carry out any type of black box testing:",
+				"1.Initially requirements and specifications of the system are examined. <br>"
+				+ "2.Tester chooses valid inputs (positive test scenario) to check whether SUT processes them correctly . Also some invalid inputs (negative test scenario) are chosen to verify that the SUT is able to detect them. <br>"
+				+ "3.Tester determines expected outputs for all those inputs. <br>"
+				+ "4.Software tester constructs test cases with the selected inputs. <br>"
+				+ "5.The test cases are executed. <br>"
+				+ "6.Software tester compares the actual outputs with the expected outputs. <br>"
+				+ "7.Defects if any are fixed and re-tested. ",
+				"1.Initially requirements and specifications of the system are examined. <br>"
+				+ "2.Tester determines expected outputs for all those inputs. <br>"
+				+ "3.Tester chooses valid inputs (positive test scenario) to check whether SUT processes them correctly . Also some invalid inputs (negative test scenario) are chosen to verify that the SUT is able to detect them. <br>"
+				+ "4.Software tester constructs test cases with the selected inputs. <br>"
+				+ "5.The test cases are executed. <br>"
+				+ "6.Software tester compares the actual outputs with the expected outputs. <br>"
+				+ "7.Defects if any are fixed and re-tested. ",
+				"1.Initially requirements and specifications of the system are examined. <br>"
+				+ "2.Tester determines expected outputs for all those inputs. <br>"
+				+ "3.Tester chooses valid inputs (positive test scenario) to check whether SUT processes them correctly . Also some invalid inputs (negative test scenario) are chosen to verify that the SUT is able to detect them. <br>"
+				+ "4.Software tester constructs test cases with the selected inputs. <br>"
+				+ "5.Software tester compares the actual outputs with the expected outputs. <br>"
+				+ "6.The test cases are executed. <br>"
+				+ "7.Defects if any are fixed and re-tested. ",
+				"none",
+				"Answer"],
+
+			["BLACK BOX Functional TESTING",
+				"also known as Behavioral Testing, is a software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional.",
+				"done after code fixes, upgrades or any other system maintenance to check the new code has not affected the existing code.",
+				"This type of black box testing is not related to testing of a specific functionality, but non-functional requirements such as performance, scalability, usability",
+				"This black box testing type is related to functional requirements of a system; it is done by software testers",
+				"This black box testing type is related to functional requirements of a system; it is done by software testers"],
+
+			["BLACK BOX Non-Functional TESTING",
+				"also known as Behavioral Testing, is a software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional.",
+				"done after code fixes, upgrades or any other system maintenance to check the new code has not affected the existing code.",
+				"This type of black box testing is not related to testing of a specific functionality, but non-functional requirements such as performance, scalability, usability",
+				"This black box testing type is related to functional requirements of a system; it is done by software testers",
+				"This type of black box testing is not related to testing of a specific functionality, but non-functional requirements such as performance, scalability, usability"],
+
+			["BLACK BOX Regression TESTING",
+				"also known as Behavioral Testing, is a software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional.",
+				"done after code fixes, upgrades or any other system maintenance to check the new code has not affected the existing code.",
+				"This type of black box testing is not related to testing of a specific functionality, but non-functional requirements such as performance, scalability, usability",
+				"This black box testing type is related to functional requirements of a system; it is done by software testers",
+				"done after code fixes, upgrades or any other system maintenance to check the new code has not affected the existing code."],
+
+			/*
+			["",
+			"",
+			"",
+			"",
+			"",
+			"Answer"],
+			
+			
+			["BLACK BOX TESTING",
+			"also known as Behavioral Testing, is a software testing method in which the internal structure/design/implementation of the item being tested is not known to the tester. These tests can be functional or non-functional, though usually functional.",
+			"",
+			"",
+			"",
+			"Answer"],
+			*/
+
+		];
+		var shq = [];
+		var hq = [];
+		var sq = [];
+		function _(x) {
+			return document.getElementById(x);
+		}
+		function renderQuestion() {
+			test = _("test");
+
+			if (sq.length == questions.length) {
+				test.innerHTML = "<p>" + sq + "</p>";
+				test.innerHTML += "<br><p>" + hq + "</p>";
+				test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
+				pos = 0;
+				correct = 0;
+				return false;
+			}
+
+			// if(pos >= questions.length){
+			// 	test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" </h2> ";
+			// 	_("test_status").innerHTML = "Test Completed";
+			// 	pos = 0;
+			// 	correct = 0;
+			// 	return false;
+			// }
+			var tot = questions.length - sq.length;
+			var rq = [];
+			var rpn = Math.floor(Math.random() * 3) + 1;
+			var rn = [1, 3, 4, 2];
+			rn = shuffle(rn);
+			pos = Math.floor(Math.random() * questions.length);
+			//pos = 84;
+			while (sq.includes(pos)) {
+				pos = Math.floor(Math.random() * questions.length);
+				if (!sq.includes(pos)) break;
+			}
+			//pos = questions.length - 5;
+			//pos = 41;
+			if (pos == questions.length)--pos;
+			rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+			rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+			rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+			rq.push(questions[pos][rn.pop(rn[Math.floor(Math.random() * rn.length)])]);
+			rq = shuffle(rq);
+
+			_("test_status").innerHTML = "Question " + (pos + 1) + " of " + tot;
+			question = questions[pos][0];
+			chA = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+			chB = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+			chC = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+			chD = rq.pop(rq[Math.floor(Math.random() * rq.length)]);
+			test.innerHTML = "<h3>" + question + "</h3>";
+			test.innerHTML += "<input type='radio' name='choices' value='" + chA + "'> <p><font >" + chA + "</font></p><br>";
+			test.innerHTML += "<input type='radio' name='choices' value='" + chB + "'> <p><font >" + chB + "</font></p><br>";
+			test.innerHTML += "<input type='radio' name='choices' value='" + chC + "'> <p><font >" + chC + "</font></p><br>";
+			test.innerHTML += "<input type='radio' name='choices' value='" + chD + "'> <p><font >" + chD + "</font></p><br><br>";
+			test.innerHTML += "<button onclick='checkAnswer()'>Submit</button>";
+		}
+		function checkAnswer() {
+			choices = document.getElementsByName("choices");
+			for (var i = 0; i < choices.length; i++) {
+				if (choices[i].checked) {
+					choice = choices[i].value;
+				}
+			}
+			if (choice == questions[pos][5]) {
+				test.innerHTML += "<button onclick='nextQuestion()'>Next Question</button>";
+				test.innerHTML += "<h3>Right! its: <br>" + questions[pos][5] + "</h3>";
+
+			}
+			else {
+				test.innerHTML += "<button onclick='nextQuestion()'>Next Question</button>";
+				test.innerHTML += "<h3> Wrong its: <br>" + questions[pos][5] + "</h3>";
+				hq.push(pos);
+			}
+
+		}
+		function shuffle(array) {
+			var currentIndex = array.length, temporaryValue, randomIndex;
+
+			// While there remain elements to shuffle...
+			while (0 !== currentIndex) {
+
+				// Pick a remaining element...
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+
+				// And swap it with the current element.
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+
+			return array;
+		}
+		function nextQuestion() {
+			sq.push(pos);
+			renderQuestion();
+			window.scrollTo(0, 0);
+		}
+
+		function HQuestion() {
+			hq.push(pos);
+			sq.push(pos);
+			renderQuestion();
+		}
+
+		function done() {
+			test.innerHTML = "<p>" + sq + "</p>";
+			test.innerHTML += "<br><p>" + hq + "</p>";
+			test.innerHTML += "<br><button onclick='nextQuestion()'>Next Question</button>";
+		}
+		window.addEventListener("load", renderQuestion, false);
+	</script>
+</head>
+
+<body>
+	<h2 id="test_status"></h2>
+	<div id="test"></div>
+</body>
+
+</html>
